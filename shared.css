@@ -93,6 +93,76 @@ body.theme-pink .site-header .brand .dot { background: var(--ink); }
 .site-nav a:hover {
   color: var(--yellow);
 }
+
+/* ===== Burger + mobile nav ===== */
+.burger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1.5px solid currentColor;
+  color: inherit;
+  cursor: pointer;
+  z-index: 110;
+}
+.burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  transition: transform .25s cubic-bezier(.7,0,.2,1), opacity .15s;
+}
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-nav {
+  position: fixed; inset: 0;
+  z-index: 105;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 88px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transform: translateY(-100%);
+  transition: transform .45s cubic-bezier(.77,0,.18,1);
+  overflow-y: auto;
+  pointer-events: none;
+}
+.mobile-nav.open {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.mobile-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid var(--paper);
+}
+.mobile-nav li { border-bottom: 1.5px solid var(--paper); }
+.mobile-nav a {
+  display: block;
+  padding: 20px 8px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(28px, 8vw, 44px);
+  letter-spacing: -.02em;
+  line-height: 1;
+  color: var(--paper);
+  transition: background .15s, color .15s, padding .2s;
+}
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  background: var(--pink);
+  color: var(--ink);
+  padding-left: 16px;
+}
 body.theme-pink .site-nav a:hover { color: var(--ink); background: var(--yellow); padding: 4px 8px; margin: -4px -8px;}
 body.theme-paper .site-nav a:hover { color: var(--pink); }
 body.theme-yellow .site-nav a { color: var(--ink); }
@@ -306,6 +376,7 @@ body.theme-pink .marquee .star { color: var(--ink); }
   .col2, .col3 { grid-template-columns: 1fr; gap: 32px;}
   .site-footer .ft-grid { grid-template-columns: 1fr; }
   .site-nav { display: none; }
+  .burger { display: flex; }
   .site-header { padding: 14px 18px;}
   .page { padding: 40px 18px; }
 }
@@ -337,14 +408,59 @@ body.theme-pink .marquee .star { color: var(--ink); }
   section [style*="grid-template-columns"][style*="1.6fr"],
   section [style*="grid-template-columns"][style*="2fr"],
   section [style*="grid-template-columns: 1fr 1fr"],
+  section [style*="repeat(2,"],
+  section [style*="repeat(2 ,"],
   section [style*="repeat(3,"],
   section [style*="repeat(3 ,"],
   section [style*="repeat(4,"],
   section [style*="repeat(4 ,"] {
     grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Release fixed photo-grid heights when stacking */
+  section [style*="height: min(70vh"],
+  section [style*="height:min(70vh"] {
+    height: auto !important;
+  }
+  /* Tighten inline section paddings on tablet/mobile */
+  section[style*="padding"][style*="32px"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  /* Inline grid items with right-borders look weird stacked: drop them */
+  section [style*="grid-template-columns"] > [style*="border-right"] {
+    border-right: none !important;
   }
   /* But keep 2-col image strips intact at 2 cols */
   section [data-keep-grid] { grid-template-columns: revert !important; }
+}
+
+@media (max-width: 700px) {
+  /* Tighten further on mobile — covers both <section> wrappers and
+     inner wrappers that carry the 32px horizontal gutter. */
+  section[style*="padding"][style*="32px"],
+  section > [style*="padding"][style*="32px"],
+  section [style*="padding: 60px 32px"],
+  section [style*="padding:60px 32px"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  section[style*="100px 32px"],
+  section[style*="120px 32px"],
+  section[style*="80px 32px 100px"] {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  section[style*="80px 32px 60px"],
+  section[style*="80px 32px"] {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  /* Sticky aside on contact/témoignages becomes static at mobile width */
+  section [style*="position: sticky"],
+  section [style*="position:sticky"] {
+    position: static !important;
+  }
 }
 
 /* Reveal on scroll */

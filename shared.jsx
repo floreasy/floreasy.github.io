@@ -11,17 +11,57 @@ const NAV = [
 ];
 
 function SiteHeader({ active }) {
+  const [open, setOpen] = React.useState(false);
+  React.useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => { document.body.style.overflow = prev; };
+    }
+  }, [open]);
+  React.useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
-    <header className="site-header">
-      <a href="index.html" className="brand">
-        <span>Pascal Antonio</span>
-      </a>
-      <nav className="site-nav">
-        {NAV.filter(n => n.key !== "home").map(n => (
-          <a key={n.key} href={n.href} className={active === n.key ? "active" : ""}>{n.label}</a>
-        ))}
+    <>
+      <header className="site-header">
+        <a href="index.html" className="brand">
+          <span>Pascal Antonio</span>
+        </a>
+        <nav className="site-nav">
+          {NAV.filter(n => n.key !== "home").map(n => (
+            <a key={n.key} href={n.href} className={active === n.key ? "active" : ""}>{n.label}</a>
+          ))}
+        </nav>
+        <button
+          type="button"
+          className={`burger${open ? " open" : ""}`}
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={open}
+          onClick={() => setOpen(o => !o)}
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+      <nav className={`mobile-nav${open ? " open" : ""}`} aria-hidden={!open}>
+        <ul>
+          {NAV.map(n => (
+            <li key={n.key}>
+              <a
+                href={n.href}
+                className={active === n.key ? "active" : ""}
+                onClick={() => setOpen(false)}
+              >
+                {n.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </nav>
-    </header>
+    </>
   );
 }
 
