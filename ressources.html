@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ressources — Bibliographie</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&family=Bricolage+Grotesque:wght@400;700&family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body class="theme-paper">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="tweaks.jsx"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+
+  <script type="text/babel">
+    const BIBLIO = [
+      { author: "Lucile Peytavin", year: "2021", title: "Le coût de la virilité", pub: "Anne Carrière" },
+      { author: "Bell Hooks", year: "2021", title: "La volonté de changer : les hommes, la masculinité et l'amour", pub: "Divergences" },
+      { author: "Olivia Gazalé", year: "2017", title: "Le mythe de la virilité : un piège pour les deux sexes", pub: "Robert Laffont" },
+      { author: "Mélanie Gourarier", year: "2017", title: "Alpha-Mâle. Séduire les femmes pour s'apprécier entre hommes", pub: "Seuil" },
+      { author: "Raewyn Connell", year: "2014", title: "Masculinités. Enjeux sociaux de l'hégémonie", pub: "Amsterdam/Multitudes", note: "Sous la direction de Meoïn Hagège et Arthur Vuattoux. Postface Eric Fassin." },
+      { author: "François Dupuis-Déry", year: "2022", title: "La crise de la masculinité. Autopsie d'un mythe tenace", pub: "Points féministe" },
+      { author: "Mathieu Palain", year: "2023", title: "Nos pères, nos frères, nos amis. Dans la tête des hommes violents", pub: "Arènes" },
+      { author: "Quentin Delval", year: "2023", title: "Comment devenir moins con en dix étapes", pub: "Hors d'attente" },
+    ];
+
+    function RessourcesPage() {
+      useCurtainTransitions("var(--paper)");
+      useReveal();
+      const [hover, setHover] = React.useState(null);
+
+      return (
+        <>
+          <SiteHeader active="ress" />
+
+          <section style={{ padding: "80px 32px 60px", borderBottom: "1.5px solid var(--ink)" }}>
+            <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
+              <div className="eyebrow">Ressources</div>
+              <h1 className="h-display">
+                <span style={{ background: "var(--pink)", padding: "0 .1em" }}>Biblio-</span><br/>
+                graphie<br/>
+                <em style={{ fontFamily: "var(--font-serif)", textTransform: "none", letterSpacing: "-.02em" }}>commentée.</em>
+              </h1>
+              <p className="h-serif" style={{ marginTop: 32, maxWidth: "30ch" }}>
+                <em>Les sources mobilisées par Pascal pour construire la conférence et les ateliers.</em>
+              </p>
+            </div>
+          </section>
+
+          <section className="page reveal">
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, border: "1.5px solid var(--ink)" }}>
+              {BIBLIO.map((b, i) => {
+                const isRight = i % 2 === 1;
+                const isLastRow = i >= BIBLIO.length - 2;
+                const active = hover === i;
+                return (
+                  <article key={i}
+                    onMouseEnter={() => setHover(i)}
+                    onMouseLeave={() => setHover(null)}
+                    style={{
+                      padding: "36px 32px",
+                      borderRight: !isRight ? "1.5px solid var(--ink)" : "none",
+                      borderBottom: !isLastRow ? "1.5px solid var(--ink)" : "none",
+                      minHeight: 280,
+                      display: "flex", flexDirection: "column", justifyContent: "space-between",
+                      background: active ? "var(--pink)" : "transparent",
+                      transition: "background .25s",
+                      cursor: "pointer",
+                    }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 24 }}>
+                      <span className="eyebrow" style={{ margin: 0 }}>{String(i+1).padStart(2, "0")}</span>
+                      <span style={{ fontFamily: "var(--font-display)", fontSize: 14 }}>{b.year}</span>
+                    </div>
+                    <div>
+                      <h3 style={{ fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: "clamp(24px, 2.4vw, 38px)", lineHeight: 1, letterSpacing: "-.02em", marginBottom: 16 }}>
+                        {b.title}
+                      </h3>
+                      <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 20, marginBottom: 8 }}>
+                        {b.author}
+                      </p>
+                      <p style={{ fontSize: 14, opacity: .7 }}>{b.pub}</p>
+                      {b.note && <p style={{ fontSize: 13, opacity: .6, marginTop: 10 }}>{b.note}</p>}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+
+          <section className="page reveal" style={{ textAlign: "center", padding: "120px 32px" }}>
+            <div className="eyebrow" style={{ justifyContent: "center" }}>Pour aller plus loin</div>
+            <h2 className="h-display" style={{ marginBottom: 32 }}>
+              Inviter<br/>la conférence.
+            </h2>
+            <a href="contact.html" className="btn">Programmer une intervention <span className="arrow">→</span></a>
+          </section>
+
+          <SiteFooter />
+          <PascalTweaks />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<RessourcesPage />);
+  </script>
+</body>
+</html>

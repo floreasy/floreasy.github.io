@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Contact — Programmer une intervention</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&family=Bricolage+Grotesque:wght@400;700&family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  .field { display: grid; gap: 8px; }
+  .field label {
+    font-family: var(--font-display); text-transform: uppercase;
+    font-size: 12px; letter-spacing: .08em;
+  }
+  .field input, .field select, .field textarea {
+    background: transparent; border: none; border-bottom: 1.5px solid var(--ink);
+    padding: 12px 0; font: inherit; font-size: 18px; color: inherit;
+    outline: none; transition: border-color .2s, padding .2s;
+    font-family: var(--font-serif); font-style: italic;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--pink); padding-left: 8px;
+  }
+  .field textarea { min-height: 120px; resize: vertical; font-family: inherit; font-style: normal; font-size: 16px;}
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) { .form-row { grid-template-columns: 1fr; } }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border: 1.5px solid var(--ink); border-radius: 999px;
+    font-family: var(--font-display); text-transform: uppercase; font-size: 12px;
+    cursor: pointer; user-select: none;
+    transition: all .15s;
+  }
+  .pill:hover { background: var(--yellow); }
+  .pill.on { background: var(--pink); color: var(--ink); }
+</style>
+</head>
+<body class="theme-paper">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="tweaks.jsx"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+
+  <script type="text/babel">
+    function ContactPage() {
+      useCurtainTransitions("var(--pink)");
+      useReveal();
+
+      const [formules, setFormules] = React.useState({ conf: true, a1: false, a2: false, a3: false });
+      const toggleF = (k) => setFormules(s => ({ ...s, [k]: !s[k] }));
+      const [audience, setAudience] = React.useState("Scolaire");
+      const [submitted, setSubmitted] = React.useState(false);
+
+      const onSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+      };
+
+      const formulesList = [
+        { k: "conf", label: "Conférence gesticulée (1h05)" },
+        { k: "a1", label: "+ Atelier · On libère la parole (1h)" },
+        { k: "a2", label: "+ Atelier · Radar intersectionnel (1h)" },
+        { k: "a3", label: "+ Atelier · On passe à l'action (1h)" },
+      ];
+      const audiences = ["Scolaire", "Centre social / MJC", "Université", "Entreprise", "Collectivité", "Associations", "Autre"];
+
+      return (
+        <>
+          <SiteHeader active="contact" />
+
+          {/* Hero */}
+          <section style={{ background: "var(--pink)", padding: "80px 32px 60px", borderBottom: "1.5px solid var(--ink)" }}>
+            <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
+              <div className="eyebrow">Contact</div>
+              <h1 className="h-display">
+                Programmer<br/>une<br/>
+                <span style={{ background: "var(--yellow)", padding: "0 .1em" }}>intervention.</span>
+              </h1>
+              <p className="h-serif" style={{ marginTop: 32, maxWidth: "26ch" }}>
+                <em>Dites-nous où, quand, et pour qui — Pascal vous répond sous quelques jours.</em>
+              </p>
+            </div>
+          </section>
+
+          {/* Form + sidebar */}
+          <section className="page reveal">
+            <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 80, alignItems: "start" }}>
+              <div>
+                {submitted ? (
+                  <div style={{ padding: "80px 0" }}>
+                    <div className="eyebrow">Merci !</div>
+                    <h2 className="h-section" style={{ marginBottom: 24 }}>Demande<br/>bien reçue.</h2>
+                    <p className="body-l">Pascal vous répondra rapidement. En attendant, vous pouvez <a style={{ borderBottom: "2px solid currentColor" }} href="https://www.youtube.com/watch?v=M0SiVachnZI" target="_blank">regarder le teaser</a>.</p>
+                    <button className="btn" style={{ marginTop: 32 }} onClick={() => setSubmitted(false)}>Envoyer une autre demande →</button>
+                  </div>
+                ) : (
+                <form onSubmit={onSubmit} style={{ display: "grid", gap: 32 }}>
+                  <div className="form-row">
+                    <div className="field">
+                      <label>Votre nom</label>
+                      <input required placeholder="Prénom et nom" />
+                    </div>
+                    <div className="field">
+                      <label>Structure</label>
+                      <input required placeholder="Lycée, MJC, association…" />
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="field">
+                      <label>Email</label>
+                      <input required type="email" placeholder="vous@exemple.fr" />
+                    </div>
+                    <div className="field">
+                      <label>Téléphone</label>
+                      <input placeholder="06…" />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label>Type de public</label>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 6 }}>
+                      {audiences.map(a => (
+                        <span key={a} className={`pill ${audience===a?"on":""}`} onClick={()=>setAudience(a)}>{a}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label>Formule souhaitée</label>
+                    <div style={{ display: "grid", gap: 10, marginTop: 6 }}>
+                      {formulesList.map(f => (
+                        <label key={f.k} style={{ display: "flex", alignItems: "center", gap: 14, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 18, cursor: "pointer" }}>
+                          <span style={{
+                            width: 24, height: 24, border: "1.5px solid var(--ink)",
+                            display: "inline-flex", alignItems: "center", justifyContent: "center",
+                            background: formules[f.k] ? "var(--pink)" : "transparent",
+                          }}>
+                            {formules[f.k] && <span style={{ fontFamily: "var(--font-display)", fontSize: 14 }}>✕</span>}
+                          </span>
+                          <input type="checkbox" checked={formules[f.k]} onChange={()=>toggleF(f.k)} style={{ display: "none" }} />
+                          {f.label}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="form-row">
+                    <div className="field">
+                      <label>Date envisagée</label>
+                      <input type="text" placeholder="Mois / saison / fenêtre" />
+                    </div>
+                    <div className="field">
+                      <label>Lieu</label>
+                      <input type="text" placeholder="Ville, département" />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label>Contexte & objectifs</label>
+                    <textarea placeholder="Public, taille du groupe, attentes pédagogiques, contraintes…"></textarea>
+                  </div>
+
+                  <div>
+                    <button type="submit" className="btn">Envoyer la demande <span className="arrow">→</span></button>
+                  </div>
+                </form>
+                )}
+              </div>
+
+              <aside style={{ position: "sticky", top: 100 }}>
+                <div style={{ border: "1.5px solid var(--ink)", padding: 24, marginBottom: 24, background: "var(--yellow)" }}>
+                  <div className="eyebrow" style={{ marginBottom: 12 }}>Direct</div>
+                  <p style={{ fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: 22, lineHeight: 1, letterSpacing: "-.01em", marginBottom: 12 }}>
+                    contact@<br/>pascal-antonio.fr
+                  </p>
+                  <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 16 }}>Réponse sous 3 jours ouvrés.</p>
+                </div>
+
+                <div style={{ border: "1.5px solid var(--ink)", padding: 24, marginBottom: 24 }}>
+                  <div className="eyebrow" style={{ marginBottom: 12 }}>Ce que Pascal apporte</div>
+                  <ul style={{ listStyle: "none", display: "grid", gap: 10, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 17 }}>
+                    <li>· 3 kakémonos</li>
+                    <li>· 1 table, 1 tabouret</li>
+                    <li>· 1 enceinte autonome</li>
+                    <li>· Petits accessoires scéniques</li>
+                  </ul>
+                </div>
+
+                <div style={{ border: "1.5px solid var(--ink)", padding: 24, background: "var(--ink)", color: "var(--paper)" }}>
+                  <div className="eyebrow" style={{ marginBottom: 12, color: "var(--yellow)" }}>Ce qu'il vous demande</div>
+                  <ul style={{ listStyle: "none", display: "grid", gap: 10, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 17 }}>
+                    <li>· Un espace de 4 à 8 m²</li>
+                    <li>· 20 personnes minimum</li>
+                    <li>· Public à partir de 14 ans</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <SiteFooter />
+          <PascalTweaks />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<ContactPage />);
+  </script>
+</body>
+</html>
