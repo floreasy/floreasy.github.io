@@ -34,7 +34,7 @@
                 <div className="eyebrow">Le conférencier</div>
                 <h1 className="h-display" style={{ marginBottom: 24 }}>
                   PASCAL<br/>
-                  <span style={{ background: "var(--yellow)", padding: "0 .1em" }}>ANTONIO.</span>
+                  <span style={{ background: "var(--yellow)", padding: "0 .1em" }}>ANTONIO</span>
                 </h1>
                 <p className="h-serif" style={{ maxWidth: "26ch" }}>
                   <em>Consultant indépendant, formateur en éducation populaire, conférencier gesticulant.</em>
@@ -51,22 +51,37 @@
             <div className="col2">
               <div>
                 <div className="eyebrow">Parcours</div>
-                <h2 className="h-section">20 ans<br/>dans l'ESS<br/>et l'éducation<br/><span style={{ background: "var(--yellow)" }}>populaire.</span></h2>
+                <h2 className="h-section">20 ans<br/>dans l'ESS<br/>et l'éducation<br/><span style={{ background: "var(--yellow)" }}>populaire</span></h2>
               </div>
               <div className="body-l">
                 <p style={{ marginBottom: 18 }}>
-                  Avec plus de 20 ans d'expérience dans l'économie sociale et solidaire ainsi que dans l'éducation populaire, Pascal exerce aujourd'hui comme consultant indépendant pour le cabinet Maracuja.
+                  Avec <strong>plus de 20 ans d'expérience</strong> dans l'économie sociale et solidaire ainsi que dans <strong>l'éducation populaire</strong>, j'exerce aujourd'hui comme consultant indépendant pour le cabinet Maracuja.
                 </p>
                 <p style={{ marginBottom: 18 }}>
-                  Il soutient les associations dans le montage de leurs projets et offre des formations sur les méthodes d'intelligence collective et les animations d'éducation populaire.
+                  Je soutiens les associations dans le montage de leurs projets et offre des <strong>formations sur les méthodes d'intelligence collective</strong> et les animations d'éducation populaire.
                 </p>
                 <p style={{ marginBottom: 18 }}>
-                  Après avoir suivi une formation avec la coopérative d'éducation populaire <strong>l'Étincelle</strong> et collaboré avec <strong>Murielle Hachet</strong> sur un projet de mise en scène, Pascal propose depuis février 2025 une conférence gesticulée sur la virilité et les masculinités.
+                  Après avoir suivi une formation avec la coopérative d'éducation populaire <strong>l'Étincelle</strong> et collaboré avec <strong>Murielle Hachet</strong> pour la mise en scène, je propose depuis février 2025 cette conférence gesticulée sur la virilité et les masculinités.
                 </p>
                 <p>
-                  <em>Son objectif :</em> mettre toutes ses compétences au service de la lutte contre les discriminations de genre.
+                  <em>Mon objectif :</em> <strong>mettre toutes mes compétences au service de la lutte contre les discriminations de genre.</strong>
                 </p>
               </div>
+            </div>
+
+            {/* Domaines d'intervention (anciennement dans Maracuja) */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, marginTop: 60, border: "1.5px solid var(--ink)" }}>
+              {[
+                ["Accompagnement", "Stratégies de développement"],
+                ["Formations", "Intelligence collective"],
+                ["Évaluations", "Capitalisation des projets"],
+                ["Médiation", "Égalité femme-homme"],
+              ].map(([k,v], i) => (
+                <div key={k} style={{ padding: "24px 20px", borderRight: i < 3 ? "1.5px solid var(--ink)" : "none", minHeight: 160 }}>
+                  <div className="eyebrow" style={{ marginBottom: 12 }}>{k}</div>
+                  <p style={{ fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: 18, lineHeight: 1.1, letterSpacing: "-.01em" }}>{v}</p>
+                </div>
+              ))}
             </div>
           </section>
 
@@ -79,59 +94,6 @@
                 </div>
               ))}
             </div>
-          </section>
-
-          {/* Maracuja section */}
-          <section id="maracuja" style={{ background: "var(--ink)", color: "var(--paper)", padding: "100px 32px", borderTop: "1.5px solid var(--ink)", borderBottom: "1.5px solid var(--ink)" }} className="reveal">
-            <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
-              <div className="eyebrow" style={{ color: "var(--yellow)" }}>Le cabinet</div>
-              <h2 className="h-display" style={{ marginBottom: 40 }}>
-                <span style={{ color: "var(--pink)" }}>MARACUJA.</span>
-              </h2>
-              <div className="col2">
-                <div>
-                  <p className="h-serif" style={{ color: "var(--paper)" }}>
-                    <em>Fondé en janvier 2023, Maracuja se spécialise dans l'Économie Sociale et Solidaire (ESS).</em>
-                  </p>
-                </div>
-                <div className="body-l">
-                  <p style={{ marginBottom: 18 }}>
-                    En s'appuyant sur des méthodologies d'éducation populaire, Maracuja offre un éventail de services pour soutenir le développement des organisations associatives.
-                  </p>
-                  <p style={{ marginBottom: 18 }}>
-                    Le cabinet propose des accompagnements personnalisés pour élaborer des stratégies de développement, ainsi que des formations axées sur la participation citoyenne et les méthodes d'intelligence collective.
-                  </p>
-                  <p style={{ marginBottom: 18 }}>
-                    Maracuja réalise également des capitalisations et des évaluations pour aider les associations à tirer le meilleur parti de leurs projets.
-                  </p>
-                  <p>
-                    Engagé pour l'égalité, le cabinet organise des ateliers de médiation sur l'égalité homme-femme, contribuant ainsi à un environnement plus inclusif et équitable.
-                  </p>
-                </div>
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, marginTop: 60, border: "1.5px solid var(--paper)" }}>
-                {[
-                  ["Accompagnement", "Stratégies de développement"],
-                  ["Formations", "Intelligence collective"],
-                  ["Évaluations", "Capitalisation des projets"],
-                  ["Médiation", "Égalité femme-homme"],
-                ].map(([k,v], i) => (
-                  <div key={k} style={{ padding: "24px 20px", borderRight: i < 3 ? "1.5px solid var(--paper)" : "none", minHeight: 160 }}>
-                    <div className="eyebrow" style={{ color: "var(--yellow)", marginBottom: 12 }}>{k}</div>
-                    <p style={{ fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: 18, lineHeight: 1.1, letterSpacing: "-.01em" }}>{v}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Mise en scène credit */}
-          <section className="page reveal" style={{ textAlign: "center", padding: "100px 32px" }}>
-            <div className="eyebrow" style={{ justifyContent: "center" }}>Mise en scène</div>
-            <h2 className="h-section">Murielle Hachet</h2>
-            <p className="body-l" style={{ margin: "20px auto 0" }}>
-              Collaboration de mise en scène pour la conférence gesticulée <em>L'imposture du Mâle-Alpha</em>.
-            </p>
           </section>
 
           <SiteFooter />

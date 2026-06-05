@@ -21,7 +21,7 @@
   <script type="text/babel">
     const TEMOIGS = [
       {
-        name: "Cécile GrosJean",
+        name: "Cécile",
         role: "Déléguée aux droits des femmes et à l'égalité du département",
         bg: "var(--pink)",
         pull: "Une parole, venant d'un homme, très précieuse.",
@@ -33,7 +33,7 @@
         ],
       },
       {
-        name: "Delphine Blondel",
+        name: "Delphine",
         role: "Référente égalité fille/garçon, lycée de la Plaine de l'Ain",
         bg: "var(--paper)",
         pull: "Exigeant intellectuellement, mais aussi vivant et incarné.",
@@ -48,9 +48,9 @@
     ];
 
     function TemoignageBlock({ t, idx }) {
-      const isPink = t.bg === "var(--pink)";
+      const hl = idx % 2 === 0 ? "var(--pink)" : "var(--yellow)";
       return (
-        <section style={{ background: t.bg, padding: "100px 32px", borderBottom: "1.5px solid var(--ink)" }} className="reveal">
+        <section style={{ background: "var(--paper)", padding: "100px 32px", borderBottom: "1.5px solid var(--ink)" }} className="reveal">
           <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start" }}>
               <div style={{ position: "sticky", top: 100 }}>
@@ -60,8 +60,8 @@
               </div>
               <div>
                 <p className="quote" style={{ marginBottom: 48, position: "relative" }}>
-                  <span style={{ fontFamily: "var(--font-display)", fontStyle: "normal", fontSize: "1.6em", lineHeight: 0, position: "relative", top: ".2em", marginRight: ".05em", color: isPink ? "var(--ink)" : "var(--pink)" }}>"</span>
-                  <span style={{ background: isPink ? "var(--yellow)" : "var(--pink)", padding: "0 .1em", fontFamily: "var(--font-display)", fontStyle: "normal" }}>{t.pull}</span>
+                  <span style={{ fontFamily: "var(--font-display)", fontStyle: "normal", fontSize: "1.6em", lineHeight: 0, position: "relative", top: ".2em", marginRight: ".05em", color: "var(--ink)" }}>"</span>
+                  <span style={{ background: hl, padding: "0 .1em", fontFamily: "var(--font-display)", fontStyle: "normal" }}>{t.pull}</span>
                 </p>
                 <div className="body-l" style={{ maxWidth: "65ch" }}>
                   {t.text.map((p, i) => <p key={i} style={{ marginBottom: 18 }}>{p}</p>)}
@@ -91,7 +91,7 @@
               <h1 className="h-display">
                 Ils ont<br/>
                 programmé<br/>
-                <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", textTransform: "none", letterSpacing: "-.02em", background: "var(--yellow)", padding: "0 .12em" }}>la conférence.</span>
+                <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", textTransform: "none", letterSpacing: "-.02em", background: "var(--yellow)", padding: "0 .12em" }}>la conférence</span>
               </h1>
               <p className="h-serif" style={{ marginTop: 32, maxWidth: "30ch" }}>
                 <em>Retours d'élu·es, de référent·es et de spectateurs après une représentation.</em>
@@ -104,8 +104,8 @@
           {/* CTA */}
           <section className="page reveal" style={{ textAlign: "center", padding: "120px 32px" }}>
             <div className="eyebrow" style={{ justifyContent: "center" }}>À votre tour</div>
-            <h2 className="h-display" style={{ marginBottom: 32 }}>
-              Faire venir<br/>la conférence<br/>chez vous.
+            <h2 className="h-display" style={{ marginBottom: 32, fontSize: "clamp(40px, 6vw, 84px)" }}>
+              Faire venir<br/>la conférence<br/>chez vous
             </h2>
             <a href="contact.html" className="btn">Programmer une intervention <span className="arrow">→</span></a>
           </section>

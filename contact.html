@@ -52,7 +52,7 @@
       useReveal();
 
       const [formules, setFormules] = React.useState({ conf: true, a1: false, a2: false, a3: false });
-      const toggleF = (k) => setFormules(s => ({ ...s, [k]: !s[k] }));
+      const toggleF = (k) => { if (k === "conf") return; setFormules(s => ({ ...s, [k]: !s[k] })); };
       const [audience, setAudience] = React.useState("Scolaire");
       const [submitted, setSubmitted] = React.useState(false);
 
@@ -67,7 +67,7 @@
         { k: "a2", label: "+ Atelier · Radar intersectionnel (1h)" },
         { k: "a3", label: "+ Atelier · On passe à l'action (1h)" },
       ];
-      const audiences = ["Scolaire", "Centre social / MJC", "Université", "Entreprise", "Collectivité", "Associations", "Autre"];
+      const audiences = ["Scolaire", "Centre social / MJC", "Université", "Entreprise", "Collectivité", "Associations", "Caserne", "Prison", "Autre"];
 
       return (
         <>
@@ -79,7 +79,7 @@
               <div className="eyebrow">Contact</div>
               <h1 className="h-display">
                 Programmer<br/>une<br/>
-                <span style={{ background: "var(--yellow)", padding: "0 .1em" }}>intervention.</span>
+                <span style={{ background: "var(--yellow)", padding: "0 .1em" }}>intervention</span>
               </h1>
               <p className="h-serif" style={{ marginTop: 32, maxWidth: "26ch" }}>
                 <em>Dites-nous où, quand, et pour qui — Pascal vous répond sous quelques jours.</em>
@@ -94,7 +94,7 @@
                 {submitted ? (
                   <div style={{ padding: "80px 0" }}>
                     <div className="eyebrow">Merci !</div>
-                    <h2 className="h-section" style={{ marginBottom: 24 }}>Demande<br/>bien reçue.</h2>
+                    <h2 className="h-section" style={{ marginBottom: 24 }}>Demande<br/>bien reçue</h2>
                     <p className="body-l">Pascal vous répondra rapidement. En attendant, vous pouvez <a style={{ borderBottom: "2px solid currentColor" }} href="https://www.youtube.com/watch?v=M0SiVachnZI" target="_blank">regarder le teaser</a>.</p>
                     <button className="btn" style={{ marginTop: 32 }} onClick={() => setSubmitted(false)}>Envoyer une autre demande →</button>
                   </div>
@@ -133,8 +133,10 @@
                   <div className="field">
                     <label>Formule souhaitée</label>
                     <div style={{ display: "grid", gap: 10, marginTop: 6 }}>
-                      {formulesList.map(f => (
-                        <label key={f.k} style={{ display: "flex", alignItems: "center", gap: 14, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 18, cursor: "pointer" }}>
+                      {formulesList.map(f => {
+                        const locked = f.k === "conf";
+                        return (
+                        <label key={f.k} style={{ display: "flex", alignItems: "center", gap: 14, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 18, cursor: locked ? "default" : "pointer", opacity: locked ? .9 : 1 }}>
                           <span style={{
                             width: 24, height: 24, border: "1.5px solid var(--ink)",
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
@@ -142,10 +144,12 @@
                           }}>
                             {formules[f.k] && <span style={{ fontFamily: "var(--font-display)", fontSize: 14 }}>✕</span>}
                           </span>
-                          <input type="checkbox" checked={formules[f.k]} onChange={()=>toggleF(f.k)} style={{ display: "none" }} />
+                          <input type="checkbox" checked={formules[f.k]} disabled={locked} onChange={()=>toggleF(f.k)} style={{ display: "none" }} />
                           {f.label}
+                          {locked && <span style={{ fontFamily: "var(--font-display)", fontStyle: "normal", textTransform: "uppercase", fontSize: 11, letterSpacing: ".06em", opacity: .55 }}>· toujours incluse</span>}
                         </label>
-                      ))}
+                      );
+                      })}
                     </div>
                   </div>
 
@@ -179,25 +183,6 @@
                     contact@<br/>pascal-antonio.fr
                   </p>
                   <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 16 }}>Réponse sous 3 jours ouvrés.</p>
-                </div>
-
-                <div style={{ border: "1.5px solid var(--ink)", padding: 24, marginBottom: 24 }}>
-                  <div className="eyebrow" style={{ marginBottom: 12 }}>Ce que Pascal apporte</div>
-                  <ul style={{ listStyle: "none", display: "grid", gap: 10, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 17 }}>
-                    <li>· 3 kakémonos</li>
-                    <li>· 1 table, 1 tabouret</li>
-                    <li>· 1 enceinte autonome</li>
-                    <li>· Petits accessoires scéniques</li>
-                  </ul>
-                </div>
-
-                <div style={{ border: "1.5px solid var(--ink)", padding: 24, background: "var(--ink)", color: "var(--paper)" }}>
-                  <div className="eyebrow" style={{ marginBottom: 12, color: "var(--yellow)" }}>Ce qu'il vous demande</div>
-                  <ul style={{ listStyle: "none", display: "grid", gap: 10, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 17 }}>
-                    <li>· Un espace de 4 à 8 m²</li>
-                    <li>· 20 personnes minimum</li>
-                    <li>· Public à partir de 14 ans</li>
-                  </ul>
                 </div>
               </aside>
             </div>

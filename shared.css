@@ -188,9 +188,9 @@ body.theme-yellow ::selection { background: var(--pink); color: var(--ink); }
 }
 .site-footer h3 { font-size: 13px; opacity: .6; margin-bottom: 16px; letter-spacing: .04em;}
 .site-footer .ft-big {
-  font-size: clamp(48px, 7vw, 120px);
-  line-height: .9;
-  letter-spacing: -.04em;
+  font-size: clamp(34px, 4vw, 64px);
+  line-height: .95;
+  letter-spacing: -.03em;
 }
 .site-footer ul { list-style: none; display: grid; gap: 8px; font-size: 15px;}
 .site-footer ul a:hover { background: var(--yellow); color: var(--ink); padding: 0 4px;}
@@ -375,10 +375,19 @@ body.theme-pink .marquee .star { color: var(--ink); }
 @media (max-width: 900px) {
   .col2, .col3 { grid-template-columns: 1fr; gap: 32px;}
   .site-footer .ft-grid { grid-template-columns: 1fr; }
-  .site-nav { display: none; }
-  .burger { display: flex; }
   .site-header { padding: 14px 18px;}
   .page { padding: 40px 18px; }
+}
+
+/* Le menu passe en burger dès 1024px : 7 entrées de nav sont trop serrées en dessous */
+@media (max-width: 1024px) {
+  .site-nav { display: none; }
+  .burger { display: flex; }
+}
+
+/* Le mot animé du hero (accueil) peut se couper en très petit écran : on autorise le retour à la ligne */
+@media (max-width: 600px) {
+  .h-display span[style*="nowrap"] { white-space: normal !important; }
 }
 
 .divider { height: 1.5px; background: currentColor; margin: 80px 0;}
@@ -389,12 +398,12 @@ body.theme-pink .marquee .star { color: var(--ink); }
 
 /* Mobile responsive tightenings */
 @media (max-width: 700px) {
-  .h-display { font-size: clamp(44px, 13vw, 90px) !important; }
+  .h-display { font-size: clamp(34px, 11vw, 90px) !important; overflow-wrap: anywhere; }
   .h-section { font-size: clamp(32px, 9vw, 60px) !important; }
   .h-serif { font-size: clamp(20px, 5vw, 32px) !important; }
   .body-l { font-size: 16px; }
   .page { padding: 32px 16px; }
-  .site-footer .ft-big { font-size: clamp(40px, 14vw, 80px); }
+  .site-footer .ft-big { font-size: clamp(30px, 10vw, 52px); }
   .site-footer { padding: 40px 18px 24px; }
   .marquee { font-size: clamp(28px, 9vw, 60px); }
   .toc a { grid-template-columns: 40px 1fr 24px; gap: 12px; padding: 16px 0; }

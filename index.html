@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&family=Bricolage+Grotesque:wght@400;700&family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 </head>
-<body class="theme-pink">
+<body class="theme-paper">
   <div id="root"></div>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -30,14 +30,14 @@
         return () => clearInterval(id);
       }, []);
 
-      const rotators = ["DU MÂLE-ALPHA.", "DE LA VIRILITÉ.", "DU PATRIARCAT.", "DE LA DOMINATION."];
+      const rotators = ["DU MÂLE-ALPHA", "DE LA VIRILITÉ", "DU PATRIARCAT", "DE LA DOMINATION"];
 
       return (
         <>
           <SiteHeader active="home" />
 
           {/* HERO */}
-          <section style={{ padding: "60px 32px 40px" }}>
+          <section style={{ background: "var(--pink)", padding: "60px 32px 64px", borderBottom: "1.5px solid var(--ink)" }}>
             <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
               <div className="eyebrow">Conférence gesticulée — depuis 2025</div>
               <h1 className="h-display" style={{ marginBottom: 24 }}>
@@ -96,13 +96,15 @@
           {/* TABLE OF CONTENTS */}
           <section className="page reveal">
             <div className="eyebrow">Au programme</div>
-            <h2 className="h-section" style={{ marginBottom: 40 }}>Une mallette pédagogique<br/>en 4 modules.</h2>
+            <h2 className="h-section" style={{ marginBottom: 24 }}>Une mallette pédagogique<br/>en 3 modules</h2>
+            <p className="body-l" style={{ marginBottom: 40 }}>
+              La conférence gesticulée, <em>l'imposture du mâle-alpha</em>, s'accompagne de 3 ateliers pratiques et dynamiques pour savoir comment déconstruire les stéréotypes de genre.
+            </p>
             <nav className="toc">
               {[
-                { n: "01", l: "L'imposture du Mâle-Alpha", h: "conference.html" },
-                { n: "02", l: "On libère la parole", h: "ateliers.html#atelier-1" },
-                { n: "03", l: "Radar intersectionnel", h: "ateliers.html#atelier-2" },
-                { n: "04", l: "On passe à l'action", h: "ateliers.html#atelier-3" },
+                { n: "01", l: "On libère la parole", h: "ateliers.html#atelier-1" },
+                { n: "02", l: "Radar intersectionnel", h: "ateliers.html#atelier-2" },
+                { n: "03", l: "On passe à l'action", h: "ateliers.html#atelier-3" },
               ].map(it => (
                 <a key={it.n} href={it.h}>
                   <span className="num">{it.n}</span>
@@ -124,19 +126,14 @@
             </div>
           </section>
 
-          {/* QUOTE */}
-          <section className="page reveal" style={{ borderTop: "1.5px solid var(--ink)", borderBottom: "1.5px solid var(--ink)", marginTop: 40 }}>
-            <p className="quote">
-              "Une conférence gesticulée est <span style={{background:"var(--yellow)",fontStyle:"normal",fontFamily:"var(--font-display)",padding:"0 .12em"}}>une prise de parole publique</span> qui porte nécessairement une dimension politique. Elle naît d'une décision personnelle mais s'élabore au cours d'une formation collective : <em>c'est un acte d'éducation populaire</em>."
-            </p>
-          </section>
-
-          {/* CTA */}
-          <section className="page reveal" style={{ textAlign: "center", padding: "120px 32px" }}>
-            <h2 className="h-display" style={{ marginBottom: 32 }}>
-              Programmer<br/>une intervention.
-            </h2>
-            <a href="contact.html" className="btn">Écrire à Pascal <span className="arrow">→</span></a>
+          {/* TÉMOIGNAGE — rappel rose */}
+          <section className="reveal" style={{ background: "var(--pink)", borderTop: "1.5px solid var(--ink)", borderBottom: "1.5px solid var(--ink)", padding: "80px 32px" }}>
+            <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
+              <div className="eyebrow">Témoignage</div>
+              <p className="quote">
+                "J'ai vraiment beaucoup aimé la conférence gesticulée : à la fois <span style={{background:"var(--yellow)",fontStyle:"normal",fontFamily:"var(--font-display)",padding:"0 .12em"}}>intime, didactique et pleine d'humour</span>. Une parole, venant d'un homme, très précieuse."
+              </p>
+            </div>
           </section>
 
           <SiteFooter />

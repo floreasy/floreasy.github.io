@@ -53,7 +53,7 @@
                 L'IMPOSTURE<br/>DU MÂLE-ALPHA
               </h1>
               <p className="h-serif" style={{ marginTop: 32, maxWidth: "26ch" }}>
-                <em>Un one-man show pédagogique. À mi-chemin entre spectacle vivant et réflexion sociétale.</em>
+                <em>Un one-man show pédagogique ou comment déconstruire les stéréotypes de genre.</em>
               </p>
             </div>
           </section>
@@ -66,16 +66,16 @@
                 <h2 className="h-section">
                   Déconstruire la virilité…<br/>
                   <span style={{ background: "var(--yellow)", padding: "0 .1em", display: "inline-block" }}>
-                    pour reconstruire les masculinités.
+                    pour reconstruire les masculinités
                   </span>
                 </h2>
               </div>
               <div className="body-l">
                 <p style={{ marginBottom: 20 }}>
-                  La démarche de cet outil, à mi-chemin entre spectacle vivant et réflexion sociétale, invite tout le monde à s'interroger sur les conséquences de la virilité dans nos sociétés.
+                  Une conférence gesticulée est une proposition pédagogique qui permet de prendre du recul, grâce à sa dimension « spectacle », pour aborder un thème de société, un véritable outil d'éducation populaire.
                 </p>
                 <p>
-                  L'objectif est de rechercher ensemble des solutions pour favoriser des modes de fonctionnement et de vie plus inclusifs et basés sur la tolérance.
+                  L'objectif est de rechercher ensemble des solutions pour favoriser des modes de fonctionnement et de vie plus coopératifs et basés sur la tolérance.
                 </p>
               </div>
             </div>
@@ -107,10 +107,28 @@
             </div>
           </section>
 
+          {/* Démarche pédagogique — remontée sous le bloc noir */}
+          <section className="page reveal">
+            <div className="col2">
+              <div>
+                <div className="eyebrow">Démarche pédagogique</div>
+                <h2 className="h-section">Un point<br/>de vue situé</h2>
+              </div>
+              <div className="body-l">
+                <p style={{ marginBottom: 20 }}>
+                  Donner les clés de compréhension pour que chacun et chacune puisse alimenter sa propre réflexion sur un sujet de société, c'est le défi que propose un intervenant homme, sur la masculinité, à travers cette conférence gesticulée.
+                </p>
+                <p>
+                  En vulgarisant des ouvrages et études de sciences humaines, des références juridiques, ou en documentant des faits historiques entremêlés de mises en scène d'anecdotes personnelles, elle apporte un point de vue situé — c'est-à-dire qu'elle permet aux publics de connaître l'origine des informations transmises. C'est l'anti-conférence « aux doigts mouillés ».
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Fiche technique */}
           <section className="page reveal">
             <div className="eyebrow">Fiche technique</div>
-            <h2 className="h-section" style={{ marginBottom: 40 }}>Tout tient<br/>dans une mallette.</h2>
+            <h2 className="h-section" style={{ marginBottom: 40 }}>Tout tient<br/>dans une mallette</h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", border: "1.5px solid var(--ink)" }}>
               {fiche.map((f, i) => (
                 <div key={f.k} style={{
@@ -123,27 +141,6 @@
                   <p style={{ fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: "clamp(20px, 2vw, 32px)", lineHeight: 1.05, letterSpacing: "-.02em" }}>{f.v}</p>
                 </div>
               ))}
-            </div>
-          </section>
-
-          {/* Approche pédagogique */}
-          <section className="page reveal">
-            <div className="col2">
-              <div>
-                <div className="eyebrow">Démarche pédagogique</div>
-                <h2 className="h-section">Un point<br/>de vue situé.</h2>
-              </div>
-              <div className="body-l">
-                <p style={{ marginBottom: 20 }}>
-                  Dans le but de rendre accessibles les dominations systémiques et les enjeux de société tels que le racisme, le sexisme, l'accès au logement et aux soins, la conférence gesticulée se présente comme un <strong>outil pédagogique pragmatique</strong>.
-                </p>
-                <p style={{ marginBottom: 20 }}>
-                  Son objectif principal est de permettre à divers publics cibles de comprendre de façon simple les sujets abordés.
-                </p>
-                <p>
-                  En combinant des anecdotes de la vie quotidienne avec des références issues des sciences humaines — sociologie, histoire, philosophie — la conférence propose un point de vue situé : des analyses basées sur des expériences vécues, tout en s'appuyant sur des recherches, des médias ou des textes de lois.
-                </p>
-              </div>
             </div>
           </section>
 
@@ -171,18 +168,61 @@
 
           {/* Teaser */}
           <section className="page reveal" style={{ padding: "100px 32px" }}>
-            <div className="eyebrow" style={{ justifyContent: "center", display: "flex" }}>Teaser</div>
+            <div className="eyebrow" style={{ justifyContent: "center", display: "flex" }}>Vidéo</div>
             <h2 className="h-display" style={{ marginBottom: 32, textAlign: "center" }}>
               Voir la conférence<br/>
-              <em style={{ fontFamily: "var(--font-serif)", textTransform: "none", letterSpacing: "-.02em" }}>en mouvement.</em>
+              <em style={{ fontFamily: "var(--font-serif)", textTransform: "none", letterSpacing: "-.02em" }}>gesticulée</em>
             </h2>
             <div style={{ maxWidth: 1100, margin: "40px auto 0" }}>
               <div className="yt-wrap">
-                <iframe src="https://www.youtube.com/embed/M0SiVachnZI" title="Teaser" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe src="https://www.youtube.com/embed/SynUz9PKGew" title="Interview France 3 — L'imposture du Mâle-Alpha" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </div>
             </div>
+
+            {/* Extraits */}
+            <div style={{ maxWidth: 1100, margin: "16px auto 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              {[
+                { href: "#", t: "Comprendre l'intersectionnalité en 5 min", d: "Extrait « L'imposture du Mâle-Alpha » — réussir à comprendre le concept d'intersectionnalité." },
+                { href: "#", t: "« Le coût de la virilité » en 2 min", d: "Présentation du livre de Lucile Peytavin par « Pascal Politique »." },
+              ].map((v, i) => (
+                <a key={i} href={v.href} target="_blank" style={{ border: "1.5px solid var(--ink)", padding: 24, display: "block" }}>
+                  <div className="eyebrow" style={{ marginBottom: 10 }}>Extrait {i + 1}</div>
+                  <h3 style={{ fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: 20, lineHeight: 1.05, letterSpacing: "-.01em", marginBottom: 10 }}>{v.t}</h3>
+                  <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 16, lineHeight: 1.35 }}>{v.d}</p>
+                  <span style={{ display: "inline-block", marginTop: 12, borderBottom: "2px solid currentColor", fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: 12, letterSpacing: ".06em" }}>Regarder ↗</span>
+                </a>
+              ))}
+            </div>
+
             <div style={{ marginTop: 32, textAlign: "center" }}>
               <a href="contact.html" className="btn">Programmer une date <span className="arrow">→</span></a>
+            </div>
+          </section>
+
+          {/* Mise en scène */}
+          <section className="page reveal" style={{ borderTop: "1.5px solid var(--ink)" }}>
+            <div className="col2">
+              <div>
+                <div className="eyebrow">Mise en scène</div>
+                <h2 className="h-section">Murielle<br/>Hachet</h2>
+              </div>
+              <div className="body-l">
+                <p style={{ marginBottom: 18 }}>
+                  <strong>Formée aux Arts du spectacle</strong> dès le lycée, Murielle Hachet poursuit ensuite sa formation au sein d'écoles de théâtre exigeantes et de référence à Strasbourg et à Paris.
+                </p>
+                <p style={{ marginBottom: 18 }}>
+                  Très tôt initiée à la mise en scène, elle développe, au fil d'expériences variées, une expertise approfondie dans la direction d'acteur·rice·s.
+                </p>
+                <p style={{ marginBottom: 18 }}>
+                  Passionnée par les multiples dimensions de la scène, <strong>elle explore avec joie et curiosité les univers de la comédie, de la dramaturgie et de la transmission artistique.</strong>
+                </p>
+                <p style={{ marginBottom: 18 }}>
+                  Son parcours éclectique la mène du spectacle de rue à la mise en espace de groupes musicaux, en passant par <strong>l'accompagnement scénique de projets en éducation populaire</strong>.
+                </p>
+                <p>
+                  Partout, elle place au cœur de son travail l'importance du propos à défendre, animée par le désir de créer des expériences artistiques à la fois sensibles et engagées.
+                </p>
+              </div>
             </div>
           </section>
 

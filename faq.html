@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>FAQ — Conférences gesticulées & ateliers sur la masculinité · Pascal Antonio</title>
+<meta name="description" content="Toutes les réponses sur mes conférences gesticulées et ateliers autour de la masculinité, du patriarcat et de l'égalité : formats, durées, tarifs, publics, réservation, logistique et approche pédagogique.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&family=Bricolage+Grotesque:wght@400;700&family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+  /* ===== FAQ ===== */
+  .faq-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .faq-chips a {
+    font-family: var(--font-display); text-transform: uppercase;
+    font-size: 12px; letter-spacing: .04em;
+    border: 1.5px solid var(--ink); border-radius: 999px;
+    padding: 9px 16px; transition: background .15s, color .15s;
+  }
+  .faq-chips a:hover { background: var(--ink); color: var(--paper); }
+
+  .faq-sec { border-top: 1.5px solid var(--ink); }
+  .faq-sec-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: baseline;
+    padding: 14px 0 28px;
+  }
+  .faq-sec-num {
+    font-family: var(--font-display); line-height: .8; letter-spacing: -.04em;
+    font-size: clamp(48px, 8vw, 120px);
+    -webkit-text-stroke: 1.5px var(--ink); color: transparent;
+  }
+  .faq-item { border-top: 1.5px solid var(--ink); }
+  .faq-sec .faq-item:first-of-type { border-top: none; }
+  .faq-q {
+    width: 100%; text-align: left; background: transparent; border: none; cursor: pointer;
+    color: inherit; font: inherit;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding: 24px 0;
+    font-family: var(--font-display); text-transform: uppercase;
+    font-size: clamp(16px, 1.7vw, 24px); line-height: 1.1; letter-spacing: -.01em;
+    transition: color .15s;
+  }
+  .faq-q:hover { color: var(--pink); }
+  .faq-q .sign {
+    flex: none; width: 30px; height: 30px; position: relative;
+    border: 1.5px solid currentColor; border-radius: 50%;
+  }
+  .faq-q .sign::before, .faq-q .sign::after {
+    content: ""; position: absolute; background: currentColor;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+  }
+  .faq-q .sign::before { width: 12px; height: 2px; }
+  .faq-q .sign::after { width: 2px; height: 12px; transition: transform .3s; }
+  .faq-q[aria-expanded="true"] .sign::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
+  .faq-a {
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .45s ease, opacity .45s ease, padding .45s ease;
+  }
+  .faq-a.open { max-height: 3000px; opacity: 1; padding-bottom: 32px; }
+  .faq-a .inner { max-width: 80ch; }
+  .faq-a p { margin-bottom: 14px; font-size: clamp(16px,1.2vw,19px); line-height: 1.55; }
+  .faq-a ul, .faq-a ol { margin: 0 0 16px 0; padding-left: 4px; display: grid; gap: 10px; list-style: none; }
+  .faq-a li { padding-left: 26px; position: relative; font-size: clamp(16px,1.2vw,19px); line-height: 1.5; }
+  .faq-a ul li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 10px; height: 10px; background: var(--pink); }
+  .faq-a ol { counter-reset: faqc; }
+  .faq-a ol li { counter-increment: faqc; }
+  .faq-a ol li::before { content: counter(faqc); position: absolute; left: 0; top: 0; font-family: var(--font-display); font-size: 14px; color: var(--pink); }
+  .faq-a strong { font-weight: 600; }
+  .faq-a a.inline { border-bottom: 2px solid var(--pink); white-space: nowrap; }
+  .faq-tip { background: var(--yellow); border: 1.5px solid var(--ink); padding: 14px 18px; margin: 4px 0 16px; font-family: var(--font-serif); font-style: italic; font-size: 17px; }
+  .faq-table-wrap { overflow-x: auto; margin: 6px 0 18px; }
+  .faq-table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 460px; }
+  .faq-table th, .faq-table td { border: 1.5px solid var(--ink); padding: 12px 14px; text-align: left; vertical-align: top; }
+  .faq-table th { font-family: var(--font-display); text-transform: uppercase; font-size: 11px; letter-spacing: .04em; background: var(--ink); color: var(--paper); }
+  @media (max-width: 900px) { .faq-sec-head { grid-template-columns: 1fr; gap: 6px; } }
+</style>
+</head>
+<body class="theme-paper">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="tweaks.jsx"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+
+  <script type="text/babel">
+    const FAQ = [
+      {
+        id: "conferences", num: "01", title: "Conférences\ngesticulées",
+        items: [
+          {
+            q: "Qu'est-ce qu'une conférence gesticulée ?",
+            plain: "Une conférence gesticulée est un format hybride entre le théâtre et le débat, où j'utilise gestes, expressions corporelles et récits personnels pour rendre mon propos vivant, engageant et mémorable. Ce format me permet d'aborder la masculinité, le patriarcat ou les stéréotypes de genre de façon accessible et percutante.",
+            a: (
+              <div className="inner">
+                <p>Une conférence gesticulée est un format <strong>hybride entre le théâtre et le débat</strong>, où j'utilise des gestes, des expressions corporelles et des récits personnels pour rendre mon propos vivant, engageant et mémorable.</p>
+                <p>Ce format me permet d'aborder des thèmes comme la masculinité, le patriarcat ou les stéréotypes de genre de manière accessible et percutante, même pour des publics non initiés.</p>
+                <p><a className="inline" href="conference.html">En savoir plus sur la conférence →</a></p>
+              </div>
+            ),
+          },
+          {
+            q: "Pourquoi choisir une conférence gesticulée sur la masculinité ?",
+            plain: "Impact émotionnel fort, approche pédagogique sans jargon, format adaptable à tous les publics et levier pour l'action : les participant·es repartent avec des clés concrètes.",
+            a: (
+              <div className="inner">
+                <p>Mes conférences gesticulées offrent :</p>
+                <ul>
+                  <li><strong>Un impact émotionnel fort</strong> : le mélange de récits personnels, d'humour et de gestes capte l'attention et facilite la réflexion.</li>
+                  <li><strong>Une approche pédagogique</strong> : idéal pour déconstruire les stéréotypes de genre ou aborder l'imposture du mâle alpha sans jargon.</li>
+                  <li><strong>Un format adaptable</strong> : que ce soit pour des lycéen·nes, des salarié·es ou des militant·es, le message est clair et universel.</li>
+                  <li><strong>Un levier pour l'action</strong> : les participant·es repartent avec des clés concrètes pour agir au quotidien.</li>
+                </ul>
+              </div>
+            ),
+          },
+          {
+            q: "Quels thèmes sont abordés dans vos conférences ?",
+            plain: "La masculinité et ses stéréotypes, le patriarcat, l'égalité hommes-femmes et l'éducation populaire. Ma conférence phare, « L'imposture du mâle alpha », explore les mythes autour de la masculinité dominante.",
+            a: (
+              <div className="inner">
+                <p>Mes conférences couvrent principalement :</p>
+                <ul>
+                  <li><strong>La masculinité et ses stéréotypes</strong> : déconstruction du mâle alpha, virilité, normes sociales.</li>
+                  <li><strong>Le patriarcat</strong> : son fonctionnement, ses impacts sur les individus et la société.</li>
+                  <li><strong>L'égalité hommes-femmes</strong> : inégalités, sexisme, et comment les combattre.</li>
+                  <li><strong>L'éducation populaire</strong> : outils pour sensibiliser et former à l'égalité.</li>
+                </ul>
+                <div className="faq-tip">« L'imposture du mâle alpha » est une exploration des mythes autour de la masculinité dominante.</div>
+              </div>
+            ),
+          },
+          {
+            q: "En quoi la conférence « L'imposture du mâle alpha » est-elle unique ?",
+            plain: "Un angle original qui démonte le mythe du mâle alpha, un format gesticulé incarné, une approche inclusive pour tous les publics et un lien direct avec l'actualité (masculinisme, inégalités au travail, violences sexistes).",
+            a: (
+              <div className="inner">
+                <p>Cette conférence se distingue par :</p>
+                <ul>
+                  <li><strong>Un angle original</strong> : elle démonte le mythe du mâle alpha en montrant comment ce concept limite les hommes et les femmes.</li>
+                  <li><strong>Un format gesticulé</strong> : j'utilise mon corps, ma voix et des anecdotes pour rendre le sujet concret et captivant.</li>
+                  <li><strong>Une approche inclusive</strong> : elle s'adresse à tous les publics (hommes, femmes, non-binaires) et encourage la réflexion collective.</li>
+                  <li><strong>Un lien avec l'actualité</strong> : elle aborde des enjeux comme le masculinisme, les inégalités au travail ou les violences sexistes.</li>
+                </ul>
+                <p><a className="inline" href="conference.html">Découvrir la conférence →</a></p>
+              </div>
+            ),
+          },
+          {
+            q: "Combien de temps dure une conférence gesticulée ?",
+            plain: "1h pour une conférence seule, 2h à 4h si elle est combinée avec un ou plusieurs ateliers, ou sur mesure selon vos besoins.",
+            a: (
+              <div className="inner">
+                <ul>
+                  <li><strong>1h</strong> : format standard pour une conférence seule.</li>
+                  <li><strong>2h à 4h</strong> : si elle est combinée avec un ou plusieurs ateliers (débat, exercices pratiques).</li>
+                  <li><strong>Sur mesure</strong> : j'adapte la durée en fonction de vos besoins et contraintes.</li>
+                </ul>
+              </div>
+            ),
+          },
+          {
+            q: "Les conférences sont-elles adaptées aux ados et jeunes adultes ?",
+            plain: "Absolument. Avec 20 ans d'éducation populaire, je propose des formats adaptés aux collégien·nes et lycéen·nes (3e à Terminale), aux jeunes adultes (18-30 ans) et aux publics scolaires, avec des supports visuels.",
+            a: (
+              <div className="inner">
+                <p>Absolument ! J'ai 20 ans d'expérience en éducation populaire et je propose des conférences spécialement adaptées aux :</p>
+                <ul>
+                  <li><strong>Collégien·nes et lycéen·nes</strong> (3ème à Terminale) : langage simple et exemples concrets.</li>
+                  <li><strong>Jeunes adultes (18–30 ans)</strong> : approche dynamique et interactive (universités, MJC).</li>
+                  <li><strong>Publics scolaires</strong> : des interventions pédagogiques et ludiques, avec des supports visuels (vidéos, images).</li>
+                </ul>
+                <div className="faq-tip">Exemple : conférence « Les stéréotypes de genre au quotidien » pour les lycées.</div>
+              </div>
+            ),
+          },
+        ],
+      },
+      {
+        id: "ateliers", num: "02", title: "Ateliers\n& formations",
+        items: [
+          {
+            q: "Quelle est la différence entre une conférence et un atelier ?",
+            plain: "La conférence (spectacle + débat, 1h, grand groupe, à partir de 800 €) sensibilise et informe. L'atelier (participatif, 2h à 1 journée, groupe réduit, à partir de 1 200 €) permet d'approfondir et d'agir avec des outils concrets.",
+            a: (
+              <div className="inner">
+                <div className="faq-table-wrap">
+                  <table className="faq-table">
+                    <thead><tr><th>Critère</th><th>Conférence gesticulée</th><th>Atelier</th></tr></thead>
+                    <tbody>
+                      <tr><td><strong>Format</strong></td><td>Spectacle + débat</td><td>Participatif (exercices, jeux de rôle, discussions)</td></tr>
+                      <tr><td><strong>Durée</strong></td><td>1h</td><td>2h – 1 journée</td></tr>
+                      <tr><td><strong>Public</strong></td><td>Grand groupe (50+)</td><td>Groupe réduit (10–30)</td></tr>
+                      <tr><td><strong>Objectif</strong></td><td>Sensibiliser et informer</td><td>Approfondir et agir (outils concrets)</td></tr>
+                      <tr><td><strong>Prix</strong></td><td>À partir de 800 €</td><td>À partir de 1 200 € (selon la durée)</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>Les ateliers permettent de :</p>
+                <ul>
+                  <li>Aller plus loin que la conférence (ex. : déconstruire ses propres préjugés).</li>
+                  <li>Expérimenter des outils (ex. : jeux de rôle sur les stéréotypes).</li>
+                  <li>Créer du lien entre les participant·es (équipes en entreprise, groupes associatifs).</li>
+                </ul>
+              </div>
+            ),
+          },
+          {
+            q: "Quels ateliers proposez-vous ?",
+            plain: "Mes ateliers phares : « Déconstruire les stéréotypes de genre » (écoles/assos, 1h), « Masculinité et leadership » (entreprises, 1h30), « Patriarcat : comprendre pour agir » (grand public, 1h30) et « L'intersectionnalité » (entreprises/lycées, 1h30).",
+            a: (
+              <div className="inner">
+                <p>Voici mes ateliers phares (tous adaptables à vos besoins) :</p>
+                <div className="faq-table-wrap">
+                  <table className="faq-table">
+                    <thead><tr><th>Atelier</th><th>Public cible</th><th>Durée</th><th>Objectifs</th></tr></thead>
+                    <tbody>
+                      <tr><td>« Déconstruire les stéréotypes de genre »</td><td>Écoles, associations</td><td>1h</td><td>Identifier et démonter les clichés sur les hommes et les femmes.</td></tr>
+                      <tr><td>« Masculinité et leadership »</td><td>Entreprises, managers</td><td>1h30</td><td>Explorer une masculinité inclusive au travail.</td></tr>
+                      <tr><td>« Patriarcat : comprendre pour agir »</td><td>Grand public, militant·es</td><td>1h30</td><td>Analyser les mécanismes du patriarcat et imaginer des alternatives.</td></tr>
+                      <tr><td>« L'intersectionnalité »</td><td>Entreprises, lycées</td><td>1h30</td><td>Sensibiliser aux enjeux de l'intersectionnalité dans la société.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p><a className="inline" href="ateliers.html">Voir tous les ateliers →</a></p>
+              </div>
+            ),
+          },
+          {
+            q: "Les ateliers sont-ils adaptés aux entreprises ?",
+            plain: "Oui : sensibiliser les équipes à l'égalité et la diversité, améliorer la cohésion, répondre aux obligations légales (Index égalité) et former les manager·euses à une communication non sexiste.",
+            a: (
+              <div className="inner">
+                <p>Oui ! Mes ateliers pour entreprises sont conçus pour :</p>
+                <ul>
+                  <li>Sensibiliser les équipes aux enjeux d'égalité et de diversité.</li>
+                  <li>Améliorer la cohésion d'équipe en déconstruisant les préjugés.</li>
+                  <li>Répondre aux obligations légales (ex. : Index égalité femmes-hommes).</li>
+                  <li>Former les manager·euses à une communication non sexiste.</li>
+                </ul>
+                <p>Exemples : « Masculinité et management : comment éviter les biais de genre ? » et « Égalité au travail : outils pour une culture d'entreprise inclusive ».</p>
+                <p><a className="inline" href="contact.html">Demander un devis →</a></p>
+              </div>
+            ),
+          },
+          {
+            q: "Peut-on combiner une conférence et un atelier ?",
+            plain: "Oui, c'est l'option la plus populaire : par exemple une conférence d'1h pour sensibiliser tout le groupe, suivie d'un atelier participatif d'1h30 pour approfondir en sous-groupe. Impact renforcé et grande flexibilité.",
+            a: (
+              <div className="inner">
+                <p>Tout à fait ! C'est même l'option la plus populaire. Exemple de combo :</p>
+                <ol>
+                  <li><strong>Conférence gesticulée (1h)</strong> : « L'imposture du mâle alpha » pour sensibiliser tout le groupe.</li>
+                  <li><strong>Atelier participatif (1h30)</strong> : « Déconstruire les stéréotypes en équipe » pour approfondir avec un sous-groupe.</li>
+                </ol>
+                <ul>
+                  <li><strong>Impact renforcé</strong> : la conférence inspire, l'atelier ancre les apprentissages.</li>
+                  <li><strong>Flexibilité</strong> : adaptable à vos contraintes de temps et de budget.</li>
+                </ul>
+              </div>
+            ),
+          },
+          {
+            q: "Quels outils utilisez-vous pendant les ateliers ?",
+            plain: "Une pédagogie active : jeux de rôle, quiz interactifs, supports visuels, travail en sous-groupes et fiches pratiques à emporter.",
+            a: (
+              <div className="inner">
+                <p>J'utilise une pédagogie active avec :</p>
+                <ul>
+                  <li><strong>Jeux de rôle</strong> : mettre en scène des situations de sexisme pour les analyser.</li>
+                  <li><strong>Quiz interactifs</strong> : tester ses connaissances sur les stéréotypes de genre.</li>
+                  <li><strong>Supports visuels</strong> : vidéos, infographies, extraits de conférences.</li>
+                  <li><strong>Travail en sous-groupes</strong> : échanges et réflexion collective.</li>
+                  <li><strong>Fiches pratiques</strong> : ressources à emporter (ex. : « 10 actions pour une masculinité inclusive »).</li>
+                </ul>
+              </div>
+            ),
+          },
+        ],
+      },
+      {
+        id: "tarifs", num: "03", title: "Publics\n& tarifs",
+        items: [
+          {
+            q: "À quels publics s'adressent vos interventions ?",
+            plain: "Scolaires, jeunes (MJC, missions locales), jeunes adultes (universités), adultes (entreprises, collectivités) et publics spécifiques (prisons, casernes). J'adapte le langage et les exemples à chaque profil.",
+            a: (
+              <div className="inner">
+                <p>Mes conférences et ateliers s'adressent à un public très large :</p>
+                <div className="faq-table-wrap">
+                  <table className="faq-table">
+                    <thead><tr><th>Public</th><th>Exemples de structures</th><th>Adaptation</th></tr></thead>
+                    <tbody>
+                      <tr><td><strong>Scolaire</strong></td><td>Collèges, lycées</td><td>Langage simple, exemples concrets, interactivité.</td></tr>
+                      <tr><td><strong>Jeunes</strong></td><td>MJC, Missions Locales, centres sociaux</td><td>Format dynamique, jeux, débats.</td></tr>
+                      <tr><td><strong>Jeunes adultes</strong></td><td>Universités, écoles supérieures</td><td>Approche critique, liens avec l'actualité.</td></tr>
+                      <tr><td><strong>Adultes</strong></td><td>Entreprises, collectivités</td><td>Focus solutions, outils professionnels.</td></tr>
+                      <tr><td><strong>Spécifique</strong></td><td>Prisons, casernes</td><td>Adaptation au contexte, exemples pertinents.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="faq-tip">J'ai 20 ans d'expérience en éducation populaire et je sais m'adapter à tous les profils, des ados aux cadres en entreprise.</div>
+              </div>
+            ),
+          },
+          {
+            q: "Quels sont vos tarifs pour les conférences et ateliers ?",
+            plain: "Fourchettes indicatives HT (hors déplacement) : conférence 800–1 500 €, atelier 1 200–2 000 €, conférence + atelier 1 800–2 500 €, formation entreprise 2 500–4 000 €, cycle de 3 ateliers 3 000–5 000 €. Tarifs dégressifs et adaptation petit budget possibles.",
+            a: (
+              <div className="inner">
+                <p>Mes tarifs sont transparents et adaptables selon votre budget et vos besoins. Voici une fourchette indicative (hors frais de déplacement) :</p>
+                <div className="faq-table-wrap">
+                  <table className="faq-table">
+                    <thead><tr><th>Prestation</th><th>Durée</th><th>Tarif (HT)</th><th>Public concerné</th></tr></thead>
+                    <tbody>
+                      <tr><td><strong>Conférence gesticulée</strong></td><td>1h30–2h</td><td>800–1 500 €</td><td>Écoles, associations, entreprises</td></tr>
+                      <tr><td><strong>Atelier seul</strong></td><td>2h–3h</td><td>1 200–2 000 €</td><td>Groupes réduits (10–30 pers.)</td></tr>
+                      <tr><td><strong>Conférence + atelier</strong></td><td>3h–4h</td><td>1 800–2 500 €</td><td>Pack complet</td></tr>
+                      <tr><td><strong>Formation entreprise</strong></td><td>1 journée</td><td>2 500–4 000 €</td><td>Équipes, managers</td></tr>
+                      <tr><td><strong>Cycle de 3 ateliers</strong></td><td>3 × 2h</td><td>3 000–5 000 €</td><td>Approfondissement</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>Remises possibles : tarifs dégressifs pour les réservations multiples, et adaptation pour les associations à petit budget.</p>
+                <p><a className="inline" href="contact.html">Demander un devis personnalisé →</a></p>
+              </div>
+            ),
+          },
+          {
+            q: "Proposez-vous des tarifs pour les associations ou écoles à petit budget ?",
+            plain: "Oui : tarifs solidaires pour les structures à but non lucratif, aide à la recherche de subventions (Régions, Départements, État) et formats courts. Une conférence d'1h pour un collège peut démarrer à 500 €.",
+            a: (
+              <div className="inner">
+                <p>Oui ! Je crois en l'accessibilité de mes interventions.</p>
+                <ul>
+                  <li><strong>Tarifs solidaires</strong> : réductions pour les associations, écoles publiques ou structures à but non lucratif.</li>
+                  <li><strong>Financements possibles</strong> : je peux vous aider à trouver des subventions (Régions, Départements, État).</li>
+                  <li><strong>Formats courts</strong> : conférences ou ateliers réduits en durée (et donc en coût).</li>
+                </ul>
+                <div className="faq-tip">Exemple : une conférence d'1h pour un collège peut coûter à partir de 500 €.</div>
+              </div>
+            ),
+          },
+          {
+            q: "Intervenez-vous en dehors de la France ?",
+            plain: "Principalement en France métropolitaine, mais je suis ouvert aux demandes en Belgique, Suisse ou Québec (frais de déplacement en supplément). Possibilité de conférences en ligne ou de partenariats locaux.",
+            a: (
+              <div className="inner">
+                <p>Pour l'instant, j'interviens principalement en France métropolitaine. Cependant, je suis ouvert aux demandes pour la Belgique, la Suisse ou le Québec (frais de déplacement en supplément).</p>
+                <p>Pour les structures à l'étranger :</p>
+                <ul>
+                  <li><strong>Conférences en ligne</strong> (Zoom, Teams) : tarifs réduits, pas de frais de déplacement.</li>
+                  <li><strong>Partenariats locaux</strong> : je peux vous mettre en relation avec des intervenant·es partenaires dans votre pays.</li>
+                </ul>
+              </div>
+            ),
+          },
+        ],
+      },
+      {
+        id: "logistique", num: "04", title: "Réservations\n& logistique",
+        items: [
+          {
+            q: "Comment réserver une conférence ou un atelier ?",
+            plain: "En 3 étapes : me contacter via le formulaire ou par email, échanger sur vos besoins (public, durée, thèmes, budget), puis valider le devis et choisir une date.",
+            a: (
+              <div className="inner">
+                <p>La réservation se fait en 3 étapes simples :</p>
+                <ol>
+                  <li><strong>Contactez-moi</strong> via le formulaire en ligne ou par email / téléphone.</li>
+                  <li><strong>Échangeons sur vos besoins</strong> (public, durée, thèmes, budget).</li>
+                  <li><strong>Validez le devis</strong> et choisissez une date (je m'adapte à votre agenda).</li>
+                </ol>
+                <p><a className="inline" href="contact.html">Réserver maintenant →</a></p>
+              </div>
+            ),
+          },
+          {
+            q: "Quels sont les délais pour réserver ?",
+            plain: "Idéalement 2 à 3 mois à l'avance pour les dates très demandées. Je fais aussi de mon mieux pour les demandes urgentes, selon mes disponibilités.",
+            a: (
+              <div className="inner">
+                <ul>
+                  <li><strong>Idéalement</strong> : 2 à 3 mois à l'avance pour les dates les plus demandées (Journée internationale des droits des femmes, Semaine de l'égalité).</li>
+                  <li><strong>Dernière minute</strong> : je fais de mon mieux pour répondre aux demandes urgentes (sous réserve de disponibilités).</li>
+                </ul>
+                <div className="faq-tip">Conseil : les périodes scolaires (septembre–juin) et le mois de mars (8 mars) sont très sollicités. Réservez tôt !</div>
+              </div>
+            ),
+          },
+          {
+            q: "Proposez-vous des conférences ou ateliers en ligne ?",
+            plain: "Oui : conférences en visioconférence (Zoom, Teams, Meet) avec outils interactifs, ateliers en ligne en sous-groupes (Miro, Mentimeter) et webinaires. Pas de frais de déplacement, flexibilité, enregistrement possible.",
+            a: (
+              <div className="inner">
+                <p>Oui ! J'adapte mes interventions au format distanciel :</p>
+                <ul>
+                  <li><strong>Conférences en visioconférence</strong> (Zoom, Teams, Google Meet) : même impact, avec des outils interactifs (sondages, chat, Q&amp;A).</li>
+                  <li><strong>Ateliers en ligne</strong> : travail en sous-groupes via des outils collaboratifs (Miro, Mentimeter).</li>
+                  <li><strong>Webinaires</strong> : pour toucher un public large et dispersé géographiquement.</li>
+                </ul>
+                <p>Avantages : pas de frais de déplacement, flexibilité des horaires, enregistrement possible pour une diffusion ultérieure.</p>
+              </div>
+            ),
+          },
+          {
+            q: "Quelles sont les conditions techniques pour une intervention en ligne ?",
+            plain: "Zoom (préféré), Teams ou Google Meet ; de votre côté un écran partagé et un bon système audio ; une connexion stable (5 Mbps minimum) ; un test technique 48h avant. Je peux fournir un kit technique.",
+            a: (
+              <div className="inner">
+                <ul>
+                  <li><strong>Plateforme</strong> : Zoom (préféré), Teams ou Google Meet.</li>
+                  <li><strong>Matériel (de votre côté)</strong> : un écran partagé pour les supports et un système audio de qualité.</li>
+                  <li><strong>Connexion</strong> : débit stable (minimum 5 Mbps en upload/download).</li>
+                  <li><strong>Test technique</strong> : je fais un test 48h avant l'intervention pour éviter les problèmes.</li>
+                </ul>
+                <p>Je peux fournir un kit technique (guide PDF) pour vous aider à préparer la session.</p>
+              </div>
+            ),
+          },
+          {
+            q: "Faut-il prévoir du matériel spécifique pour une intervention en présentiel ?",
+            plain: "Un vidéoprojecteur + écran, un système son (micro si grande salle), un paperboard pour les ateliers et des chaises en cercle. Je fournis les supports, fiches pratiques et le matériel pédagogique.",
+            a: (
+              <div className="inner">
+                <p>Pour une conférence ou un atelier en présentiel, j'ai besoin de :</p>
+                <ul>
+                  <li>Un vidéoprojecteur + écran (pour les supports visuels).</li>
+                  <li>Un système son (micro si la salle est grande).</li>
+                  <li>Un paperboard ou tableau blanc (pour les ateliers participatifs).</li>
+                  <li>Des chaises disposées en cercle (pour favoriser les échanges).</li>
+                </ul>
+                <p>Je fournis les supports de présentation, les fiches pratiques (si atelier) et le matériel pédagogique (jeux, quiz, etc.).</p>
+              </div>
+            ),
+          },
+          {
+            q: "Comment se passe le paiement ?",
+            plain: "Devis envoyé après notre échange, acompte de 30 % à la réservation et 70 % le jour J. Paiement par virement, chèque ou en ligne (PayPal, Stripe), facture par email. Bons de commande et paiements différés acceptés pour les structures publiques.",
+            a: (
+              <div className="inner">
+                <ul>
+                  <li><strong>Devis</strong> : envoyé après notre échange, pour validation.</li>
+                  <li><strong>Paiement</strong> : 30 % à la réservation (acompte), 70 % le jour J (ou après, selon accord).</li>
+                  <li><strong>Modes</strong> : virement bancaire, chèque, paiement en ligne (PayPal ou Stripe).</li>
+                  <li><strong>Facture</strong> : envoyée par email après le paiement.</li>
+                </ul>
+                <p>Pour les structures publiques : j'accepte les bons de commande et les paiements différés.</p>
+              </div>
+            ),
+          },
+          {
+            q: "Annulation ou report : quelles sont les conditions ?",
+            plain: "Annulation de votre fait : remboursement intégral à plus de 30 jours, 50 % entre 15 et 30 jours, 100 % retenu à moins de 15 jours (sauf force majeure). Report sans frais si la nouvelle date est dans les 3 mois. Si j'annule, remboursement intégral + nouvelle date.",
+            a: (
+              <div className="inner">
+                <ul>
+                  <li><strong>Annulation de votre fait</strong> : plus de 30 jours avant, remboursement intégral (hors frais bancaires) ; entre 15 et 30 jours, 50 % retenu ; moins de 15 jours, 100 % retenu (sauf force majeure).</li>
+                  <li><strong>Report</strong> : possible sans frais si la nouvelle date est dans les 3 mois.</li>
+                  <li><strong>Annulation de mon fait</strong> : remboursement intégral + proposition d'une nouvelle date.</li>
+                </ul>
+              </div>
+            ),
+          },
+        ],
+      },
+      {
+        id: "approche", num: "05", title: "Moi &\nmon approche",
+        items: [
+          {
+            q: "Qui êtes-vous ?",
+            plain: "Je suis intervenant spécialisé en éducation populaire et égalité hommes-femmes, avec 20 ans d'expérience : animation de conférences gesticulées, déconstruction des stéréotypes de genre et accompagnement de publics variés. Créateur de « L'imposture du mâle alpha ».",
+            a: (
+              <div className="inner">
+                <p>Je suis intervenant spécialisé en éducation populaire et égalité hommes-femmes, avec 20 ans d'expérience dans :</p>
+                <ul>
+                  <li>L'animation de conférences gesticulées (format unique mêlant théâtre et débat).</li>
+                  <li>La déconstruction des stéréotypes de genre, notamment autour de la masculinité et du patriarcat.</li>
+                  <li>L'accompagnement de publics variés (écoles, entreprises, associations, prisons, casernes).</li>
+                </ul>
+                <p>Mon parcours : militant historique de l'économie sociale et solidaire (ESS), formateur pour des structures comme les MJC, centres sociaux, associations d'éducation populaire ou collectivités, et créateur de la conférence « L'imposture du mâle alpha ».</p>
+                <p><a className="inline" href="bio.html">En savoir plus sur moi →</a></p>
+              </div>
+            ),
+          },
+          {
+            q: "Quelle est votre approche pédagogique ?",
+            plain: "Quatre piliers : l'interactivité (échanges, jeux de rôle, débats), l'accessibilité (pas de jargon), l'engagement (faire réfléchir ET agir) et l'inclusivité (l'égalité pour tou·te·s, sans exclure personne).",
+            a: (
+              <div className="inner">
+                <p>Mon approche repose sur 4 piliers :</p>
+                <ol>
+                  <li><strong>L'interactivité</strong> : pas de monologue ! Je privilégie les échanges, les jeux de rôle et les débats.</li>
+                  <li><strong>L'accessibilité</strong> : pas de jargon — j'adapte mon langage à tous les publics.</li>
+                  <li><strong>L'engagement</strong> : mes interventions visent à faire réfléchir ET agir (outils concrets, ressources à emporter).</li>
+                  <li><strong>L'inclusivité</strong> : j'aborde les thèmes sous l'angle de l'égalité pour tou·te·s, sans exclure personne.</li>
+                </ol>
+              </div>
+            ),
+          },
+          {
+            q: "Pourquoi aborder la masculinité plutôt que seulement le féminisme ?",
+            plain: "Parce que l'égalité concerne tout le monde : les hommes sont aussi victimes des stéréotypes, le patriarcat nuit à tou·te·s, et travailler la masculinité est complémentaire du féminisme. Mon objectif : libérer les hommes des attentes sociales sans domination ni soumission.",
+            a: (
+              <div className="inner">
+                <p>Parce que l'égalité concerne tout le monde !</p>
+                <ul>
+                  <li><strong>Les hommes aussi sont victimes des stéréotypes</strong> : la pression à être « un vrai homme » (fort, dominant, sans émotion) limite leur liberté et peut mener à des comportements toxiques.</li>
+                  <li><strong>Le patriarcat nuit à tou·te·s</strong> : il renforce les inégalités et empêche une société plus juste.</li>
+                  <li><strong>Une approche complémentaire</strong> : travailler sur la masculinité, c'est dénoncer les normes qui oppressent hommes ET femmes.</li>
+                </ul>
+                <div className="faq-tip">Mon objectif : libérer les hommes des attentes sociales pour qu'ils puissent vivre pleinement leur humanité, sans domination ni soumission.</div>
+              </div>
+            ),
+          },
+          {
+            q: "Quels sont vos engagements en matière d'inclusion et d'accessibilité ?",
+            plain: "Respecter la parité dans mes exemples et illustrations, lutter contre toutes les discriminations (sexisme, racisme, LGBTQI+phobie, validisme…) et proposer des tarifs solidaires pour les structures à petit budget.",
+            a: (
+              <div className="inner">
+                <p>Je m'engage à :</p>
+                <ul>
+                  <li>Respecter la parité dans mes exemples et illustrations (représentation diverse).</li>
+                  <li>Lutter contre toutes les discriminations : sexisme, racisme, LGBTQI+phobie, validisme, etc.</li>
+                  <li>Proposer des tarifs solidaires pour les structures à petit budget.</li>
+                </ul>
+              </div>
+            ),
+          },
+          {
+            q: "Avez-vous des références ou témoignages ?",
+            plain: "Oui : écoles (lycées de Paris, Lyon, Bordeaux), entreprises (ESAT, coopératives, PME), associations (MJC, Planning Familial, centres sociaux) et institutions (prisons, casernes, mairies).",
+            a: (
+              <div className="inner">
+                <p>Oui ! Quelques exemples de structures avec lesquelles j'ai travaillé :</p>
+                <ul>
+                  <li><strong>Écoles</strong> : lycées de Paris, Lyon, Bordeaux (retours très positifs des élèves et enseignant·es).</li>
+                  <li><strong>Entreprises</strong> : ESAT, coopératives, PME (formations sur l'égalité au travail).</li>
+                  <li><strong>Associations</strong> : MJC, Planning Familial, centres sociaux.</li>
+                  <li><strong>Institutions</strong> : prisons, casernes, mairies.</li>
+                </ul>
+                <p><a className="inline" href="temoignages.html">Lire tous les témoignages →</a></p>
+              </div>
+            ),
+          },
+        ],
+      },
+    ];
+
+    function FaqItem({ q, a, idx }) {
+      const [open, setOpen] = React.useState(false);
+      return (
+        <div className="faq-item">
+          <button type="button" className="faq-q" aria-expanded={open} onClick={() => setOpen(o => !o)}>
+            <span>{q}</span>
+            <span className="sign" aria-hidden="true"></span>
+          </button>
+          <div className={`faq-a${open ? " open" : ""}`}>{a}</div>
+        </div>
+      );
+    }
+
+    function FaqPage() {
+      useCurtainTransitions("var(--pink)");
+      useReveal();
+
+      // Données structurées FAQ (JSON-LD) pour le référencement / rich results Google
+      React.useEffect(() => {
+        const data = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": FAQ.flatMap(s => s.items).map(it => ({
+            "@type": "Question",
+            "name": it.q,
+            "acceptedAnswer": { "@type": "Answer", "text": it.plain },
+          })),
+        };
+        const tag = document.createElement("script");
+        tag.type = "application/ld+json";
+        tag.id = "faq-jsonld";
+        tag.textContent = JSON.stringify(data);
+        document.head.appendChild(tag);
+        return () => { const e = document.getElementById("faq-jsonld"); if (e) e.remove(); };
+      }, []);
+
+      return (
+        <>
+          <SiteHeader active="faq" />
+
+          {/* Hero */}
+          <section style={{ background: "var(--pink)", padding: "80px 32px 56px", borderBottom: "1.5px solid var(--ink)" }}>
+            <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
+              <div className="eyebrow">FAQ</div>
+              <h1 className="h-display">
+                Vos questions,<br/>
+                <span style={{ background: "var(--yellow)", padding: "0 .1em" }}>mes réponses</span>
+              </h1>
+              <p className="h-serif" style={{ marginTop: 28, maxWidth: "32ch" }}>
+                <em>Tout ce qu'il faut savoir avant de programmer une conférence ou un atelier.</em>
+              </p>
+              <div className="faq-chips" style={{ marginTop: 36 }}>
+                {FAQ.map(s => (
+                  <a key={s.id} href={`#${s.id}`}>{s.num} · {s.title.replace("\n", " ")}</a>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Sections */}
+          {FAQ.map(sec => (
+            <section key={sec.id} id={sec.id} className="page reveal">
+              <div className="faq-sec">
+                <div className="faq-sec-head">
+                  <div className="faq-sec-num">{sec.num}</div>
+                  <h2 className="h-section" style={{ whiteSpace: "pre-line" }}>{sec.title}</h2>
+                </div>
+                {sec.items.map((it, ii) => <FaqItem key={ii} q={it.q} a={it.a} idx={ii} />)}
+              </div>
+            </section>
+          ))}
+
+          {/* CTA */}
+          <section className="page reveal" style={{ textAlign: "center", padding: "100px 32px" }}>
+            <div className="eyebrow" style={{ justifyContent: "center" }}>Une autre question ?</div>
+            <h2 className="h-display" style={{ marginBottom: 32, fontSize: "clamp(40px, 6vw, 84px)" }}>
+              Parlons-en
+            </h2>
+            <a href="contact.html" className="btn">Programmer une intervention <span className="arrow">→</span></a>
+          </section>
+
+          <SiteFooter />
+          <PascalTweaks />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<FaqPage />);
+  </script>
+</body>
+</html>

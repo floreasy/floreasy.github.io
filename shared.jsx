@@ -7,6 +7,7 @@ const NAV = [
   { href: "temoignages.html", label: "Témoignages", key: "temoig" },
   { href: "bio.html", label: "Pourquoi\u00a0moi\u00a0?", key: "bio" },
   { href: "ressources.html", label: "Ressources", key: "ress" },
+  { href: "faq.html", label: "FAQ", key: "faq" },
   { href: "contact.html", label: "Contact", key: "contact" },
 ];
 
@@ -79,13 +80,13 @@ function Marquee({ items, color }) {
   );
 }
 
-function SiteFooter() {
+function SiteFooter({ bg }) {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" style={bg ? { background: bg } : null}>
       <div className="ft-grid">
         <div>
           <h3>Programmer une intervention</h3>
-          <div className="ft-big">Écrire à<br/>Pascal.</div>
+          <div className="ft-big">Écrire à<br/>Pascal</div>
           <a href="contact.html" className="btn" style={{ marginTop: 28 }}>
             Programmer une intervention <span className="arrow">→</span>
           </a>
