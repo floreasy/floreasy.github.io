@@ -33,7 +33,7 @@ function SiteHeader({ active }) {
           <span>Pascal Antonio</span>
         </a>
         <nav className="site-nav">
-          {NAV.filter(n => n.key !== "home").map(n => (
+          {NAV.filter(n => n.key !== "home" && n.key !== "faq").map(n => (
             <a key={n.key} href={n.href} className={active === n.key ? "active" : ""}>{n.label}</a>
           ))}
         </nav>
@@ -49,7 +49,7 @@ function SiteHeader({ active }) {
       </header>
       <nav className={`mobile-nav${open ? " open" : ""}`} aria-hidden={!open}>
         <ul>
-          {NAV.map(n => (
+          {NAV.filter(n => n.key !== "faq").map(n => (
             <li key={n.key}>
               <a
                 href={n.href}
@@ -85,7 +85,7 @@ function SiteFooter({ bg }) {
     <footer className="site-footer" style={bg ? { background: bg } : null}>
       <div className="ft-grid">
         <div>
-          <h3>Programmer une intervention</h3>
+          <h3>Contacter</h3>
           <div className="ft-big">Écrire à<br/>Pascal</div>
           <a href="contact.html" className="btn" style={{ marginTop: 28 }}>
             Programmer une intervention <span className="arrow">→</span>

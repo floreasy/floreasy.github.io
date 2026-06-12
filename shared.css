@@ -242,6 +242,7 @@ body.theme-pink .marquee .star { color: var(--ink); }
   font-family: var(--font-display);
   text-transform: uppercase;
   font-size: 13px;
+  line-height: 1.2;
   letter-spacing: .12em;
   display: inline-flex; align-items: center; gap: 10px;
   margin-bottom: 24px;
@@ -268,7 +269,7 @@ body.theme-pink .marquee .star { color: var(--ink); }
   font-family: var(--font-display);
   text-transform: uppercase;
   font-size: clamp(40px, 7vw, 96px);
-  line-height: .9;
+  line-height: 1.05;
   letter-spacing: -.03em;
   text-wrap: balance;
 }
@@ -372,6 +373,11 @@ body.theme-pink .marquee .star { color: var(--ink); }
 /* Utility */
 .col2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px;}
 .col3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px;}
+/* Aligne le texte de droite avec le titre (h-section) plutôt qu'avec l'eyebrow :
+   on décale la 2e colonne de la hauteur de l'eyebrow (ligne + marge). */
+@media (min-width: 901px) {
+  .col2 > :nth-child(2) { margin-top: calc(13px * 1.2 + 24px); }
+}
 @media (max-width: 900px) {
   .col2, .col3 { grid-template-columns: 1fr; gap: 32px;}
   .site-footer .ft-grid { grid-template-columns: 1fr; }
