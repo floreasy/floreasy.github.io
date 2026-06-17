@@ -109,6 +109,7 @@ function SiteFooter({ bg }) {
       <div className="meta">
         <span>© 2026 Pascal Antonio · Conférence gesticulée</span>
         <span>Mise en scène : Murielle Hachet</span>
+        <span><a href="mentions-legales">Mentions légales</a></span>
         <span><a href="#" onClick={(e) => { e.preventDefault(); if (window.paCookieConsent) window.paCookieConsent.open(); }}>Gérer les cookies</a></span>
       </div>
     </footer>
