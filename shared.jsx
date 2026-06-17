@@ -1,14 +1,14 @@
 /* Shared header, footer, transitions, tweaks for all pages */
 
 const NAV = [
-  { href: "index.html", label: "Accueil", key: "home" },
-  { href: "conference.html", label: "La Conférence", key: "conf" },
-  { href: "ateliers.html", label: "Ateliers", key: "ateliers" },
-  { href: "temoignages.html", label: "Témoignages", key: "temoig" },
-  { href: "bio.html", label: "Pourquoi\u00a0moi\u00a0?", key: "bio" },
-  { href: "ressources.html", label: "Ressources", key: "ress" },
-  { href: "faq.html", label: "FAQ", key: "faq" },
-  { href: "contact.html", label: "Contact", key: "contact" },
+  { href: "/", label: "Accueil", key: "home" },
+  { href: "conference", label: "La Conférence", key: "conf" },
+  { href: "ateliers", label: "Ateliers", key: "ateliers" },
+  { href: "temoignages", label: "Témoignages", key: "temoig" },
+  { href: "bio", label: "Pourquoi\u00a0moi\u00a0?", key: "bio" },
+  { href: "ressources", label: "Ressources", key: "ress" },
+  { href: "faq", label: "FAQ", key: "faq" },
+  { href: "contact", label: "Contact", key: "contact" },
 ];
 
 function SiteHeader({ active }) {
@@ -29,7 +29,7 @@ function SiteHeader({ active }) {
   return (
     <>
       <header className="site-header">
-        <a href="index.html" className="brand">
+        <a href="/" className="brand">
           <span>Pascal Antonio</span>
         </a>
         <nav className="site-nav">
@@ -87,7 +87,7 @@ function SiteFooter({ bg }) {
         <div>
           <h3>Contacter</h3>
           <div className="ft-big">Écrire à<br/>Pascal</div>
-          <a href="contact.html" className="btn" style={{ marginTop: 28 }}>
+          <a href="contact" className="btn" style={{ marginTop: 28 }}>
             Programmer une intervention <span className="arrow">→</span>
           </a>
         </div>
@@ -109,6 +109,7 @@ function SiteFooter({ bg }) {
       <div className="meta">
         <span>© 2026 Pascal Antonio · Conférence gesticulée</span>
         <span>Mise en scène : Murielle Hachet</span>
+        <span><a href="#" onClick={(e) => { e.preventDefault(); if (window.paCookieConsent) window.paCookieConsent.open(); }}>Gérer les cookies</a></span>
       </div>
     </footer>
   );
@@ -140,8 +141,7 @@ function useCurtainTransitions(color) {
       const a = e.target.closest("a");
       if (!a) return;
       const href = a.getAttribute("href");
-      if (!href || href.startsWith("#") || href.startsWith("http") || a.target === "_blank") return;
-      if (!href.endsWith(".html")) return;
+      if (!href || href.startsWith("#") || href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:") || a.target === "_blank") return;
       e.preventDefault();
 
       const c = document.createElement("div");
