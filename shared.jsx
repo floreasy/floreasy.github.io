@@ -102,7 +102,7 @@ function SiteFooter({ bg }) {
           <ul>
             <li><a href="https://www.instagram.com/antonio_pascal/" target="_blank">Instagram @antonio_pascal ↗</a></li>
             <li><a href="https://www.youtube.com/watch?v=M0SiVachnZI" target="_blank">Teaser YouTube ↗</a></li>
-            <li><a href="contact.html">contact@pascal-antonio.fr</a></li>
+            <li><a href="mailto:contact@pascalantonio.fr">contact@pascalantonio.fr ↗</a></li>
           </ul>
         </div>
       </div>

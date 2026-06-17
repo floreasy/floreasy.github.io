@@ -85,11 +85,8 @@
       const toggleF = (k) => { if (k === "conf") return; setFormules(s => ({ ...s, [k]: !s[k] })); };
       const [audience, setAudience] = React.useState("Scolaire");
       const [submitted, setSubmitted] = React.useState(false);
-
-      const onSubmit = (e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      };
+      const [sending, setSending] = React.useState(false);
+      const [error, setError] = React.useState(null);
 
       const formulesList = [
         { k: "conf", label: "Conférence gesticulée (1h05)" },
@@ -98,6 +95,46 @@
         { k: "a3", label: "+ Atelier · On passe à l'action (1h)" },
       ];
       const audiences = ["Scolaire", "Centre social / MJC", "Université", "Entreprise", "Collectivité", "Associations", "Caserne", "Prison", "Autre"];
+
+      const onSubmit = async (e) => {
+        e.preventDefault();
+        if (sending) return;
+        const fd = new FormData(e.target);
+        const formuleLabels = formulesList.filter(f => formules[f.k]).map(f => f.label).join(" · ");
+
+        const payload = {
+          "Nom": fd.get("name") || "",
+          "Structure": fd.get("structure") || "",
+          "Email": fd.get("email") || "",
+          "Téléphone": fd.get("phone") || "",
+          "Type de public": audience,
+          "Formule(s)": formuleLabels,
+          "Date envisagée": fd.get("date") || "",
+          "Lieu": fd.get("lieu") || "",
+          "Contexte & objectifs": fd.get("message") || "",
+          _subject: "Nouvelle demande — " + (fd.get("structure") || fd.get("name") || "site"),
+          _template: "table",
+          _captcha: "false",
+          _replyto: fd.get("email") || "",
+          _honey: fd.get("_honey") || "",
+        };
+
+        setSending(true);
+        setError(null);
+        try {
+          const res = await fetch("https://formsubmit.co/ajax/contact@pascalantonio.fr", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          setSubmitted(true);
+        } catch (err) {
+          setError("L'envoi a échoué. Réessayez, ou écrivez directement à contact@pascalantonio.fr.");
+        } finally {
+          setSending(false);
+        }
+      };
 
       return (
         <>
@@ -130,24 +167,26 @@
                   </div>
                 ) : (
                 <form onSubmit={onSubmit} style={{ display: "grid", gap: 32 }}>
+                  {/* Anti-spam honeypot — caché aux humains */}
+                  <input type="text" name="_honey" tabIndex="-1" autoComplete="off" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
                   <div className="form-row">
                     <div className="field">
                       <label>Votre nom</label>
-                      <input required placeholder="Prénom et nom" />
+                      <input name="name" required placeholder="Prénom et nom" />
                     </div>
                     <div className="field">
                       <label>Structure</label>
-                      <input required placeholder="Lycée, MJC, association…" />
+                      <input name="structure" required placeholder="Lycée, MJC, association…" />
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="field">
                       <label>Email</label>
-                      <input required type="email" placeholder="vous@exemple.fr" />
+                      <input name="email" required type="email" placeholder="vous@exemple.fr" />
                     </div>
                     <div className="field">
                       <label>Téléphone</label>
-                      <input placeholder="06…" />
+                      <input name="phone" placeholder="06…" />
                     </div>
                   </div>
 
@@ -186,21 +225,26 @@
                   <div className="form-row">
                     <div className="field">
                       <label>Date envisagée</label>
-                      <input type="text" placeholder="Mois / saison / fenêtre" />
+                      <input name="date" type="text" placeholder="Mois / saison / fenêtre" />
                     </div>
                     <div className="field">
                       <label>Lieu</label>
-                      <input type="text" placeholder="Ville, département" />
+                      <input name="lieu" type="text" placeholder="Ville, département" />
                     </div>
                   </div>
 
                   <div className="field">
                     <label>Contexte & objectifs</label>
-                    <textarea placeholder="Public, taille du groupe, attentes pédagogiques, contraintes…"></textarea>
+                    <textarea name="message" placeholder="Public, taille du groupe, attentes pédagogiques, contraintes…"></textarea>
                   </div>
 
                   <div>
-                    <button type="submit" className="btn">Envoyer la demande <span className="arrow">→</span></button>
+                    <button type="submit" className="btn" disabled={sending} style={{ opacity: sending ? .6 : 1, cursor: sending ? "wait" : "pointer" }}>
+                      {sending ? "Envoi en cours…" : <>Envoyer la demande <span className="arrow">→</span></>}
+                    </button>
+                    {error && (
+                      <p style={{ marginTop: 16, color: "var(--pink)", fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 16 }}>{error}</p>
+                    )}
                   </div>
                 </form>
                 )}
@@ -210,7 +254,7 @@
                 <div style={{ border: "1.5px solid var(--ink)", padding: 24, marginBottom: 24, background: "var(--yellow)" }}>
                   <div className="eyebrow" style={{ marginBottom: 12 }}>Direct</div>
                   <p style={{ fontFamily: "var(--font-display)", textTransform: "uppercase", fontSize: 22, lineHeight: 1, letterSpacing: "-.01em", marginBottom: 12 }}>
-                    contact@<br/>pascal-antonio.fr
+                    <a href="mailto:contact@pascalantonio.fr">contact@<br/>pascalantonio.fr</a>
                   </p>
                   <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 16 }}>Réponse sous 3 jours ouvrés.</p>
                 </div>
