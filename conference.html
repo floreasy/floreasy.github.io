@@ -32,6 +32,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&family=Bricolage+Grotesque:wght@400;700&family=Instrument+Serif:ital@0;1&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="shared.css">
 </head>
 <body class="theme-paper">
@@ -63,7 +68,7 @@
         { tag: "Scolaire", body: "3ème, 2nd, 1ère, Terminale" },
         { tag: "Jeune", body: "Centre social, MJC, Mission Locale, associations, associations sportives" },
         { tag: "Jeune-adulte", body: "Université, écoles supérieures, associations, associations sportives" },
-        { tag: "Adulte", body: "Entreprises, collectivités territoriales, associations, prison, caserne" },
+        { tag: "Adulte", body: "Entreprises, collectivités territoriales, associations, associations sportives, prison, caserne" },
       ];
 
       return (
@@ -207,8 +212,8 @@
             {/* Extraits */}
             <div style={{ maxWidth: 1100, margin: "16px auto 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
               {[
-                { href: "#", t: "Comprendre l'intersectionnalité en 5 min", d: "Extrait « L'imposture du Mâle-Alpha » — réussir à comprendre le concept d'intersectionnalité." },
-                { href: "#", t: "« Le coût de la virilité » en 2 min", d: "Présentation du livre de Lucile Peytavin par « Pascal Politique »." },
+                { href: "https://www.youtube.com/watch?v=rQUcrMEwU2U&t=15s", t: "Comprendre l'intersectionnalité en 5 min", d: "Extrait « L'imposture du Mâle-Alpha » — réussir à comprendre le concept d'intersectionnalité." },
+                { href: "https://www.youtube.com/watch?v=w-Z9WHvIkLQ", t: "« Le coût de la virilité » en 2 min", d: "Présentation du livre de Lucile Peytavin par « Pascal Politique »." },
               ].map((v, i) => (
                 <a key={i} href={v.href} target="_blank" style={{ border: "1.5px solid var(--ink)", padding: 24, display: "block" }}>
                   <div className="eyebrow" style={{ marginBottom: 10 }}>Extrait {i + 1}</div>
