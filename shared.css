@@ -383,6 +383,9 @@ body.theme-pink .marquee .star { color: var(--ink); }
   .site-footer .ft-grid { grid-template-columns: 1fr; }
   .site-header { padding: 14px 18px;}
   .page { padding: 40px 18px; }
+  /* Page ateliers : grilles en styles inline qui ne se replient pas seules */
+  .atelier-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .atelier-body { grid-template-columns: 1fr !important; gap: 24px !important; }
 }
 
 /* Le menu passe en burger dès 1024px : 7 entrées de nav sont trop serrées en dessous */
@@ -415,6 +418,13 @@ body.theme-pink .marquee .star { color: var(--ink); }
   .toc a { grid-template-columns: 40px 1fr 24px; gap: 12px; padding: 16px 0; }
   .toc .label { font-size: clamp(22px, 6vw, 32px); }
   .quote { font-size: clamp(22px, 5.5vw, 38px); }
+  /* Titres avec nowrap inline (ex. « Une mallette pédagogique ») : autorise le retour à la ligne pour éviter le débordement */
+  .h-section span[style*="nowrap"] { white-space: normal !important; }
+  /* Pied de page : empile les mentions les unes sous les autres, quasi pleine largeur */
+  .site-footer .meta { flex-direction: column; gap: 10px; font-size: 13px; }
+  /* Page ateliers : resserre les marges et les cellules d'infos en mobile */
+  .atelier-sec { padding: 56px 18px !important; }
+  .atelier-stats > div { padding: 14px 10px !important; }
 }
 @media (max-width: 900px) {
   /* Convert all 2-col / multi-col grids to 1-col */

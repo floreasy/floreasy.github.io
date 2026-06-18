@@ -106,9 +106,9 @@
     function AtelierBlock({ a }) {
       const dark = a.fg === "var(--paper)";
       return (
-        <section id={a.id} style={{ background: a.bg, color: a.fg || "var(--ink)", padding: "100px 32px", borderTop: "1.5px solid var(--ink)" }} className="reveal">
+        <section id={a.id} style={{ background: a.bg, color: a.fg || "var(--ink)", padding: "100px 32px", borderTop: "1.5px solid var(--ink)" }} className="reveal atelier-sec">
           <div style={{ maxWidth: "var(--maxw)", margin: "0 auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start" }}>
+            <div className="atelier-grid" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "start" }}>
               <div>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(80px, 14vw, 220px)", lineHeight: .85, letterSpacing: "-.04em" }}>
                   {a.n}
@@ -124,7 +124,7 @@
                 <h2 className="h-section" style={{ whiteSpace: "pre-line", marginBottom: 32 }}>{a.title}</h2>
                 <p className="h-serif" style={{ marginBottom: 32 }}><em>{a.objective}.</em></p>
 
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, border: `1.5px solid ${dark ? "var(--paper)" : "var(--ink)"}`, marginBottom: 40 }}>
+                <div className="atelier-stats" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, border: `1.5px solid ${dark ? "var(--paper)" : "var(--ink)"}`, marginBottom: 40 }}>
                   {[["Durée", a.time], ["Participants", a.people], ["Matériel", a.material]].map(([k,v], i) => (
                     <div key={k} style={{
                       padding: "20px 18px",
@@ -136,7 +136,7 @@
                   ))}
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: a.sidenote ? "2fr 1fr" : "1fr", gap: 40 }}>
+                <div className="atelier-body" style={{ display: "grid", gridTemplateColumns: a.sidenote ? "2fr 1fr" : "1fr", gap: 40 }}>
                   <div className="body-l">
                     {a.body.map((p, i) => <p key={i} style={{ marginBottom: 18 }}>{p}</p>)}
                   </div>
