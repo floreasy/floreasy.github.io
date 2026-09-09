@@ -1,0 +1,25 @@
+{
+  "name": "pascalantonio",
+  "version": "1.0.0",
+  "description": "Sources JSX du site. npm run build compile src/ vers js/, qui est commité.",
+  "scripts": {
+    "build": "babel src --out-dir js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/floreasy/floreasy.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/floreasy/floreasy.github.io/issues"
+  },
+  "homepage": "https://github.com/floreasy/floreasy.github.io#readme",
+  "devDependencies": {
+    "@babel/cli": "^8.0.4",
+    "@babel/core": "^8.0.1",
+    "@babel/preset-react": "^8.0.1"
+  },
+  "private": true
+}
