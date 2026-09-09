@@ -6,7 +6,9 @@
   --ink: #0E0E0E;
   --paper: #FBF8F3;
   --paper-pure: #ffffff;
-  --intensity: 1;
+  /* 0.8 : la valeur que tweaks.jsx appliquait en JS au chargement. Reprise ici
+     pour que le rendu soit identique après la suppression du panneau. */
+  --intensity: 0.8;
   --font-display: "Archivo Black", "Anton", Impact, sans-serif;
   --font-serif: "Instrument Serif", "Times New Roman", serif;
   --font-body: "Inter Tight", "Inter", system-ui, sans-serif;
