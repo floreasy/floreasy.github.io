@@ -92,22 +92,22 @@
                   <input type="text" name="_honey" tabIndex="-1" autoComplete="off" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
                   <div className="form-row">
                     <div className="field">
-                      <label>Votre nom</label>
-                      <input name="name" required placeholder="Prénom et nom" />
+                      <label htmlFor="f-nom">Votre nom</label>
+                      <input id="f-nom" name="name" required placeholder="Prénom et nom" />
                     </div>
                     <div className="field">
-                      <label>Structure</label>
-                      <input name="structure" required placeholder="Lycée, MJC, association…" />
+                      <label htmlFor="f-structure">Structure</label>
+                      <input id="f-structure" name="structure" required placeholder="Lycée, MJC, association…" />
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="field">
-                      <label>Email</label>
-                      <input name="email" required type="email" placeholder="vous@exemple.fr" />
+                      <label htmlFor="f-email">Email</label>
+                      <input id="f-email" name="email" required type="email" placeholder="vous@exemple.fr" />
                     </div>
                     <div className="field">
-                      <label>Téléphone</label>
-                      <input name="phone" placeholder="06…" />
+                      <label htmlFor="f-telephone">Téléphone</label>
+                      <input id="f-telephone" name="phone" placeholder="06…" />
                     </div>
                   </div>
 
@@ -145,18 +145,18 @@
 
                   <div className="form-row">
                     <div className="field">
-                      <label>Date envisagée</label>
-                      <input name="date" type="text" placeholder="Mois / saison / fenêtre" />
+                      <label htmlFor="f-date">Date envisagée</label>
+                      <input id="f-date" name="date" type="text" placeholder="Mois / saison / fenêtre" />
                     </div>
                     <div className="field">
-                      <label>Lieu</label>
-                      <input name="lieu" type="text" placeholder="Ville, département" />
+                      <label htmlFor="f-lieu">Lieu</label>
+                      <input id="f-lieu" name="lieu" type="text" placeholder="Ville, département" />
                     </div>
                   </div>
 
                   <div className="field">
-                    <label>Contexte & objectifs</label>
-                    <textarea name="message" placeholder="Public, taille du groupe, attentes pédagogiques, contraintes…"></textarea>
+                    <label htmlFor="f-contexte">Contexte & objectifs</label>
+                    <textarea id="f-contexte" name="message" placeholder="Public, taille du groupe, attentes pédagogiques, contraintes…"></textarea>
                   </div>
 
                   <div>
