@@ -18,6 +18,9 @@
                 <p className="h-serif" style={{ maxWidth: "26ch" }}>
                   <em>Consultant indépendant, formateur en éducation populaire, conférencier gesticulant.</em>
                 </p>
+                <p style={{ maxWidth: "34ch", marginTop: 16 }}>
+                  Pascal Antonio est le nom de scène de <strong>Pascal Jeanne</strong>.
+                </p>
               </div>
               <div style={{ aspectRatio: "3/4", border: "1.5px solid var(--ink)", overflow: "hidden" }}>
                 <img src="assets/pourquoi-antonio.webp" style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="Portrait de Pascal Antonio"/>

@@ -35,7 +35,12 @@ function BioPage() {
     style: {
       maxWidth: "26ch"
     }
-  }, /*#__PURE__*/React.createElement("em", null, "Consultant indépendant, formateur en éducation populaire, conférencier gesticulant."))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("em", null, "Consultant indépendant, formateur en éducation populaire, conférencier gesticulant.")), /*#__PURE__*/React.createElement("p", {
+    style: {
+      maxWidth: "34ch",
+      marginTop: 16
+    }
+  }, "Pascal Antonio est le nom de scène de ", /*#__PURE__*/React.createElement("strong", null, "Pascal Jeanne"), ".")), /*#__PURE__*/React.createElement("div", {
     style: {
       aspectRatio: "3/4",
       border: "1.5px solid var(--ink)",
