@@ -84,4 +84,14 @@ function MentionsPage() {
     title: "Responsabilité"
   }, /*#__PURE__*/React.createElement("p", null, "Les informations diffusées sur ce site sont fournies à titre indicatif et peuvent être modifiées à tout moment. L'éditeur s'efforce d'en assurer l'exactitude mais ne saurait être tenu responsable des erreurs, omissions ou de l'indisponibilité du site."), /*#__PURE__*/React.createElement("p", null, "Le site peut contenir des liens vers des sites externes dont le contenu n'engage pas la responsabilité de l'éditeur."))), /*#__PURE__*/React.createElement(SiteFooter, null));
 }
-ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(MentionsPage, null));
+
+// Deux modes. Sous Node, au moment du pré-rendu (scripts/prerendu.mjs), il n'y a
+// pas de document : on se contente d'exposer le composant. Dans le navigateur, on
+// hydrate le HTML déjà rendu s'il existe, sinon on monte normalement — ce repli
+// garde la page fonctionnelle même si le pré-rendu n'a pas été lancé.
+if (typeof document === "undefined") {
+  globalThis.__COMPOSANT__ = MentionsPage;
+} else {
+  const racine = document.getElementById("root");
+  if (racine.firstChild) ReactDOM.hydrateRoot(racine, /*#__PURE__*/React.createElement(MentionsPage, null));else ReactDOM.createRoot(racine).render(/*#__PURE__*/React.createElement(MentionsPage, null));
+}
