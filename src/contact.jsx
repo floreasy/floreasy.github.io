@@ -188,4 +188,14 @@
       );
     }
 
-    ReactDOM.createRoot(document.getElementById("root")).render(<ContactPage />);
+    // Deux modes. Sous Node, au moment du pré-rendu (scripts/prerendu.mjs), il n'y a
+    // pas de document : on se contente d'exposer le composant. Dans le navigateur, on
+    // hydrate le HTML déjà rendu s'il existe, sinon on monte normalement — ce repli
+    // garde la page fonctionnelle même si le pré-rendu n'a pas été lancé.
+    if (typeof document === "undefined") {
+      globalThis.__COMPOSANT__ = ContactPage;
+    } else {
+      const racine = document.getElementById("root");
+      if (racine.firstChild) ReactDOM.hydrateRoot(racine, <ContactPage />);
+      else ReactDOM.createRoot(racine).render(<ContactPage />);
+    }

@@ -407,4 +407,14 @@ function ConfPage() {
     }
   }, "Son parcours éclectique la mène du spectacle de rue à la mise en espace de groupes musicaux, en passant par ", /*#__PURE__*/React.createElement("strong", null, "l'accompagnement scénique de projets en éducation populaire"), "."), /*#__PURE__*/React.createElement("p", null, "Partout, elle place au cœur de son travail l'importance du propos à défendre, animée par le désir de créer des expériences artistiques à la fois sensibles et engagées.")))), /*#__PURE__*/React.createElement(SiteFooter, null));
 }
-ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(ConfPage, null));
+
+// Deux modes. Sous Node, au moment du pré-rendu (scripts/prerendu.mjs), il n'y a
+// pas de document : on se contente d'exposer le composant. Dans le navigateur, on
+// hydrate le HTML déjà rendu s'il existe, sinon on monte normalement — ce repli
+// garde la page fonctionnelle même si le pré-rendu n'a pas été lancé.
+if (typeof document === "undefined") {
+  globalThis.__COMPOSANT__ = ConfPage;
+} else {
+  const racine = document.getElementById("root");
+  if (racine.firstChild) ReactDOM.hydrateRoot(racine, /*#__PURE__*/React.createElement(ConfPage, null));else ReactDOM.createRoot(racine).render(/*#__PURE__*/React.createElement(ConfPage, null));
+}
