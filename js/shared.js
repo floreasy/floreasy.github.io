@@ -72,7 +72,8 @@ function SiteHeader({
     onClick: () => setOpen(o => !o)
   }, /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null))), /*#__PURE__*/React.createElement("nav", {
     className: `mobile-nav${open ? " open" : ""}`,
-    "aria-hidden": !open
+    "aria-hidden": !open,
+    inert: open ? undefined : ""
   }, /*#__PURE__*/React.createElement("ul", null, NAV.filter(n => n.key !== "faq").map(n => /*#__PURE__*/React.createElement("li", {
     key: n.key
   }, /*#__PURE__*/React.createElement("a", {

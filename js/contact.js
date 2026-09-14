@@ -157,13 +157,19 @@ function ContactPage() {
     className: "form-row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Votre nom"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "f-nom"
+  }, "Votre nom"), /*#__PURE__*/React.createElement("input", {
+    id: "f-nom",
     name: "name",
     required: true,
     placeholder: "Prénom et nom"
   })), /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Structure"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "f-structure"
+  }, "Structure"), /*#__PURE__*/React.createElement("input", {
+    id: "f-structure",
     name: "structure",
     required: true,
     placeholder: "Lycée, MJC, association…"
@@ -171,14 +177,20 @@ function ContactPage() {
     className: "form-row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Email"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "f-email"
+  }, "Email"), /*#__PURE__*/React.createElement("input", {
+    id: "f-email",
     name: "email",
     required: true,
     type: "email",
     placeholder: "vous@exemple.fr"
   })), /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Téléphone"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "f-telephone"
+  }, "Téléphone"), /*#__PURE__*/React.createElement("input", {
+    id: "f-telephone",
     name: "phone",
     placeholder: "06…"
   }))), /*#__PURE__*/React.createElement("div", {
@@ -253,19 +265,28 @@ function ContactPage() {
     className: "form-row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Date envisagée"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "f-date"
+  }, "Date envisagée"), /*#__PURE__*/React.createElement("input", {
+    id: "f-date",
     name: "date",
     type: "text",
     placeholder: "Mois / saison / fenêtre"
   })), /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Lieu"), /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "f-lieu"
+  }, "Lieu"), /*#__PURE__*/React.createElement("input", {
+    id: "f-lieu",
     name: "lieu",
     type: "text",
     placeholder: "Ville, département"
   }))), /*#__PURE__*/React.createElement("div", {
     className: "field"
-  }, /*#__PURE__*/React.createElement("label", null, "Contexte & objectifs"), /*#__PURE__*/React.createElement("textarea", {
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "f-contexte"
+  }, "Contexte & objectifs"), /*#__PURE__*/React.createElement("textarea", {
+    id: "f-contexte",
     name: "message",
     placeholder: "Public, taille du groupe, attentes pédagogiques, contraintes…"
   })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
