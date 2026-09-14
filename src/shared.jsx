@@ -47,7 +47,9 @@ function SiteHeader({ active }) {
           <span></span><span></span><span></span>
         </button>
       </header>
-      <nav className={`mobile-nav${open ? " open" : ""}`} aria-hidden={!open}>
+      {/* inert vide plutôt que booléen : React 18 supprime les attributs inconnus
+          à valeur booléenne, donc inert={!open} ne rendrait rien du tout. */}
+      <nav className={`mobile-nav${open ? " open" : ""}`} aria-hidden={!open} inert={open ? undefined : ""}>
         <ul>
           {NAV.filter(n => n.key !== "faq").map(n => (
             <li key={n.key}>
