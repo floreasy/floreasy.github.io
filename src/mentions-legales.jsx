@@ -35,8 +35,8 @@
 
             <Block title="Éditeur du site">
               <p>
-                Le site <strong>pascalantonio.fr</strong> est édité par <strong>Pascal Antonio</strong>,
-                conférencier et formateur, entrepreneur-salarié au sein de la coopérative d'activité et d'emploi
+                Le site <strong>pascalantonio.fr</strong> est édité par <strong>Pascal Jeanne</strong>,
+                conférencier et formateur sous le nom de scène <strong>Pascal Antonio</strong>, entrepreneur-salarié au sein de la coopérative d'activité et d'emploi
                 <strong> Coopérative Mosaïque</strong>.
               </p>
               <p>
@@ -49,7 +49,7 @@
                 Courriel : <a href="mailto:contact@pascalantonio.fr">contact@pascalantonio.fr</a>
               </p>
               <p>
-                <strong>Responsable de la publication :</strong> Pascal Antonio.
+                <strong>Responsable de la publication :</strong> Pascal Jeanne, dit Pascal Antonio.
               </p>
             </Block>
 
