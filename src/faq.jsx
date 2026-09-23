@@ -62,11 +62,11 @@
           },
           {
             q: "Combien de temps dure une conférence gesticulée ?",
-            plain: "1h pour une conférence seule, 2h à 4h si elle est combinée avec un ou plusieurs ateliers, ou sur mesure selon vos besoins.",
+            plain: "1h05 pour une conférence seule, 2h à 4h si elle est combinée avec un ou plusieurs ateliers, ou sur mesure selon vos besoins.",
             a: (
               <div className="inner">
                 <ul>
-                  <li><strong>1h</strong> : format standard pour une conférence seule.</li>
+                  <li><strong>1h05</strong> : format standard pour une conférence seule.</li>
                   <li><strong>2h à 4h</strong> : si elle est combinée avec un ou plusieurs ateliers (débat, exercices pratiques).</li>
                   <li><strong>Sur mesure</strong> : j'adapte la durée en fonction de vos besoins et contraintes.</li>
                 </ul>
@@ -84,7 +84,7 @@
                   <li><strong>Jeunes adultes (18–30 ans)</strong> : approche dynamique et interactive (universités, MJC).</li>
                   <li><strong>Publics scolaires</strong> : des interventions pédagogiques et ludiques, avec des méthodes d'animation participatives pour capter l'attention.</li>
                 </ul>
-                <div className="faq-tip">Exemple : animation « Les stéréotypes de genre au quotidien » pour les lycées.</div>
+                <div className="faq-tip">Exemple : l'atelier « Déconstruire les stéréotypes de genre » après la conférence, pour les lycées.</div>
               </div>
             ),
           },
@@ -95,7 +95,7 @@
         items: [
           {
             q: "Quelle est la différence entre une conférence et un atelier ?",
-            plain: "La conférence (spectacle + débat, 1h, grand groupe, à partir de 800 €) sensibilise et informe. L'atelier (participatif, 2h à 1 journée, groupe réduit, à partir de 1 200 €) permet d'approfondir et d'agir avec des outils concrets.",
+            plain: "La conférence (spectacle + débat, 1h05, grand groupe, à partir de 800 €) sensibilise et informe. L'atelier (participatif, 2h à 1 journée, groupe réduit, à partir de 1 200 €) permet d'approfondir et d'agir avec des outils concrets.",
             a: (
               <div className="inner">
                 <div className="faq-table-wrap">
@@ -103,7 +103,7 @@
                     <thead><tr><th>Critère</th><th>Conférence gesticulée</th><th>Atelier</th></tr></thead>
                     <tbody>
                       <tr><td><strong>Format</strong></td><td>Spectacle + débat</td><td>Participatif (exercices, jeux de rôle, discussions)</td></tr>
-                      <tr><td><strong>Durée</strong></td><td>1h</td><td>2h – 1 journée</td></tr>
+                      <tr><td><strong>Durée</strong></td><td>1h05</td><td>2h – 1 journée</td></tr>
                       <tr><td><strong>Public</strong></td><td>Grand groupe (50+)</td><td>Groupe réduit (10–40)</td></tr>
                       <tr><td><strong>Objectif</strong></td><td>Sensibiliser et informer</td><td>Approfondir et agir (outils concrets)</td></tr>
                       <tr><td><strong>Prix</strong></td><td>À partir de 800 €</td><td>À partir de 1 200 € (selon la durée)</td></tr>
@@ -121,18 +121,17 @@
           },
           {
             q: "Quels ateliers proposez-vous ?",
-            plain: "Mes ateliers phares : « Déconstruire les stéréotypes de genre » (écoles/assos, 1h), « Masculinité et leadership » (entreprises, 1h), « Patriarcat : comprendre pour agir » (grand public, 1h) et « L'intersectionnalité » (entreprises/lycées, 1h).",
+            plain: "Trois ateliers d'1h, qui complètent la conférence : « Déconstruire les stéréotypes de genre » (questionner nos représentations et agir concrètement), « Diversité et inclusion » (comprendre nos privilèges pour mieux agir) et « Agir pour l’égalité » (un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion).",
             a: (
               <div className="inner">
-                <p>Voici mes ateliers phares (tous adaptables à vos besoins) :</p>
+                <p>Trois ateliers, qui complètent la conférence (un, deux ou les trois, selon vos objectifs) :</p>
                 <div className="faq-table-wrap">
                   <table className="faq-table">
-                    <thead><tr><th>Atelier</th><th>Public cible</th><th>Durée</th><th>Objectifs</th></tr></thead>
+                    <thead><tr><th>Atelier</th><th>Durée</th><th>Participants</th><th>Objectif</th></tr></thead>
                     <tbody>
-                      <tr><td>« Déconstruire les stéréotypes de genre »</td><td>Écoles, associations</td><td>1h</td><td>Identifier et démonter les clichés sur les hommes et les femmes.</td></tr>
-                      <tr><td>« Masculinité et leadership »</td><td>Entreprises, managers</td><td>1h</td><td>Explorer une masculinité inclusive au travail.</td></tr>
-                      <tr><td>« Patriarcat : comprendre pour agir »</td><td>Grand public</td><td>1h</td><td>Analyser les mécanismes du patriarcat et imaginer des alternatives.</td></tr>
-                      <tr><td>« L'intersectionnalité »</td><td>Entreprises, lycées</td><td>1h</td><td>Sensibiliser aux enjeux de l'intersectionnalité dans la société.</td></tr>
+                      <tr><td>« Déconstruire les stéréotypes de genre »</td><td>1h</td><td>10 à 40</td><td>Questionner nos représentations et agir concrètement.</td></tr>
+                      <tr><td>« Diversité et inclusion »</td><td>1h</td><td>10 à 20</td><td>Comprendre nos privilèges pour mieux agir.</td></tr>
+                      <tr><td>« Agir pour l’égalité »</td><td>1h</td><td>10 à 40</td><td>Un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion.</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -152,20 +151,20 @@
                   <li>Répondre aux obligations légales (ex. : Index égalité femmes-hommes).</li>
                   <li>Former les manager·euses à une communication non sexiste.</li>
                 </ul>
-                <p>Exemples : « Masculinité et management : comment éviter les biais de genre ? » et « Égalité au travail : outils pour une culture d'entreprise inclusive ».</p>
+                <p>Les ateliers « Diversité et inclusion » et « Agir pour l’égalité » s'y prêtent particulièrement : le second s'adapte à vos sujets (égalité professionnelle, sexisme, discriminations…) et dégage des pistes d'action pour votre structure.</p>
                 <p><a className="inline" href="contact">Demander un devis →</a></p>
               </div>
             ),
           },
           {
             q: "Peut-on combiner une conférence et un atelier ?",
-            plain: "Oui, c'est l'option la plus populaire : par exemple une conférence d'1h pour sensibiliser tout le groupe, suivie d'un atelier participatif d'1h pour approfondir en sous-groupe. Impact renforcé et grande flexibilité.",
+            plain: "Oui, c'est l'option la plus populaire : par exemple une conférence d'1h05 pour sensibiliser tout le groupe, suivie d'un atelier participatif d'1h pour approfondir en sous-groupe. Impact renforcé et grande flexibilité.",
             a: (
               <div className="inner">
                 <p>Tout à fait ! C'est même l'option la plus populaire. Exemple de combo :</p>
                 <ol>
-                  <li><strong>Conférence gesticulée (1h)</strong> : « L'imposture du mâle alpha » pour sensibiliser tout le groupe.</li>
-                  <li><strong>Atelier participatif (1h)</strong> : « Déconstruire les stéréotypes en équipe » pour approfondir avec un sous-groupe.</li>
+                  <li><strong>Conférence gesticulée (1h05)</strong> : « L'imposture du mâle alpha » pour sensibiliser tout le groupe.</li>
+                  <li><strong>Atelier participatif (1h)</strong> : « Déconstruire les stéréotypes de genre » pour approfondir avec un sous-groupe.</li>
                 </ol>
                 <ul>
                   <li><strong>Impact renforcé</strong> : la conférence inspire, l'atelier ancre les apprentissages.</li>
