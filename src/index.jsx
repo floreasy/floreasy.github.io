@@ -79,9 +79,9 @@
             </p>
             <nav className="toc">
               {[
-                { n: "01", l: "On libère la parole", h: "ateliers.html#atelier-1" },
-                { n: "02", l: "Radar intersectionnel", h: "ateliers.html#atelier-2" },
-                { n: "03", l: "On passe à l'action", h: "ateliers.html#atelier-3" },
+                { n: "01", l: "Déconstruire les stéréotypes de genre", h: "ateliers.html#atelier-1" },
+                { n: "02", l: "Diversité et inclusion", h: "ateliers.html#atelier-2" },
+                { n: "03", l: "Agir pour l’égalité", h: "ateliers.html#atelier-3" },
               ].map(it => (
                 <a key={it.n} href={it.h}>
                   <span className="num">{it.n}</span>

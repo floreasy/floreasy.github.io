@@ -2,24 +2,22 @@ const ATELIERS = [{
   id: "atelier-1",
   n: "01",
   photo: "assets/atelier-1.webp",
-  title: "On libère\nla parole",
-  objective: "Permettre au public de s'exprimer en groupe sur le thème de l'égalité femme-homme",
+  title: "Déconstruire\nles stéréotypes\nde genre",
+  objective: "Questionner nos représentations et agir concrètement",
   time: "1h",
   people: "10 à 40 personnes",
-  material: "3 pancartes · feuilles A5 · stylos · marqueurs · feuilles de brouillon",
   bg: "var(--paper)",
-  body: ["Cet atelier se déroule en deux phases. La première phase consiste à poser des questions en groupes de 2 ou 3 afin de recueillir des expériences à partir d'un témoignage oral. L'interview se déroule en deux temps : une première partie de 5 minutes où l'interviewé répond à une question pendant que l'intervieweur prend des notes sans l'interrompre ; une seconde partie de 5 minutes où l'intervieweur revient sur ses notes et pose des questions. Les rôles tournent ensuite afin que chaque participant puisse être interviewé.", "La deuxième phase est un débat structuré permettant à chacun de s'exprimer selon des règles précises. Les participants se tiennent debout au centre de l'espace de débat. L'animateur propose une affirmation et invite les participants à se positionner d'un côté ou de l'autre, soit « d'accord », soit « pas d'accord ». Il n'est pas nécessaire de formuler sa réponse oralement ni de se justifier ; chacun se place selon ses convictions. Le but est d'essayer de faire changer d'avis les participants en avançant des arguments convaincants. L'objectif est de permettre au groupe d'évaluer leurs opinions sur des sujets parfois clivants à un moment donné. L'idée est de capturer une photographie des différents points de vue exprimés au sein du groupe. Le but n'est pas d'atteindre un consensus, mais de permettre l'expression et la reconnaissance des divers avis et positionnements."]
+  body: ["En partant des représentations que nous portons tous·tes – souvent sans en avoir conscience – sur les rôles des hommes et des femmes à la maison, dans l’espace public ou au travail, cet atelier propose de :", ["Mettre des mots sur nos clichés (quels stéréotypes nous traversent ?) ;", "Les analyser collectivement (d’où viennent-ils ? quels impacts ont-ils ?) ;", "Construire une boussole commune pour y répondre de manière pragmatique et efficace."]]
 }, {
   id: "atelier-2",
   n: "02",
   photo: "assets/atelier-2.webp",
-  title: "Radar\nintersectionnel",
-  objective: "Faire réfléchir le public sur leurs postures de dominé·es et de dominant·es",
+  title: "Diversité\net inclusion",
+  objective: "Comprendre nos privilèges pour mieux agir",
   time: "1h",
   people: "10 à 20 personnes",
-  material: "1 pancarte · feuilles A5 · stylos · marqueurs · feuilles de brouillon",
   bg: "var(--paper)",
-  body: ["Cet atelier, qui se déroule en deux phases, a pour objectif principal de rendre l'intersectionnalité accessible. Lors de la première phase, les participants partagent des anecdotes personnelles autour des thèmes suivants : identité de genre, origine géographique, orientation sexuelle, origine sociale et couleur de peau. L'animateur propose des histoires à raconter et invite les participants à en choisir une (ou deux, selon le temps disponible). Ils commencent par un moment de réflexion personnelle pour sélectionner leur histoire et réfléchir aux principaux éléments qu'ils souhaitent partager.", "La deuxième phase invite chaque participant à se positionner sur une cible, expliquant en quoi ils se considèrent comme dominé·es ou dominant·es."],
+  body: ["Chaque personne se définit et est définie par les autres à travers une multitude d’attributs : son genre, sa couleur de peau, son travail, son logement, son poids…", "Mais ces attributs, sont-ils un atout ou un obstacle dans notre société ?", "Un atelier qui propose de se positionner sur un radar intersectionnel en expliquant en quoi on se considère comme dominé·es ou dominant·es, et qui bouscule nos certitudes :", ["Que faire quand on se retrouve dans la position de la personne dominée ?", "Comment agir quand on réalise qu’on incarne, sans toujours en avoir conscience, une position de privilège ?", "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?"]],
   sidenote: {
     title: "L'intersectionnalité",
     text: "La société est structurée autour de divers rapports sociaux, tels que celui où le groupe des « riches » domine celui des « pauvres ». L'intersectionnalité combine plusieurs de ces rapports sociaux, ce qui rend les dynamiques de domination plus complexes. Une personne peut se retrouver dans une position de dominé ou de dominant selon le contexte social."
@@ -28,13 +26,12 @@ const ATELIERS = [{
   id: "atelier-3",
   n: "03",
   photo: "assets/atelier-3.webp",
-  title: "On passe\nà l'action",
-  objective: "Permettre aux participant·es de trouver une action concrète réalisable",
+  title: "Agir pour\nl’égalité",
+  objective: "Un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion",
   time: "1h",
   people: "10 à 40 personnes",
-  material: "Feuilles A5 et A4 · marqueurs · stylos · post-it · gommettes · feuilles de brouillon",
   bg: "var(--paper)",
-  body: ["Grâce à une animation d'intelligence collective, le groupe est encouragé à identifier ensemble des actions à intégrer dans leur vie personnelle pour déconstruire le modèle patriarcal et contribuer à l'égalité entre les femmes et les hommes.", "Que ce soit dans le domaine de l'égalité professionnelle, des relations affectives et sexuelles, ou de la répartition de la charge mentale, cet atelier se veut pragmatique. Il incite les participants à élaborer des actions en fonction de leurs réflexions, de leurs ressources et du temps dont ils disposent."]
+  body: ["Un espace de dialogue et d’action pour aborder tous les enjeux de diversité : égalité professionnelle, inclusion, sexisme, masculinisme, discrimination…", "Les questions d’égalité, d’inclusion et de lutte contre les discriminations sont complexes, interconnectées et souvent invisibles. Comment les aborder de manière globale ? Comment sensibiliser, mobiliser et agir pour faire évoluer les mentalités et les pratiques ?", "Cet atelier propose une méthode d’animation flexible, permettant d’explorer un ou plusieurs sujets selon vos besoins, tout en dégageant des pistes d’action concrètes pour votre structure (entreprise, association, collectivité)."]
 }];
 function AtelierBlock({
   a
@@ -109,16 +106,16 @@ function AtelierBlock({
     className: "atelier-stats",
     style: {
       display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: "repeat(2, 1fr)",
       gap: 0,
       border: `1.5px solid ${dark ? "var(--paper)" : "var(--ink)"}`,
       marginBottom: 40
     }
-  }, [["Durée", a.time], ["Participants", a.people], ["Matériel", a.material]].map(([k, v], i) => /*#__PURE__*/React.createElement("div", {
+  }, [["Durée", a.time], ["Participants", a.people]].map(([k, v], i) => /*#__PURE__*/React.createElement("div", {
     key: k,
     style: {
       padding: "20px 18px",
-      borderRight: i < 2 ? `1.5px solid ${dark ? "var(--paper)" : "var(--ink)"}` : "none"
+      borderRight: i < 1 ? `1.5px solid ${dark ? "var(--paper)" : "var(--ink)"}` : "none"
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow",
@@ -142,7 +139,18 @@ function AtelierBlock({
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "body-l"
-  }, a.body.map((p, i) => /*#__PURE__*/React.createElement("p", {
+  }, a.body.map((p, i) => Array.isArray(p) ? /*#__PURE__*/React.createElement("ul", {
+    key: i,
+    style: {
+      marginBottom: 18,
+      paddingLeft: "1.2em"
+    }
+  }, p.map((li, j) => /*#__PURE__*/React.createElement("li", {
+    key: j,
+    style: {
+      marginBottom: 8
+    }
+  }, li))) : /*#__PURE__*/React.createElement("p", {
     key: i,
     style: {
       marginBottom: 18
@@ -212,7 +220,17 @@ function AteliersPage() {
       marginTop: 32,
       maxWidth: "30ch"
     }
-  }, "Considérée comme la première étape d'une démarche, \"L'imposture du mâle-alpha\" peut être complétée par ", /*#__PURE__*/React.createElement("em", null, "un, deux, ou trois ateliers"), " — selon les objectifs pédagogiques."))), ATELIERS.map(a => /*#__PURE__*/React.createElement(AtelierBlock, {
+  }, "Considérée comme la première étape d'une démarche, \"L'imposture du mâle-alpha\" peut être complétée par ", /*#__PURE__*/React.createElement("em", null, "un, deux, ou trois ateliers"), " — selon les objectifs pédagogiques."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: "52ch",
+      marginTop: 24
+    }
+  }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Pour qui ?")), /*#__PURE__*/React.createElement("ul", {
+    style: {
+      marginTop: 8,
+      paddingLeft: "1.2em"
+    }
+  }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Entreprises"), " : Pour sensibiliser vos équipes et favoriser l’égalité professionnelle ;"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Associations et collectifs"), " : Pour renforcer la cohésion et l’inclusion ;"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Grand public"), " : Pour comprendre et agir au quotidien."))))), ATELIERS.map(a => /*#__PURE__*/React.createElement(AtelierBlock, {
     key: a.id,
     a: a
   })), /*#__PURE__*/React.createElement("section", {
