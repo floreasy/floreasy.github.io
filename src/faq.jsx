@@ -62,12 +62,12 @@
           },
           {
             q: "Combien de temps dure une conférence gesticulée ?",
-            plain: "1h05 pour une conférence seule, 2h à 4h si elle est combinée avec un ou plusieurs ateliers, ou sur mesure selon vos besoins.",
+            plain: "1h05 pour une conférence seule, de 2h à une journée si elle est combinée avec un ou plusieurs ateliers, ou sur mesure selon vos besoins.",
             a: (
               <div className="inner">
                 <ul>
                   <li><strong>1h05</strong> : format standard pour une conférence seule.</li>
-                  <li><strong>2h à 4h</strong> : si elle est combinée avec un ou plusieurs ateliers (débat, exercices pratiques).</li>
+                  <li><strong>De 2h à une journée</strong> : si elle est combinée avec un ou plusieurs ateliers (débat, exercices pratiques).</li>
                   <li><strong>Sur mesure</strong> : j'adapte la durée en fonction de vos besoins et contraintes.</li>
                 </ul>
               </div>
@@ -106,7 +106,7 @@
                       <tr><td><strong>Durée</strong></td><td>1h05</td><td>1 à 2h (possibilité d'en faire plusieurs dans une journée)</td></tr>
                       <tr><td><strong>Public</strong></td><td>Grand groupe (50+)</td><td>Groupe réduit (10–40)</td></tr>
                       <tr><td><strong>Objectif</strong></td><td>Sensibiliser et informer</td><td>Approfondir et agir (outils concrets)</td></tr>
-                      <tr><td><strong>Prix</strong></td><td>À partir de 800 €</td><td>À partir de 500 € HT</td></tr>
+                      <tr><td><strong>Prix</strong></td><td>À partir de 800 € HT</td><td>À partir de 500 € HT</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -217,7 +217,7 @@
           },
           {
             q: "Quels sont vos tarifs pour les conférences et ateliers ?",
-            plain: "Fourchettes indicatives HT (hors déplacement) : conférence 800–1 500 €, atelier à partir de 500 €, conférence + atelier 1 800–2 500 €, formation entreprise 2 500–4 000 €, cycle de 3 ateliers 3 000–5 000 €. Tarifs dégressifs et adaptation petit budget possibles.",
+            plain: "Fourchettes indicatives HT (hors déplacement) : conférence 800–1 500 €, atelier à partir de 500 €, conférence + atelier à partir de 1 300 €, formation entreprise 2 500–4 000 €, cycle de 3 ateliers à partir de 1 500 €. Tarifs dégressifs et adaptation petit budget possibles.",
             a: (
               <div className="inner">
                 <p>Mes tarifs sont transparents et adaptables selon votre budget et vos besoins. Voici une fourchette indicative (hors frais de déplacement) :</p>
@@ -226,10 +226,10 @@
                     <thead><tr><th>Prestation</th><th>Durée</th><th>Tarif (HT)</th><th>Public concerné</th></tr></thead>
                     <tbody>
                       <tr><td><strong>Conférence gesticulée</strong></td><td>1h05</td><td>800–1 500 €</td><td>Écoles, associations, entreprises</td></tr>
-                      <tr><td><strong>Atelier seul</strong></td><td>1 à 2h</td><td>À partir de 500 €</td><td>Groupes réduits (10–30 pers.)</td></tr>
-                      <tr><td><strong>Conférence + atelier</strong></td><td>2h / 3h / 4h</td><td>1 800–2 500 €</td><td>Pack complet</td></tr>
+                      <tr><td><strong>Atelier seul</strong></td><td>1 à 2h</td><td>À partir de 500 €</td><td>Groupes réduits (10–40 pers.)</td></tr>
+                      <tr><td><strong>Conférence + atelier</strong></td><td>De 2h à une journée</td><td>À partir de 1 300 €</td><td>Pack complet</td></tr>
                       <tr><td><strong>Formation entreprise</strong></td><td>1 journée</td><td>2 500–4 000 €</td><td>Équipes, managers</td></tr>
-                      <tr><td><strong>Cycle de 3 ateliers</strong></td><td>3 × 1 à 2h</td><td>3 000–5 000 €</td><td>Approfondissement</td></tr>
+                      <tr><td><strong>Cycle de 3 ateliers</strong></td><td>3 × 1 à 2h</td><td>À partir de 1 500 €</td><td>Approfondissement</td></tr>
                     </tbody>
                   </table>
                 </div>
