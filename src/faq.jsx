@@ -95,7 +95,7 @@
         items: [
           {
             q: "Quelle est la différence entre une conférence et un atelier ?",
-            plain: "La conférence (spectacle + débat, 1h05, grand groupe, à partir de 800 €) sensibilise et informe. L'atelier (participatif, 2h à 1 journée, groupe réduit, à partir de 1 200 €) permet d'approfondir et d'agir avec des outils concrets.",
+            plain: "La conférence (spectacle + débat, 1h05, grand groupe, à partir de 800 €) sensibilise et informe. L'atelier (participatif, 1 à 2h, plusieurs possibles dans une journée, groupe réduit, à partir de 500 € HT) permet d'approfondir et d'agir avec des outils concrets.",
             a: (
               <div className="inner">
                 <div className="faq-table-wrap">
@@ -103,10 +103,10 @@
                     <thead><tr><th>Critère</th><th>Conférence gesticulée</th><th>Atelier</th></tr></thead>
                     <tbody>
                       <tr><td><strong>Format</strong></td><td>Spectacle + débat</td><td>Participatif (exercices, jeux de rôle, discussions)</td></tr>
-                      <tr><td><strong>Durée</strong></td><td>1h05</td><td>2h – 1 journée</td></tr>
+                      <tr><td><strong>Durée</strong></td><td>1h05</td><td>1 à 2h (possibilité d'en faire plusieurs dans une journée)</td></tr>
                       <tr><td><strong>Public</strong></td><td>Grand groupe (50+)</td><td>Groupe réduit (10–40)</td></tr>
                       <tr><td><strong>Objectif</strong></td><td>Sensibiliser et informer</td><td>Approfondir et agir (outils concrets)</td></tr>
-                      <tr><td><strong>Prix</strong></td><td>À partir de 800 €</td><td>À partir de 1 200 € (selon la durée)</td></tr>
+                      <tr><td><strong>Prix</strong></td><td>À partir de 800 €</td><td>À partir de 500 € HT</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -217,7 +217,7 @@
           },
           {
             q: "Quels sont vos tarifs pour les conférences et ateliers ?",
-            plain: "Fourchettes indicatives HT (hors déplacement) : conférence 800–1 500 €, atelier 1 200–2 000 €, conférence + atelier 1 800–2 500 €, formation entreprise 2 500–4 000 €, cycle de 3 ateliers 3 000–5 000 €. Tarifs dégressifs et adaptation petit budget possibles.",
+            plain: "Fourchettes indicatives HT (hors déplacement) : conférence 800–1 500 €, atelier à partir de 500 €, conférence + atelier 1 800–2 500 €, formation entreprise 2 500–4 000 €, cycle de 3 ateliers 3 000–5 000 €. Tarifs dégressifs et adaptation petit budget possibles.",
             a: (
               <div className="inner">
                 <p>Mes tarifs sont transparents et adaptables selon votre budget et vos besoins. Voici une fourchette indicative (hors frais de déplacement) :</p>
@@ -226,7 +226,7 @@
                     <thead><tr><th>Prestation</th><th>Durée</th><th>Tarif (HT)</th><th>Public concerné</th></tr></thead>
                     <tbody>
                       <tr><td><strong>Conférence gesticulée</strong></td><td>1h05</td><td>800–1 500 €</td><td>Écoles, associations, entreprises</td></tr>
-                      <tr><td><strong>Atelier seul</strong></td><td>1 à 2h</td><td>1 200–2 000 €</td><td>Groupes réduits (10–30 pers.)</td></tr>
+                      <tr><td><strong>Atelier seul</strong></td><td>1 à 2h</td><td>À partir de 500 €</td><td>Groupes réduits (10–30 pers.)</td></tr>
                       <tr><td><strong>Conférence + atelier</strong></td><td>2h / 3h / 4h</td><td>1 800–2 500 €</td><td>Pack complet</td></tr>
                       <tr><td><strong>Formation entreprise</strong></td><td>1 journée</td><td>2 500–4 000 €</td><td>Équipes, managers</td></tr>
                       <tr><td><strong>Cycle de 3 ateliers</strong></td><td>3 × 1 à 2h</td><td>3 000–5 000 €</td><td>Approfondissement</td></tr>
