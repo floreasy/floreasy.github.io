@@ -121,7 +121,7 @@
           },
           {
             q: "Quels ateliers proposez-vous ?",
-            plain: "Trois ateliers d'1h, qui complètent la conférence : « Déconstruire les stéréotypes de genre » (questionner nos représentations et agir concrètement), « Diversité et inclusion » (comprendre nos privilèges pour mieux agir) et « Agir pour l’égalité » (un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion).",
+            plain: "Trois ateliers d'1 à 2h, qui complètent la conférence : « Déconstruire les stéréotypes de genre » (questionner nos représentations et agir concrètement), « Diversité et inclusion » (comprendre nos privilèges pour mieux agir) et « Agir pour l’égalité » (un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion).",
             a: (
               <div className="inner">
                 <p>Trois ateliers, qui complètent la conférence (un, deux ou les trois, selon vos objectifs) :</p>
@@ -129,9 +129,9 @@
                   <table className="faq-table">
                     <thead><tr><th>Atelier</th><th>Durée</th><th>Participants</th><th>Objectif</th></tr></thead>
                     <tbody>
-                      <tr><td>« Déconstruire les stéréotypes de genre »</td><td>1h</td><td>10 à 40</td><td>Questionner nos représentations et agir concrètement.</td></tr>
-                      <tr><td>« Diversité et inclusion »</td><td>1h</td><td>10 à 20</td><td>Comprendre nos privilèges pour mieux agir.</td></tr>
-                      <tr><td>« Agir pour l’égalité »</td><td>1h</td><td>10 à 40</td><td>Un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion.</td></tr>
+                      <tr><td>« Déconstruire les stéréotypes de genre »</td><td>1 à 2h</td><td>10 à 40</td><td>Questionner nos représentations et agir concrètement.</td></tr>
+                      <tr><td>« Diversité et inclusion »</td><td>1 à 2h</td><td>10 à 20</td><td>Comprendre nos privilèges pour mieux agir.</td></tr>
+                      <tr><td>« Agir pour l’égalité »</td><td>1 à 2h</td><td>10 à 40</td><td>Un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion.</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -158,13 +158,13 @@
           },
           {
             q: "Peut-on combiner une conférence et un atelier ?",
-            plain: "Oui, c'est l'option la plus populaire : par exemple une conférence d'1h05 pour sensibiliser tout le groupe, suivie d'un atelier participatif d'1h pour approfondir en sous-groupe. Impact renforcé et grande flexibilité.",
+            plain: "Oui, c'est l'option la plus populaire : par exemple une conférence d'1h05 pour sensibiliser tout le groupe, suivie d'un atelier participatif d'1 à 2h pour approfondir en sous-groupe. Impact renforcé et grande flexibilité.",
             a: (
               <div className="inner">
                 <p>Tout à fait ! C'est même l'option la plus populaire. Exemple de combo :</p>
                 <ol>
                   <li><strong>Conférence gesticulée (1h05)</strong> : « L'imposture du mâle alpha » pour sensibiliser tout le groupe.</li>
-                  <li><strong>Atelier participatif (1h)</strong> : « Déconstruire les stéréotypes de genre » pour approfondir avec un sous-groupe.</li>
+                  <li><strong>Atelier participatif (1 à 2h)</strong> : « Déconstruire les stéréotypes de genre » pour approfondir avec un sous-groupe.</li>
                 </ol>
                 <ul>
                   <li><strong>Impact renforcé</strong> : la conférence inspire, l'atelier ancre les apprentissages.</li>
@@ -225,11 +225,11 @@
                   <table className="faq-table">
                     <thead><tr><th>Prestation</th><th>Durée</th><th>Tarif (HT)</th><th>Public concerné</th></tr></thead>
                     <tbody>
-                      <tr><td><strong>Conférence gesticulée</strong></td><td>1h</td><td>800–1 500 €</td><td>Écoles, associations, entreprises</td></tr>
-                      <tr><td><strong>Atelier seul</strong></td><td>1h</td><td>1 200–2 000 €</td><td>Groupes réduits (10–30 pers.)</td></tr>
+                      <tr><td><strong>Conférence gesticulée</strong></td><td>1h05</td><td>800–1 500 €</td><td>Écoles, associations, entreprises</td></tr>
+                      <tr><td><strong>Atelier seul</strong></td><td>1 à 2h</td><td>1 200–2 000 €</td><td>Groupes réduits (10–30 pers.)</td></tr>
                       <tr><td><strong>Conférence + atelier</strong></td><td>2h / 3h / 4h</td><td>1 800–2 500 €</td><td>Pack complet</td></tr>
                       <tr><td><strong>Formation entreprise</strong></td><td>1 journée</td><td>2 500–4 000 €</td><td>Équipes, managers</td></tr>
-                      <tr><td><strong>Cycle de 3 ateliers</strong></td><td>3 × 1h</td><td>3 000–5 000 €</td><td>Approfondissement</td></tr>
+                      <tr><td><strong>Cycle de 3 ateliers</strong></td><td>3 × 1 à 2h</td><td>3 000–5 000 €</td><td>Approfondissement</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -240,7 +240,7 @@
           },
           {
             q: "Proposez-vous des tarifs pour les associations ou écoles à petit budget ?",
-            plain: "Oui : tarifs solidaires pour les structures à but non lucratif, aide à la recherche de subventions (Régions, Départements, État) et formats courts. Une conférence d'1h pour un collège peut démarrer à 500 €.",
+            plain: "Oui : tarifs solidaires pour les structures à but non lucratif, aide à la recherche de subventions (Régions, Départements, État) et formats courts. Une conférence d'1h05 pour un collège peut démarrer à 500 €.",
             a: (
               <div className="inner">
                 <p>Oui ! Je crois en l'accessibilité de mes interventions.</p>
@@ -249,7 +249,7 @@
                   <li><strong>Financements possibles</strong> : je peux vous aider à trouver des subventions (Régions, Départements, État).</li>
                   <li><strong>Formats courts</strong> : conférences ou ateliers réduits en durée (et donc en coût).</li>
                 </ul>
-                <div className="faq-tip">Exemple : une conférence d'1h pour un collège peut coûter à partir de 500 €.</div>
+                <div className="faq-tip">Exemple : une conférence d'1h05 pour un collège peut coûter à partir de 500 €.</div>
               </div>
             ),
           },

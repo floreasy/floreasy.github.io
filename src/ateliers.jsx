@@ -5,7 +5,7 @@
         photo: "assets/atelier-1.webp",
         title: "Déconstruire\nles stéréotypes\nde genre",
         objective: "Questionner nos représentations et agir concrètement",
-        time: "1h",
+        time: "1 à 2h",
         people: "10 à 40 personnes",
         bg: "var(--paper)",
         body: [
@@ -23,7 +23,7 @@
         photo: "assets/atelier-2.webp",
         title: "Diversité\net inclusion",
         objective: "Comprendre nos privilèges pour mieux agir",
-        time: "1h",
+        time: "1 à 2h",
         people: "10 à 20 personnes",
         bg: "var(--paper)",
         body: [
@@ -47,7 +47,7 @@
         photo: "assets/atelier-3.webp",
         title: "Agir pour\nl’égalité",
         objective: "Un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion",
-        time: "1h",
+        time: "1 à 2h",
         people: "10 à 40 personnes",
         bg: "var(--paper)",
         body: [

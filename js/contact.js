@@ -23,13 +23,13 @@ function ContactPage() {
     label: "Conférence gesticulée (1h05)"
   }, {
     k: "a1",
-    label: "+ Atelier · Déconstruire les stéréotypes de genre (1h)"
+    label: "+ Atelier · Déconstruire les stéréotypes de genre (1 à 2h)"
   }, {
     k: "a2",
-    label: "+ Atelier · Diversité et inclusion (1h)"
+    label: "+ Atelier · Diversité et inclusion (1 à 2h)"
   }, {
     k: "a3",
-    label: "+ Atelier · Agir pour l’égalité (1h)"
+    label: "+ Atelier · Agir pour l’égalité (1 à 2h)"
   }];
   const audiences = ["Scolaire", "Centre social / MJC", "Université", "Entreprise", "Collectivité", "Associations", "Caserne", "Prison", "Autre"];
   const onSubmit = async e => {
