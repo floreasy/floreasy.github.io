@@ -4,7 +4,7 @@ const ATELIERS = [{
   photo: "assets/atelier-1.webp",
   title: "Déconstruire\nles stéréotypes\nde genre",
   objective: "Questionner nos représentations et agir concrètement",
-  time: "1h",
+  time: "1 à 2h",
   people: "10 à 40 personnes",
   bg: "var(--paper)",
   body: ["En partant des représentations que nous portons tous·tes – souvent sans en avoir conscience – sur les rôles des hommes et des femmes à la maison, dans l’espace public ou au travail, cet atelier propose de :", ["Mettre des mots sur nos clichés (quels stéréotypes nous traversent ?) ;", "Les analyser collectivement (d’où viennent-ils ? quels impacts ont-ils ?) ;", "Construire une boussole commune pour y répondre de manière pragmatique et efficace."]]
@@ -14,7 +14,7 @@ const ATELIERS = [{
   photo: "assets/atelier-2.webp",
   title: "Diversité\net inclusion",
   objective: "Comprendre nos privilèges pour mieux agir",
-  time: "1h",
+  time: "1 à 2h",
   people: "10 à 20 personnes",
   bg: "var(--paper)",
   body: ["Chaque personne se définit et est définie par les autres à travers une multitude d’attributs : son genre, sa couleur de peau, son travail, son logement, son poids…", "Mais ces attributs, sont-ils un atout ou un obstacle dans notre société ?", "Un atelier qui propose de se positionner sur un radar intersectionnel en expliquant en quoi on se considère comme dominé·es ou dominant·es, et qui bouscule nos certitudes :", ["Que faire quand on se retrouve dans la position de la personne dominée ?", "Comment agir quand on réalise qu’on incarne, sans toujours en avoir conscience, une position de privilège ?", "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?"]],
@@ -28,7 +28,7 @@ const ATELIERS = [{
   photo: "assets/atelier-3.webp",
   title: "Agir pour\nl’égalité",
   objective: "Un atelier sur mesure pour déconstruire les inégalités et construire l’inclusion",
-  time: "1h",
+  time: "1 à 2h",
   people: "10 à 40 personnes",
   bg: "var(--paper)",
   body: ["Un espace de dialogue et d’action pour aborder tous les enjeux de diversité : égalité professionnelle, inclusion, sexisme, masculinisme, discrimination…", "Les questions d’égalité, d’inclusion et de lutte contre les discriminations sont complexes, interconnectées et souvent invisibles. Comment les aborder de manière globale ? Comment sensibiliser, mobiliser et agir pour faire évoluer les mentalités et les pratiques ?", "Cet atelier propose une méthode d’animation flexible, permettant d’explorer un ou plusieurs sujets selon vos besoins, tout en dégageant des pistes d’action concrètes pour votre structure (entreprise, association, collectivité)."]
