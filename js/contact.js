@@ -23,13 +23,13 @@ function ContactPage() {
     label: "Conférence gesticulée (1h05)"
   }, {
     k: "a1",
-    label: "+ Atelier · On libère la parole (1h)"
+    label: "+ Atelier · Déconstruire les stéréotypes de genre (1h)"
   }, {
     k: "a2",
-    label: "+ Atelier · Radar intersectionnel (1h)"
+    label: "+ Atelier · Diversité et inclusion (1h)"
   }, {
     k: "a3",
-    label: "+ Atelier · On passe à l'action (1h)"
+    label: "+ Atelier · Agir pour l’égalité (1h)"
   }];
   const audiences = ["Scolaire", "Centre social / MJC", "Université", "Entreprise", "Collectivité", "Associations", "Caserne", "Prison", "Autre"];
   const onSubmit = async e => {

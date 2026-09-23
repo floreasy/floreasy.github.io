@@ -130,15 +130,15 @@ function HomePage() {
     className: "toc"
   }, [{
     n: "01",
-    l: "On libère la parole",
+    l: "Déconstruire les stéréotypes de genre",
     h: "ateliers.html#atelier-1"
   }, {
     n: "02",
-    l: "Radar intersectionnel",
+    l: "Diversité et inclusion",
     h: "ateliers.html#atelier-2"
   }, {
     n: "03",
-    l: "On passe à l'action",
+    l: "Agir pour l’égalité",
     h: "ateliers.html#atelier-3"
   }].map(it => /*#__PURE__*/React.createElement("a", {
     key: it.n,
