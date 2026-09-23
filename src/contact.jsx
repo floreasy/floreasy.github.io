@@ -50,6 +50,8 @@
           });
           if (!res.ok) throw new Error("HTTP " + res.status);
           setSubmitted(true);
+          // Conversion GA4 : gtag n'existe qu'en ligne et après consentement (consent.js)
+          if (window.gtag) window.gtag("event", "generate_lead", { type_public: audience, formules: formuleLabels });
         } catch (err) {
           setError("L'envoi a échoué. Réessayez, ou écrivez directement à contact@pascalantonio.fr.");
         } finally {
