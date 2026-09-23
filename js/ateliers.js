@@ -7,7 +7,7 @@ const ATELIERS = [{
   time: "1h",
   people: "10 à 40 personnes",
   bg: "var(--paper)",
-  body: ["En partant des représentations que nous portons tous·tes – souvent sans en avoir conscience – sur les rôles des hommes et des femmes à la maison, dans l’espace public ou au travail, cet atelier propose de :", ["Mettre des mots sur nos clichés (quels stéréotypes nous traversent ?) ;", "Les analyser collectivement (d’où viennent-ils ? quels impacts ont-ils ?) ;", "Construire une boussole commune pour y répondre de manière pragmatique et efficace."]]
+  body: ["En partant des représentations que nous portons tous·tes – souvent sans en avoir conscience – sur les rôles des hommes et des femmes à la maison, dans l’espace public ou au travail, cet atelier propose de :", ["Mettre des mots sur nos clichés (quels stéréotypes nous traversent ?) ;", "Les analyser collectivement (d’où viennent-ils ? quels impacts ont-ils ?) ;", "Construire une boussole commune pour y répondre de manière pragmatique et efficace."]]
 }, {
   id: "atelier-2",
   n: "02",
@@ -17,7 +17,7 @@ const ATELIERS = [{
   time: "1h",
   people: "10 à 20 personnes",
   bg: "var(--paper)",
-  body: ["Chaque personne se définit et est définie par les autres à travers une multitude d’attributs : son genre, sa couleur de peau, son travail, son logement, son poids…", "Mais ces attributs, sont-ils un atout ou un obstacle dans notre société ?", "Un atelier qui propose de se positionner sur un radar intersectionnel en expliquant en quoi on se considère comme dominé·es ou dominant·es, et qui bouscule nos certitudes :", ["Que faire quand on se retrouve dans la position de la personne dominée ?", "Comment agir quand on réalise qu’on incarne, sans toujours en avoir conscience, une position de privilège ?", "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?"]],
+  body: ["Chaque personne se définit et est définie par les autres à travers une multitude d’attributs : son genre, sa couleur de peau, son travail, son logement, son poids…", "Mais ces attributs, sont-ils un atout ou un obstacle dans notre société ?", "Un atelier qui propose de se positionner sur un radar intersectionnel en expliquant en quoi on se considère comme dominé·es ou dominant·es, et qui bouscule nos certitudes :", ["Que faire quand on se retrouve dans la position de la personne dominée ?", "Comment agir quand on réalise qu’on incarne, sans toujours en avoir conscience, une position de privilège ?", "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?"]],
   sidenote: {
     title: "L'intersectionnalité",
     text: "La société est structurée autour de divers rapports sociaux, tels que celui où le groupe des « riches » domine celui des « pauvres ». L'intersectionnalité combine plusieurs de ces rapports sociaux, ce qui rend les dynamiques de domination plus complexes. Une personne peut se retrouver dans une position de dominé ou de dominant selon le contexte social."
@@ -31,7 +31,7 @@ const ATELIERS = [{
   time: "1h",
   people: "10 à 40 personnes",
   bg: "var(--paper)",
-  body: ["Un espace de dialogue et d’action pour aborder tous les enjeux de diversité : égalité professionnelle, inclusion, sexisme, masculinisme, discrimination…", "Les questions d’égalité, d’inclusion et de lutte contre les discriminations sont complexes, interconnectées et souvent invisibles. Comment les aborder de manière globale ? Comment sensibiliser, mobiliser et agir pour faire évoluer les mentalités et les pratiques ?", "Cet atelier propose une méthode d’animation flexible, permettant d’explorer un ou plusieurs sujets selon vos besoins, tout en dégageant des pistes d’action concrètes pour votre structure (entreprise, association, collectivité)."]
+  body: ["Un espace de dialogue et d’action pour aborder tous les enjeux de diversité : égalité professionnelle, inclusion, sexisme, masculinisme, discrimination…", "Les questions d’égalité, d’inclusion et de lutte contre les discriminations sont complexes, interconnectées et souvent invisibles. Comment les aborder de manière globale ? Comment sensibiliser, mobiliser et agir pour faire évoluer les mentalités et les pratiques ?", "Cet atelier propose une méthode d’animation flexible, permettant d’explorer un ou plusieurs sujets selon vos besoins, tout en dégageant des pistes d’action concrètes pour votre structure (entreprise, association, collectivité)."]
 }];
 function AtelierBlock({
   a
@@ -222,7 +222,7 @@ function AteliersPage() {
     }
   }, "Considérée comme la première étape d'une démarche, \"L'imposture du mâle-alpha\" peut être complétée par ", /*#__PURE__*/React.createElement("em", null, "un, deux, ou trois ateliers"), " — selon les objectifs pédagogiques."), /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: "52ch",
+      maxWidth: "72ch",
       marginTop: 24
     }
   }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "Pour qui ?")), /*#__PURE__*/React.createElement("ul", {
@@ -230,7 +230,7 @@ function AteliersPage() {
       marginTop: 8,
       paddingLeft: "1.2em"
     }
-  }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Entreprises"), " : Pour sensibiliser vos équipes et favoriser l’égalité professionnelle ;"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Associations et collectifs"), " : Pour renforcer la cohésion et l’inclusion ;"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Grand public"), " : Pour comprendre et agir au quotidien."))))), ATELIERS.map(a => /*#__PURE__*/React.createElement(AtelierBlock, {
+  }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Entreprises"), "\xA0: pour sensibiliser vos équipes et favoriser l’égalité professionnelle\u202F;"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Associations et collectifs"), "\xA0: pour renforcer la cohésion et l’inclusion\u202F;"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("strong", null, "Grand public"), "\xA0: pour comprendre et agir au quotidien."))))), ATELIERS.map(a => /*#__PURE__*/React.createElement(AtelierBlock, {
     key: a.id,
     a: a
   })), /*#__PURE__*/React.createElement("section", {

@@ -9,10 +9,10 @@
         people: "10 à 40 personnes",
         bg: "var(--paper)",
         body: [
-          "En partant des représentations que nous portons tous·tes – souvent sans en avoir conscience – sur les rôles des hommes et des femmes à la maison, dans l’espace public ou au travail, cet atelier propose de :",
+          "En partant des représentations que nous portons tous·tes – souvent sans en avoir conscience – sur les rôles des hommes et des femmes à la maison, dans l’espace public ou au travail, cet atelier propose de :",
           [
-            "Mettre des mots sur nos clichés (quels stéréotypes nous traversent ?) ;",
-            "Les analyser collectivement (d’où viennent-ils ? quels impacts ont-ils ?) ;",
+            "Mettre des mots sur nos clichés (quels stéréotypes nous traversent ?) ;",
+            "Les analyser collectivement (d’où viennent-ils ? quels impacts ont-ils ?) ;",
             "Construire une boussole commune pour y répondre de manière pragmatique et efficace.",
           ],
         ],
@@ -27,13 +27,13 @@
         people: "10 à 20 personnes",
         bg: "var(--paper)",
         body: [
-          "Chaque personne se définit et est définie par les autres à travers une multitude d’attributs : son genre, sa couleur de peau, son travail, son logement, son poids…",
-          "Mais ces attributs, sont-ils un atout ou un obstacle dans notre société ?",
-          "Un atelier qui propose de se positionner sur un radar intersectionnel en expliquant en quoi on se considère comme dominé·es ou dominant·es, et qui bouscule nos certitudes :",
+          "Chaque personne se définit et est définie par les autres à travers une multitude d’attributs : son genre, sa couleur de peau, son travail, son logement, son poids…",
+          "Mais ces attributs, sont-ils un atout ou un obstacle dans notre société ?",
+          "Un atelier qui propose de se positionner sur un radar intersectionnel en expliquant en quoi on se considère comme dominé·es ou dominant·es, et qui bouscule nos certitudes :",
           [
-            "Que faire quand on se retrouve dans la position de la personne dominée ?",
-            "Comment agir quand on réalise qu’on incarne, sans toujours en avoir conscience, une position de privilège ?",
-            "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?",
+            "Que faire quand on se retrouve dans la position de la personne dominée ?",
+            "Comment agir quand on réalise qu’on incarne, sans toujours en avoir conscience, une position de privilège ?",
+            "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?",
           ],
         ],
         sidenote: {
@@ -51,8 +51,8 @@
         people: "10 à 40 personnes",
         bg: "var(--paper)",
         body: [
-          "Un espace de dialogue et d’action pour aborder tous les enjeux de diversité : égalité professionnelle, inclusion, sexisme, masculinisme, discrimination…",
-          "Les questions d’égalité, d’inclusion et de lutte contre les discriminations sont complexes, interconnectées et souvent invisibles. Comment les aborder de manière globale ? Comment sensibiliser, mobiliser et agir pour faire évoluer les mentalités et les pratiques ?",
+          "Un espace de dialogue et d’action pour aborder tous les enjeux de diversité : égalité professionnelle, inclusion, sexisme, masculinisme, discrimination…",
+          "Les questions d’égalité, d’inclusion et de lutte contre les discriminations sont complexes, interconnectées et souvent invisibles. Comment les aborder de manière globale ? Comment sensibiliser, mobiliser et agir pour faire évoluer les mentalités et les pratiques ?",
           "Cet atelier propose une méthode d’animation flexible, permettant d’explorer un ou plusieurs sujets selon vos besoins, tout en dégageant des pistes d’action concrètes pour votre structure (entreprise, association, collectivité).",
         ],
       },
@@ -130,12 +130,12 @@
               <p className="h-serif" style={{ marginTop: 32, maxWidth: "30ch" }}>
                 Considérée comme la première étape d'une démarche, "L'imposture du mâle-alpha" peut être complétée par <em>un, deux, ou trois ateliers</em> — selon les objectifs pédagogiques.
               </p>
-              <div style={{ maxWidth: "52ch", marginTop: 24 }}>
+              <div style={{ maxWidth: "72ch", marginTop: 24 }}>
                 <p><strong>Pour qui ?</strong></p>
                 <ul style={{ marginTop: 8, paddingLeft: "1.2em" }}>
-                  <li><strong>Entreprises</strong> : Pour sensibiliser vos équipes et favoriser l’égalité professionnelle ;</li>
-                  <li><strong>Associations et collectifs</strong> : Pour renforcer la cohésion et l’inclusion ;</li>
-                  <li><strong>Grand public</strong> : Pour comprendre et agir au quotidien.</li>
+                  <li><strong>Entreprises</strong> : pour sensibiliser vos équipes et favoriser l’égalité professionnelle ;</li>
+                  <li><strong>Associations et collectifs</strong> : pour renforcer la cohésion et l’inclusion ;</li>
+                  <li><strong>Grand public</strong> : pour comprendre et agir au quotidien.</li>
                 </ul>
               </div>
             </div>
