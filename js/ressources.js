@@ -97,6 +97,7 @@ function RessourcesPage() {
   }, /*#__PURE__*/React.createElement("em", null, "Les sources mobilisées par Pascal pour construire la conférence et les ateliers.")))), /*#__PURE__*/React.createElement("section", {
     className: "page reveal"
   }, /*#__PURE__*/React.createElement("div", {
+    className: "biblio-grid",
     style: {
       display: "grid",
       gridTemplateColumns: "1fr 1fr",

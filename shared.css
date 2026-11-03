@@ -435,6 +435,7 @@ body.theme-pink .marquee .star { color: var(--ink); }
   section [style*="grid-template-columns"][style*="1.6fr"],
   section [style*="grid-template-columns"][style*="2fr"],
   section [style*="grid-template-columns: 1fr 1fr"],
+  section [style*="grid-template-columns:1fr 1fr"],
   section [style*="repeat(2,"],
   section [style*="repeat(2 ,"],
   section [style*="repeat(3,"],
@@ -460,6 +461,10 @@ body.theme-pink .marquee .star { color: var(--ink); }
   }
   /* But keep 2-col image strips intact at 2 cols */
   section [data-keep-grid] { grid-template-columns: revert !important; }
+  /* Bibliographie empilée : chaque fiche garde son trait de séparation */
+  section .biblio-grid { gap: 0 !important; }
+  section .biblio-grid > article:not(:last-child) { border-bottom: 1.5px solid var(--ink) !important; }
+  section .biblio-grid > article { padding: 28px 20px !important; min-height: 0 !important; }
 }
 
 @media (max-width: 700px) {
