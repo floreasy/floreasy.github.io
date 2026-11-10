@@ -203,6 +203,10 @@ body.theme-yellow ::selection { background: var(--pink); color: var(--ink); }
   font-family: var(--font-body); text-transform: none;
   max-width: var(--maxw); margin-left: auto; margin-right: auto;
 }
+/* Cinq mentions depuis le crédit Marie & Flow : entre 701 et ~855 px elles ne
+   tiennent plus sur une ligne. La dernière passe dessous au lieu que toutes se
+   coupent en deux. Sans effet en bureau ; en mobile, le gap: 10px plus bas l'emporte. */
+.site-footer .meta { flex-wrap: wrap; gap: 10px 12px; }
 
 /* ===== Marquee ===== */
 .marquee {

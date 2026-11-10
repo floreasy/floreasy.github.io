@@ -138,7 +138,11 @@ function SiteFooter({
       e.preventDefault();
       if (window.paCookieConsent) window.paCookieConsent.open();
     }
-  }, "Gérer les cookies"))));
+  }, "Gérer les cookies")), /*#__PURE__*/React.createElement("span", null, "Une réalisation ", /*#__PURE__*/React.createElement("a", {
+    href: "https://marieflow.fr",
+    target: "_blank",
+    rel: "noopener"
+  }, "Marie & Flow"))));
 }
 
 /* Curtain transition: when a nav link is clicked, slide a colored curtain in,
