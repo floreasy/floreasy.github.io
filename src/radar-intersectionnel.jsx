@@ -102,7 +102,7 @@
     const CONSIGNES = [
       "Réponds seul·e, sans aide, dans le silence. Il n'y a ni bonne ni mauvaise réponse : seule ton expérience compte.",
       "Pour chaque question, réponds VRAI (1 point), FAUX (0 point) ou JE NE SAIS PAS (0 point, comme FAUX).",
-      "Toutes les questions sont formulées du côté de la position privilégiée : plus tu réponds « oui », plus tu es en position dominante sur cet axe.",
+      "Toutes les questions sont formulées du côté de la position privilégiée : plus tu réponds « vrai », plus tu es en position dominante sur cet axe.",
       "Tu as le droit de passer une question (elle compte alors 0 point). Personne ne te demandera d'expliquer.",
       "Une question laissée sans réponse compte comme passée.",
       "Ton score sur 10 est calculé pour chaque axe et reporté sur le radar : 0 = centre (position dominée), 10 = périphérie (position dominante).",
