@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<!-- Analytics + consentement cookies (RGPD) — GA chargé après accord, et uniquement en ligne -->
+<script defer src="consent.js"></script>
+<title>Radar intersectionnel : quiz « Où te situes-tu ? » | Pascal Antonio</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Genre, race, territoire, orientation sexuelle, classe : 50 questions pour te situer et tracer ton radar intersectionnel. Tes réponses restent sur ton appareil.">
+<meta name="author" content="Pascal Antonio">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#EE3A7A">
+<link rel="canonical" href="https://pascalantonio.fr/radar-intersectionnel">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pascal Antonio">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Radar intersectionnel : quiz « Où te situes-tu ? » | Pascal Antonio">
+<meta property="og:description" content="50 questions sur 5 axes pour tracer ton radar intersectionnel. Tes réponses restent sur ton appareil.">
+<meta property="og:url" content="https://pascalantonio.fr/radar-intersectionnel">
+<meta property="og:image" content="https://pascalantonio.fr/assets/atelier-2.jpg">
+<meta property="og:image:width" content="1006">
+<meta property="og:image:height" content="863">
+<meta property="og:image:alt" content="Pascal Antonio affiche des cartes sous le mot « intersectionnalité » pendant un atelier">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Radar intersectionnel : quiz « Où te situes-tu ? » | Pascal Antonio">
+<meta name="twitter:description" content="50 questions sur 5 axes pour tracer ton radar intersectionnel. Tes réponses restent sur ton appareil.">
+<meta name="twitter:image" content="https://pascalantonio.fr/assets/atelier-2.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://pascalantonio.fr/"},{"@type":"ListItem","position":2,"name":"Ateliers","item":"https://pascalantonio.fr/ateliers"},{"@type":"ListItem","position":3,"name":"Radar intersectionnel","item":"https://pascalantonio.fr/radar-intersectionnel"}]}
+</script>
+<!-- Polices auto-hébergées : plus de DNS ni de TLS vers Google avant le rendu.
+     Voir scripts/polices.mjs. Les deux préchargements couvrent les familles
+     visibles avant tout défilement : le titre et le texte courant. -->
+<link rel="preload" as="font" type="font/woff2" href="fonts/archivo-black-400-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-tight-400-latin.woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="shared.css">
+<style>
+  /* ===== Radar intersectionnel ===== */
+  .rq .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  /* Titres focalisés par le script à chaque changement d'écran : pas de cadre. */
+  .rq [tabindex="-1"]:focus { outline: none; }
+  .rq-wrap { max-width: var(--maxw); margin: 0 auto; }
+  .rq-hl {
+    display: inline-block; line-height: 1;
+    font-family: var(--font-serif); font-style: italic; text-transform: none;
+    letter-spacing: -.02em; background: var(--pink); padding: 0 .12em;
+  }
+  .rq-hl-jaune { background: var(--yellow); }
+  .rq-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 36px; }
+  .rq-petit { font-size: 14px; line-height: 1.5; }
+
+  /* Accueil */
+  .rq-hero { background: var(--yellow); padding: 80px 32px 100px; border-bottom: 1.5px solid var(--ink); }
+  .rq-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 60px; align-items: center; }
+  .rq-sous { margin-top: 28px; }
+  .rq-intro { margin-top: 24px; }
+  .rq-promesse {
+    margin-top: 18px; max-width: 44ch;
+    font-family: var(--font-serif); font-style: italic; font-size: 19px; line-height: 1.35;
+  }
+  .rq-hero-radar { width: 100%; max-width: 560px; justify-self: center; }
+
+  .rq-cols { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 80px; align-items: start; }
+  .rq-liste { list-style: none; counter-reset: rq; margin-top: 32px; border-top: 1.5px solid var(--ink); }
+  .rq-liste li {
+    counter-increment: rq;
+    display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px;
+    padding: 18px 0; border-bottom: 1.5px solid var(--ink);
+    font-size: 18px; line-height: 1.5;
+  }
+  .rq-liste li::before {
+    content: counter(rq, decimal-leading-zero);
+    font-family: var(--font-display); font-size: 18px; opacity: .55;
+  }
+  .rq-note { padding: 28px; border: 1.5px solid var(--ink); background: var(--yellow); margin-top: calc(13px * 1.2 + 24px); }
+  .rq-note .eyebrow { margin-bottom: 12px; }
+  .rq-note h3 {
+    font-family: var(--font-display); text-transform: uppercase;
+    font-size: 24px; line-height: 1.05; letter-spacing: -.01em; margin-bottom: 14px;
+  }
+  .rq-note p { font-family: var(--font-serif); font-style: italic; font-size: 19px; line-height: 1.4; }
+  .rq-note p + p { margin-top: 12px; }
+  .rq-note .rq-petit { font-family: var(--font-body); font-style: normal; font-size: 14px; }
+
+  .rq-axes-sec { border-top: 1.5px solid var(--ink); }
+  .rq-axes { list-style: none; margin-top: 32px; border-top: 1.5px solid var(--ink); }
+  .rq-axes li {
+    display: grid; grid-template-columns: 60px minmax(0, 1fr) minmax(0, 1.3fr); gap: 20px;
+    align-items: baseline; padding: 22px 0; border-bottom: 1.5px solid var(--ink);
+  }
+  .rq-axes .n { font-family: var(--font-display); font-size: 18px; opacity: .55; }
+  .rq-axes .nom {
+    font-family: var(--font-display); text-transform: uppercase;
+    font-size: clamp(24px, 3vw, 44px); line-height: 1; letter-spacing: -.02em;
+  }
+  .rq-axes .sous { font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 1.3; }
+  .rq-axes .sous::first-letter, .rq-axe-sous::first-letter { text-transform: uppercase; }
+
+  /* Radar (SVG). Les tailles de texte sont en unités de la boîte 480 × 420. */
+  .rq-radar { display: block; width: 100%; height: auto; overflow: visible; }
+  .rq-radar .anneau { fill: none; stroke: var(--ink); stroke-opacity: .22; stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .rq-radar .rayon { stroke: var(--ink); stroke-opacity: .45; stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .rq-radar .anneau-ext { fill: none; stroke: var(--ink); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .rq-radar .forme { fill: var(--pink); }
+  .rq-radar .trait { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linejoin: round; }
+  .rq-radar .point { fill: var(--ink); }
+  .rq-radar .grad { font-family: var(--font-body); font-size: 11px; fill: var(--ink); fill-opacity: .6; }
+  .rq-radar .nom { font-family: var(--font-display); font-size: 15px; fill: var(--ink); }
+  .rq-radar .score { font-family: var(--font-serif); font-style: italic; font-size: 22px; fill: var(--ink); }
+  /* Tracé à l'arrivée sur le résultat : les cinq points sortent du centre, le trait
+     les relie (« Relie ensuite tes cinq points »), puis la forme se remplit. */
+  .rq-anime .point { animation: rq-point .5s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(var(--i) * 80ms + 150ms); }
+  .rq-anime .trait { animation: rq-trait .7s ease-in-out .75s backwards; }
+  .rq-anime .forme { animation: rq-forme .45s ease-out 1.3s backwards; }
+  @keyframes rq-point { from { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+  @keyframes rq-trait { from { stroke-dasharray: 1; stroke-dashoffset: 1; } to { stroke-dasharray: 1; stroke-dashoffset: 0; } }
+  @keyframes rq-forme { from { fill-opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .rq-anime .point, .rq-anime .trait, .rq-anime .forme { animation: none; }
+  }
+
+  /* Écran d'un axe */
+  .rq-ecran { padding-top: 40px; }
+  .rq-prog { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+  .rq-prog .barre { display: block; position: relative; height: 12px; border: 1.5px solid var(--ink); background: var(--paper); overflow: hidden; }
+  .rq-prog .barre i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); transition: width .3s; }
+  .rq-prog li.on .barre i { background: var(--pink); }
+  .rq-prog .nom {
+    display: block; margin-top: 8px; font-family: var(--font-display); text-transform: uppercase;
+    font-size: 11px; letter-spacing: .06em; opacity: .5;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .rq-prog li.on .nom { opacity: 1; }
+  .rq-titre { margin-top: 48px; }
+  .rq-titre .eyebrow { display: flex; margin-bottom: 16px; }
+  .rq-titre .nom {
+    display: block; font-family: var(--font-display); text-transform: uppercase;
+    font-size: clamp(48px, 7vw, 110px); line-height: .9; letter-spacing: -.03em; text-wrap: balance;
+  }
+  .rq-axe-sous {
+    margin-top: 16px; max-width: 40ch;
+    font-family: var(--font-serif); font-style: italic; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.15;
+  }
+  .rq-questions { margin-top: 40px; border-top: 1.5px solid var(--ink); }
+  /* fieldset : légende flottante pour qu'elle se comporte comme un bloc ordinaire */
+  .rq-q { border: 0; margin: 0; padding: 22px 0; min-width: 0; border-bottom: 1.5px solid var(--ink); }
+  .rq-q::after { content: ""; display: block; clear: both; }
+  .rq-q legend { float: left; width: 100%; padding: 0 0 0 64px; position: relative; font-size: 19px; line-height: 1.45; }
+  .rq-q-n { position: absolute; left: 0; top: 0; font-family: var(--font-display); font-size: 18px; opacity: .55; }
+  .rq-opts { clear: both; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 16px 0 0 64px; border: 1.5px solid var(--ink); }
+  .rq-opt { position: relative; display: block; }
+  .rq-opt + .rq-opt { border-left: 1.5px solid var(--ink); }
+  .rq-opt input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+  .rq-opt span {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 48px; padding: 8px 10px;
+    font-family: var(--font-display); text-transform: uppercase; font-size: 14px; letter-spacing: .04em;
+    transition: background .15s;
+  }
+  /* Rond de bouton radio : l'état coché ne repose pas que sur la couleur. */
+  .rq-opt span::before {
+    content: ""; flex: none; width: 14px; height: 14px;
+    border: 1.5px solid currentColor; border-radius: 50%;
+  }
+  @media (hover: hover) { .rq-opt:hover span { background: var(--yellow); } }
+  .rq-opt input:checked + span { background: var(--pink); }
+  .rq-opt input:checked + span::before { background: var(--ink); box-shadow: inset 0 0 0 2.5px var(--pink); }
+  .rq-opt input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: -7px; }
+  /* Contraste forcé (Windows) : fonds et rond dessiné disparaissent, on montre
+     le vrai bouton radio. */
+  @media (forced-colors: active) {
+    .rq-opt span { padding-left: 36px; }
+    .rq-opt span::before { display: none; }
+    .rq-opt input { opacity: 1; inset: auto; left: 12px; top: 50%; width: 16px; height: 16px; transform: translateY(-50%); }
+  }
+  .rq-sans { margin-top: 28px; font-family: var(--font-serif); font-style: italic; font-size: 19px; line-height: 1.35; text-align: right; }
+  .rq-nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
+  .rq-sans + .rq-nav { margin-top: 16px; }
+  .rq-ecran > .rq-questions + .rq-nav { margin-top: 40px; }
+
+  /* Résultat */
+  /* En-tête resserré : le radar doit être dans le champ quand il se trace. */
+  .rq-res { background: var(--yellow); padding: 48px 32px 80px; border-bottom: 1.5px solid var(--ink); }
+  .rq-res .h-section { font-size: clamp(40px, 5.5vw, 80px); }
+  .rq-res-grid {
+    display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    margin-top: 32px; border: 1.5px solid var(--ink); background: var(--paper);
+  }
+  .rq-res-radar { padding: 28px 32px 24px; border-right: 1.5px solid var(--ink); }
+  .rq-res-radar .rq-radar { max-width: 540px; margin: 0 auto; }
+  .rq-res-radar figcaption { margin-top: 20px; text-align: center; font-size: 15px; line-height: 1.4; }
+  .rq-res-side { padding: 36px 32px; }
+  .rq-res-intro { font-family: var(--font-serif); font-style: italic; font-size: clamp(22px, 2vw, 30px); line-height: 1.15; margin-bottom: 24px; }
+  .rq-scores { list-style: none; border-top: 1.5px solid var(--ink); }
+  .rq-scores li {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 16px; align-items: center;
+    padding: 12px 0; border-bottom: 1.5px solid var(--ink);
+  }
+  .rq-scores .nom { font-family: var(--font-display); text-transform: uppercase; font-size: 15px; letter-spacing: .02em; }
+  .rq-cases { display: grid; grid-template-columns: repeat(10, 12px); gap: 3px; }
+  .rq-cases i { display: block; height: 12px; border: 1.5px solid var(--ink); }
+  .rq-cases i.on { background: var(--pink); }
+  .rq-scores .val { font-family: var(--font-serif); font-style: italic; font-size: 26px; line-height: 1; min-width: 2.4em; text-align: right; }
+  .rq-res-side .rq-actions { margin-top: 28px; }
+  .rq-res-side .rq-petit { margin-top: 10px; }
+  .rq-res-side .rq-actions + .rq-petit { margin-top: 16px; }
+  .rq-erreur:empty { display: none; }
+  .rq-erreur { margin-top: 12px; font-family: var(--font-serif); font-style: italic; font-size: 17px; }
+  .rq-lien {
+    display: inline-block; margin-top: 20px; padding: 12px 0; min-height: 44px;
+    background: none; border: 0; border-bottom: 1.5px solid currentColor; color: inherit; cursor: pointer;
+    font-family: var(--font-display); text-transform: uppercase; font-size: 13px; letter-spacing: .04em;
+  }
+  .rq-lien:hover { background: var(--yellow); }
+  .btn:disabled { opacity: .6; cursor: wait; }
+
+  .rq-lecture { list-style: none; border-top: 1.5px solid var(--ink); }
+  .rq-lecture li {
+    padding: 22px 0; border-bottom: 1.5px solid var(--ink);
+    font-family: var(--font-serif); font-style: italic; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.25;
+  }
+
+  .rq-debrief { border-top: 1.5px solid var(--ink); }
+  .rq-debrief-intro { margin-top: 24px; }
+  .rq-dq { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; margin-top: 40px; }
+  .rq-dq li { border-top: 1.5px solid var(--ink); padding: 24px 0 36px; }
+  .rq-dq .n {
+    display: block; margin-bottom: 18px;
+    font-family: var(--font-display); font-size: clamp(48px, 5vw, 80px); line-height: .8; letter-spacing: -.04em;
+    -webkit-text-stroke: 1.5px var(--ink); color: transparent;
+  }
+  .rq-dq p { font-size: 19px; line-height: 1.45; }
+  .rq-dq .rq-dq-note { margin-top: 10px; font-family: var(--font-serif); font-style: italic; font-size: 18px; line-height: 1.35; }
+
+  .rq-cta { background: var(--pink); padding: 100px 32px; border-top: 1.5px solid var(--ink); }
+  .rq-cta-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 60px; margin-top: 32px; align-items: start; }
+  .rq-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+
+  @media (min-width: 901px) {
+    /* Question à gauche, Vrai / Faux / Passer à droite, comme les colonnes du
+       questionnaire papier. */
+    .rq-q legend { width: calc(100% - 420px); padding-right: 32px; }
+    .rq-opts { clear: none; float: right; width: 400px; margin: 0; }
+  }
+  @media (max-width: 1100px) {
+    .rq-dq { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 900px) {
+    .rq-hero { padding: 56px 18px 64px; }
+    .rq-hero-grid, .rq-cols, .rq-res-grid, .rq-cta-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .rq-hero-radar { max-width: 440px; }
+    .rq-note { margin-top: 0; }
+    .rq-res { padding: 56px 18px 64px; }
+    .rq-res-grid { gap: 0; }
+    .rq-res-radar { border-right: 0; border-bottom: 1.5px solid var(--ink); padding: 24px 12px 20px; }
+    .rq-cta { padding: 64px 18px; }
+    .rq-cta-grid { gap: 24px; }
+  }
+  @media (max-width: 700px) {
+    .rq-hero { padding: 40px 16px 48px; }
+    .rq-res { padding: 40px 16px 48px; }
+    .rq-cta { padding: 56px 16px; }
+    .rq-ecran { padding-top: 24px; }
+    .rq-prog .nom { display: none; }
+    .rq-titre { margin-top: 32px; }
+    .rq-q legend { padding-left: 40px; font-size: 17px; }
+    .rq-opts { margin-left: 0; }
+    .rq-liste li { grid-template-columns: 36px minmax(0, 1fr); gap: 10px; font-size: 17px; }
+    .rq-axes li { grid-template-columns: 40px minmax(0, 1fr); gap: 6px 12px; padding: 18px 0; }
+    .rq-axes .sous { grid-column: 2; font-size: 18px; }
+    .rq-dq { grid-template-columns: minmax(0, 1fr); }
+    .rq-dq p { font-size: 17px; }
+    .rq-sans { text-align: left; font-size: 17px; }
+    .rq-nav { flex-direction: column-reverse; }
+    .rq-nav .btn, .rq-actions .btn { width: 100%; justify-content: center; }
+    .rq-res-side { padding: 24px 20px; }
+    /* Le radar rétrécit avec l'écran : libellés plus grands dans la boîte 480 × 420
+       (mesuré : « CLASSE » commence encore à x ≈ 5) et cadre presque sans marge. */
+    .rq-radar .nom { font-size: 18px; }
+    .rq-radar .score { font-size: 24px; }
+    .rq-res-radar { padding: 20px 4px 18px; }
+    .rq-res-radar figcaption { padding: 0 12px; }
+    .rq-scores li { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; }
+    .rq-scores .nom { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body class="theme-paper">
+  <div id="root"><!--pr--><header class="site-header"><a href="/" class="brand"><span>Pascal Antonio</span></a><nav class="site-nav"><a href="conference" class="">La Conférence</a><a href="ateliers" class="active">Ateliers</a><a href="temoignages" class="">Témoignages</a><a href="bio" class="">Pourquoi moi ?</a><a href="ressources" class="">Ressources</a><a href="contact" class="">Contact</a></nav><button type="button" class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button></header><nav class="mobile-nav" aria-hidden="true" inert=""><ul><li><a href="/" class="">Accueil</a></li><li><a href="conference" class="">La Conférence</a></li><li><a href="ateliers" class="active">Ateliers</a></li><li><a href="temoignages" class="">Témoignages</a></li><li><a href="bio" class="">Pourquoi moi ?</a></li><li><a href="ressources" class="">Ressources</a></li><li><a href="contact" class="">Contact</a></li></ul></nav><main class="rq"><section class="rq-hero"><div class="rq-wrap rq-hero-grid"><div><div class="eyebrow">Quiz</div><h1 class="h-display rq-h1" tabindex="-1">Où te<br/><span class="rq-hl">situes-tu<!-- --> <!-- -->?</span></h1><p class="h-serif rq-sous">Ton radar intersectionnel</p><p class="body-l rq-intro">Te situer, en toute confidentialité, sur cinq axes de domination. À la fin, ton radar intersectionnel te montre d’un seul coup d’œil où tu es en position dominante et où tu es en position dominée — et comment ces positions se combinent.</p><div class="rq-actions"><button type="button" class="btn">Commencer le quiz<!-- --> <span class="arrow">→</span></button></div><p class="rq-promesse">5 axes, 50 questions. Tes réponses restent sur ton appareil, et tu peux passer n’importe quelle question.</p></div><figure class="rq-hero-radar"><svg class="rq-radar" viewBox="0 0 480 420" aria-hidden="true"><polygon class="anneau" points="240,197 254.27,207.36 248.82,224.14 231.18,224.14 225.73,207.36"></polygon><polygon class="anneau" points="240,182 268.53,202.73 257.63,236.27 222.37,236.27 211.47,202.73"></polygon><polygon class="anneau" points="240,167 282.8,198.09 266.45,248.41 213.55,248.41 197.2,198.09"></polygon><polygon class="anneau" points="240,152 297.06,193.46 275.27,260.54 204.73,260.54 182.94,193.46"></polygon><polygon class="anneau" points="240,137 311.33,188.82 284.08,272.68 195.92,272.68 168.67,188.82"></polygon><polygon class="anneau" points="240,122 325.6,184.19 292.9,284.81 187.1,284.81 154.4,184.19"></polygon><polygon class="anneau" points="240,107 339.86,179.55 301.72,296.95 178.28,296.95 140.14,179.55"></polygon><polygon class="anneau" points="240,92 354.13,174.92 310.53,309.08 169.47,309.08 125.87,174.92"></polygon><polygon class="anneau" points="240,77 368.39,170.28 319.35,321.22 160.65,321.22 111.61,170.28"></polygon><line class="rayon" x1="240" y1="212" x2="240" y2="62"></line><line class="rayon" x1="240" y1="212" x2="382.66" y2="165.65"></line><line class="rayon" x1="240" y1="212" x2="328.17" y2="333.35"></line><line class="rayon" x1="240" y1="212" x2="151.83" y2="333.35"></line><line class="rayon" x1="240" y1="212" x2="97.34" y2="165.65"></line><polygon class="anneau-ext" points="240,62 382.66,165.65 328.17,333.35 151.83,333.35 97.34,165.65"></polygon><text class="grad" x="246" y="216">0</text><text class="grad" x="246" y="186">2</text><text class="grad" x="246" y="156">4</text><text class="grad" x="246" y="126">6</text><text class="grad" x="246" y="96">8</text><text class="grad" x="246" y="66">10</text><text class="nom" x="240" y="48" text-anchor="middle">GENRE</text><text class="nom" x="396.66" y="171.15" text-anchor="start">RACE</text><text class="nom" x="328.17" y="361.35" text-anchor="middle">TERRITOIRE</text><text class="nom" x="151.83" y="361.35" text-anchor="middle">ORIENTATION</text><text class="nom" x="151.83" y="379.35" text-anchor="middle">SEXUELLE</text><text class="nom" x="83.34" y="171.15" text-anchor="end">CLASSE</text></svg></figure></div></section><section class="page reveal"><div class="rq-cols"><div><div class="eyebrow">Avant de commencer</div><h2 class="h-section">Consignes</h2><ol class="rq-liste"><li>Réponds seul·e, sans aide, dans le silence. Il n’y a ni bonne ni mauvaise réponse : seule ton expérience compte.</li><li>Pour chaque question, réponds VRAI (1 point) ou FAUX (0 point).</li><li>Toutes les questions sont formulées du côté de la position privilégiée : plus tu réponds « oui », plus tu es en position dominante sur cet axe.</li><li>Tu as le droit de passer une question (elle compte alors 0 point). Personne ne te demandera d’expliquer.</li><li>Une question laissée sans réponse compte comme passée.</li><li>Ton score sur 10 est calculé pour chaque axe et reporté sur le radar : 0 = centre (position dominée), 10 = périphérie (position dominante).</li></ol></div><aside class="rq-note"><div class="eyebrow">Confidentialité</div><h3>Tes réponses restent sur ton appareil</h3><p>Elles ne sont ni envoyées ni enregistrées, pas plus que tes scores. Tout s’efface dès que tu recharges ou quittes la page, ou que tu cliques sur « Recommencer ».</p><p>Tu peux passer n’importe quelle question.</p><p class="rq-petit">Si tu as accepté la mesure d’audience, le site compte seulement qu’un quiz a été terminé : aucune réponse, aucun score.</p></aside></div></section><section class="page rq-axes-sec reveal"><div class="eyebrow">5 axes × 10 questions</div><h2 class="h-section">Les cinq axes</h2><ol class="rq-axes"><li><span class="n">01</span><span class="nom">Genre</span><span class="sous">Égalité femmes-hommes</span></li><li><span class="n">02</span><span class="nom">Race</span><span class="sous">discrimination raciale</span></li><li><span class="n">03</span><span class="nom">Territoire</span><span class="sous">discriminations entre centres urbains, économiques et touristiques vis-à-vis des périphéries urbaines et rurales</span></li><li><span class="n">04</span><span class="nom">Orientation sexuelle</span><span class="sous">discriminations LGBTQIA+</span></li><li><span class="n">05</span><span class="nom">Classe</span><span class="sous">discrimination sociale</span></li></ol><div class="rq-actions"><button type="button" class="btn btn-pink">Commencer le quiz<!-- --> <span class="arrow">→</span></button></div></section></main><footer class="site-footer"><div class="ft-grid"><div><h3>Contacter</h3><div class="ft-big">Écrire à<br/>Pascal</div><a href="contact" class="btn" style="margin-top:28px">Programmer une intervention <span class="arrow">→</span></a></div><div><h3>Naviguer</h3><ul><li><a href="/">Accueil</a></li><li><a href="conference">La Conférence</a></li><li><a href="ateliers">Ateliers</a></li><li><a href="temoignages">Témoignages</a></li><li><a href="bio">Pourquoi moi ?</a></li><li><a href="ressources">Ressources</a></li><li><a href="faq">FAQ</a></li><li><a href="contact">Contact</a></li></ul></div><div><h3>Suivre</h3><ul><li><a href="https://www.instagram.com/antonio_pascal/" target="_blank">Instagram @antonio_pascal ↗</a></li><li><a href="https://www.youtube.com/watch?v=M0SiVachnZI" target="_blank">Teaser YouTube ↗</a></li><li><a href="mailto:contact@pascalantonio.fr">contact@pascalantonio.fr ↗</a></li></ul></div></div><div class="meta"><span>© 2026 Pascal Antonio · Conférence gesticulée</span><span>Mise en scène : Murielle Hachet</span><span><a href="mentions-legales">Mentions légales</a></span><span><a href="#">Gérer les cookies</a></span><span>Une réalisation <a href="https://marieflow.fr" target="_blank" rel="noopener">Marie &amp; Flow</a></span></div></footer><!--/pr--></div>
+
+  <script src="vendor/react-18.3.1.min.js"></script>
+  <script src="vendor/react-dom-18.3.1.min.js"></script>
+
+  <script src="js/shared.js"></script>
+
+  <script src="js/radar-intersectionnel.js"></script>
+</body>
+</html>
