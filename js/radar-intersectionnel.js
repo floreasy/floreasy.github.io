@@ -48,7 +48,7 @@ const AXES = [{
 
 // Les 4 premières consignes sont celles de Pascal ; les 2 dernières remplacent
 // « Additionne tes points » et « Reporte tes scores », sans objet en ligne.
-const CONSIGNES = ["Réponds seul·e, sans aide, dans le silence. Il n'y a ni bonne ni mauvaise réponse : seule ton expérience compte.", "Pour chaque question, réponds VRAI (1 point) ou FAUX (0 point).", "Toutes les questions sont formulées du côté de la position privilégiée : plus tu réponds « oui », plus tu es en position dominante sur cet axe.", "Tu as le droit de passer une question (elle compte alors 0 point). Personne ne te demandera d'expliquer.", "Une question laissée sans réponse compte comme passée.", "Ton score sur 10 est calculé pour chaque axe et reporté sur le radar : 0 = centre (position dominée), 10 = périphérie (position dominante)."];
+const CONSIGNES = ["Réponds seul·e, sans aide, dans le silence. Il n'y a ni bonne ni mauvaise réponse : seule ton expérience compte.", "Pour chaque question, réponds VRAI (1 point), FAUX (0 point) ou JE NE SAIS PAS (0 point, comme FAUX).", "Toutes les questions sont formulées du côté de la position privilégiée : plus tu réponds « oui », plus tu es en position dominante sur cet axe.", "Tu as le droit de passer une question (elle compte alors 0 point). Personne ne te demandera d'expliquer.", "Une question laissée sans réponse compte comme passée.", "Ton score sur 10 est calculé pour chaque axe et reporté sur le radar : 0 = centre (position dominée), 10 = périphérie (position dominante)."];
 const LECTURE = ["Aucun radar n'est rond : chacun·e est dominant·e quelque part et dominé·e ailleurs. C'est précisément cela, l'intersectionnalité : les axes ne s'additionnent pas seulement, ils se combinent dans une vie réelle.", "Le radar n'est ni un diagnostic, ni une identité figée : c'est une photo, un point de départ pour l'échange."];
 const DEBRIEFING = [{
   q: "Qu'est-ce que j'ai ressenti en répondant à ce questionnaire ?"
@@ -65,6 +65,9 @@ const DEBRIEFING = [{
   q: "Qu'est-ce que j'en fais, concrètement ? Quelles pistes d'action, pour moi et pour le collectif ?"
 }];
 const LEGENDE = "0 (centre) = position dominée · 10 (périphérie) = position dominante";
+
+// « Je ne sais pas » vaut 0 point, comme Faux (Pascal, 2026-11-19). Il ne
+// remplace pas le droit de passer : une question peut rester sans réponse.
 const CHOIX = [{
   v: "vrai",
   label: "Vrai"
@@ -72,17 +75,17 @@ const CHOIX = [{
   v: "faux",
   label: "Faux"
 }, {
-  v: "passer",
-  label: "Passer"
+  v: "ne-sait-pas",
+  label: "Je ne sais pas"
 }];
 
 // Étapes : 0 accueil, 1 à 5 un axe chacune, 6 résultat.
 const RESULTAT = AXES.length + 1;
 function typo(s) {
-  return s.replace(/'/g, "’").replace(/« /g, "« ").replace(/ ([?!:;»])/g, " $1");
+  return s.replace(/'/g, "\u2019").replace(/(\d) point/g, "$1\u00a0point").replace(/« /g, "«\u00a0").replace(/ ([?!:;»])/g, "\u00a0$1");
 }
 const reponsesVides = () => AXES.map(ax => ax.questions.map(() => null));
-// Vrai = 1 point ; faux, passer et sans réponse = 0.
+// Vrai = 1 point ; faux, je ne sais pas et sans réponse = 0.
 const calculerScores = reponses => reponses.map(r => r.filter(x => x === "vrai").length);
 const deux = n => String(n).padStart(2, "0");
 
@@ -296,7 +299,7 @@ async function creerImage(scores, date) {
   x.font = `104px ${P.titre}`;
   x.fillText("OÙ TE", M, 206);
   x.font = `italic 112px ${P.serif}`;
-  const accroche = "situes-tu ?";
+  const accroche = "situes-tu\u00a0?";
   const largeur = x.measureText(accroche).width;
   x.fillStyle = C.rose;
   x.fillRect(M, 214, largeur + 28, 102);
@@ -403,7 +406,7 @@ function Accueil({
     tabIndex: -1
   }, "Où te", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     className: "rq-hl"
-  }, "situes-tu", " ", "?")), /*#__PURE__*/React.createElement("p", {
+  }, "situes-tu", "\u00a0", "?")), /*#__PURE__*/React.createElement("p", {
     className: "h-serif rq-sous"
   }, "Ton radar intersectionnel"), /*#__PURE__*/React.createElement("p", {
     className: "body-l rq-intro"

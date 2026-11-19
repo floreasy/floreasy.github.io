@@ -101,7 +101,7 @@
     // « Additionne tes points » et « Reporte tes scores », sans objet en ligne.
     const CONSIGNES = [
       "Réponds seul·e, sans aide, dans le silence. Il n'y a ni bonne ni mauvaise réponse : seule ton expérience compte.",
-      "Pour chaque question, réponds VRAI (1 point) ou FAUX (0 point).",
+      "Pour chaque question, réponds VRAI (1 point), FAUX (0 point) ou JE NE SAIS PAS (0 point, comme FAUX).",
       "Toutes les questions sont formulées du côté de la position privilégiée : plus tu réponds « oui », plus tu es en position dominante sur cet axe.",
       "Tu as le droit de passer une question (elle compte alors 0 point). Personne ne te demandera d'expliquer.",
       "Une question laissée sans réponse compte comme passée.",
@@ -124,10 +124,12 @@
 
     const LEGENDE = "0 (centre) = position dominée · 10 (périphérie) = position dominante";
 
+    // « Je ne sais pas » vaut 0 point, comme Faux (Pascal, 2026-11-19). Il ne
+    // remplace pas le droit de passer : une question peut rester sans réponse.
     const CHOIX = [
       { v: "vrai", label: "Vrai" },
       { v: "faux", label: "Faux" },
-      { v: "passer", label: "Passer" },
+      { v: "ne-sait-pas", label: "Je ne sais pas" },
     ];
 
     // Étapes : 0 accueil, 1 à 5 un axe chacune, 6 résultat.
@@ -135,13 +137,14 @@
 
     function typo(s) {
       return s
-        .replace(/'/g, "’")
-        .replace(/« /g, "« ")
-        .replace(/ ([?!:;»])/g, " $1");
+        .replace(/'/g, "\u2019")
+        .replace(/(\d) point/g, "$1\u00a0point")
+        .replace(/« /g, "«\u00a0")
+        .replace(/ ([?!:;»])/g, "\u00a0$1");
     }
 
     const reponsesVides = () => AXES.map(ax => ax.questions.map(() => null));
-    // Vrai = 1 point ; faux, passer et sans réponse = 0.
+    // Vrai = 1 point ; faux, je ne sais pas et sans réponse = 0.
     const calculerScores = (reponses) => reponses.map(r => r.filter(x => x === "vrai").length);
     const deux = (n) => String(n).padStart(2, "0");
 
@@ -273,7 +276,7 @@
       x.font = `104px ${P.titre}`;
       x.fillText("OÙ TE", M, 206);
       x.font = `italic 112px ${P.serif}`;
-      const accroche = "situes-tu ?";
+      const accroche = "situes-tu\u00a0?";
       const largeur = x.measureText(accroche).width;
       x.fillStyle = C.rose; x.fillRect(M, 214, largeur + 28, 102);
       x.fillStyle = C.encre; x.fillText(accroche, M + 14, 296);
@@ -342,7 +345,7 @@
               <div>
                 <div className="eyebrow">Quiz</div>
                 <h1 className="h-display rq-h1" ref={titreRef} tabIndex={-1}>
-                  Où te<br/><span className="rq-hl">situes-tu{" "}?</span>
+                  Où te<br/><span className="rq-hl">situes-tu{"\u00a0"}?</span>
                 </h1>
                 <p className="h-serif rq-sous">Ton radar intersectionnel</p>
                 <p className="body-l rq-intro">{typo("Te situer, en toute confidentialité, sur cinq axes de domination. À la fin, ton radar intersectionnel te montre d'un seul coup d'œil où tu es en position dominante et où tu es en position dominée — et comment ces positions se combinent.")}</p>
