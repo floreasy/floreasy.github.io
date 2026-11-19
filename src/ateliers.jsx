@@ -36,6 +36,7 @@
             "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?",
           ],
         ],
+        quiz: { href: "radar-intersectionnel", label: "Faire le quiz en ligne" },
         sidenote: {
           title: "L'intersectionnalité",
           text: "La société est structurée autour de divers rapports sociaux, tels que celui où le groupe des « riches » domine celui des « pauvres ». L'intersectionnalité combine plusieurs de ces rapports sociaux, ce qui rend les dynamiques de domination plus complexes. Une personne peut se retrouver dans une position de dominé ou de dominant selon le contexte social.",
@@ -96,6 +97,11 @@
                     {a.body.map((p, i) => Array.isArray(p)
                       ? <ul key={i} style={{ marginBottom: 18, paddingLeft: "1.2em" }}>{p.map((li, j) => <li key={j} style={{ marginBottom: 8 }}>{li}</li>)}</ul>
                       : <p key={i} style={{ marginBottom: 18 }}>{p}</p>)}
+                    {a.quiz && (
+                      <p style={{ marginTop: 8 }}>
+                        <a href={a.quiz.href} className="btn btn-pink">{a.quiz.label} <span className="arrow">→</span></a>
+                      </p>
+                    )}
                   </div>
                   {a.sidenote && (
                     <aside style={{ padding: 24, border: "1.5px solid var(--ink)", background: "var(--yellow)", color: "var(--ink)", alignSelf: "start" }}>

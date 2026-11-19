@@ -18,6 +18,10 @@ const ATELIERS = [{
   people: "10 à 20 personnes",
   bg: "var(--paper)",
   body: ["Chaque personne se définit et est définie par les autres à travers une multitude d’attributs : son genre, sa couleur de peau, son travail, son logement, son poids…", "Mais ces attributs, sont-ils un atout ou un obstacle dans notre société ?", "Un atelier qui propose de se positionner sur un radar intersectionnel en expliquant en quoi on se considère comme dominé·es ou dominant·es, et qui bouscule nos certitudes :", ["Que faire quand on se retrouve dans la position de la personne dominée ?", "Comment agir quand on réalise qu’on incarne, sans toujours en avoir conscience, une position de privilège ?", "Comment réconcilier diversité et inclusion dans notre quotidien, à la maison, dans la rue et au travail ?"]],
+  quiz: {
+    href: "radar-intersectionnel",
+    label: "Faire le quiz en ligne"
+  },
   sidenote: {
     title: "L'intersectionnalité",
     text: "La société est structurée autour de divers rapports sociaux, tels que celui où le groupe des « riches » domine celui des « pauvres ». L'intersectionnalité combine plusieurs de ces rapports sociaux, ce qui rend les dynamiques de domination plus complexes. Une personne peut se retrouver dans une position de dominé ou de dominant selon le contexte social."
@@ -155,7 +159,16 @@ function AtelierBlock({
     style: {
       marginBottom: 18
     }
-  }, p))), a.sidenote && /*#__PURE__*/React.createElement("aside", {
+  }, p)), a.quiz && /*#__PURE__*/React.createElement("p", {
+    style: {
+      marginTop: 8
+    }
+  }, /*#__PURE__*/React.createElement("a", {
+    href: a.quiz.href,
+    className: "btn btn-pink"
+  }, a.quiz.label, " ", /*#__PURE__*/React.createElement("span", {
+    className: "arrow"
+  }, "→")))), a.sidenote && /*#__PURE__*/React.createElement("aside", {
     style: {
       padding: 24,
       border: "1.5px solid var(--ink)",
