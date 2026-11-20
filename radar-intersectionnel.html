@@ -114,7 +114,6 @@
   .rq-radar .anneau-seuil { stroke-opacity: .8; stroke-width: 1.5; }
   .rq-radar .forme-bas { fill: var(--pink); }
   .rq-radar .forme-haut { fill: var(--yellow); }
-  .rq-radar .hachure { fill: var(--ink); }
   .rq-radar .trait { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linejoin: round; }
   .rq-radar .point { stroke: var(--ink); stroke-width: 2.5; }
   .rq-radar .point.bas { fill: var(--pink); }
@@ -225,10 +224,8 @@
   .rq-cases { display: grid; grid-template-columns: repeat(10, 12px); gap: 3px; }
   .rq-cases i { display: block; height: 12px; border: 1.5px solid var(--ink); }
   .rq-cases i.on { background: var(--pink); }
-  /* Cases 6 à 10 et pastille « dominante » : jaune hachuré, comme le radar. */
-  .rq-cases i.haut, .rq-zones i.haut {
-    background: repeating-linear-gradient(135deg, var(--ink) 0 1px, transparent 1px 4px), var(--yellow);
-  }
+  /* Cases 6 à 10 et pastille « dominante » : jaune, comme le radar. */
+  .rq-cases i.haut, .rq-zones i.haut { background: var(--yellow); }
   .rq-scores .val { font-family: var(--font-serif); font-style: italic; font-size: 26px; line-height: 1; min-width: 2.4em; text-align: right; }
   .rq-res-side .rq-actions { margin-top: 28px; }
   .rq-res-side .rq-petit { margin-top: 10px; }

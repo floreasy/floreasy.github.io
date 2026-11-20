@@ -134,11 +134,6 @@
       { cle: "bas", label: "position dominée (0 à 5)" },
       { cle: "haut", label: "position dominante (6 à 10)" },
     ];
-    /* Le jaune plein ne se détache pas du papier (contraste 1,3:1) : la zone
-       dominante est hachurée à l'encre, traits à 45°, ce qui la distingue aussi
-       sans la couleur (impression en noir et blanc, daltonisme). Unités de la
-       boîte du radar, communes au <pattern> SVG et au canvas. */
-    const HACHURE = { pas: 6, trait: 1.2 };
 
     // « Je ne sais pas » vaut 0 point, comme Faux (Pascal, 2026-11-19). Il ne
     // remplace pas le droit de passer : une question peut rester sans réponse.
@@ -228,17 +223,13 @@
           {d && (
             <defs>
               <clipPath id="rq-dedans"><polygon points={listePoints(g.anneaux[SEUIL - 1])} /></clipPath>
-              <pattern id="rq-hachure" width={HACHURE.pas} height={HACHURE.pas} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <rect className="hachure" width={HACHURE.trait} height={HACHURE.pas} />
-              </pattern>
             </defs>
           )}
-          {/* Forme jaune hachurée partout, puis rose coupé sur l'anneau 5 : la
-              coupe suit l'anneau même quand un côté le traverse. */}
+          {/* Forme jaune partout, puis rose coupé sur l'anneau 5 : la coupe suit
+              l'anneau même quand un côté le traverse. */}
           {d && (
             <g className="forme">
               <path className="forme-haut" d={d} />
-              <path d={d} fill="url(#rq-hachure)" />
               <path className="forme-bas" d={d} clipPath="url(#rq-dedans)" />
             </g>
           )}
@@ -269,16 +260,6 @@
 
     function espacement(ctx, valeur) {
       if ("letterSpacing" in ctx) ctx.letterSpacing = valeur;
-    }
-
-    // Le motif du <pattern> SVG, dans le repère du radar (origine ox, oy,
-    // échelle e) : à poser dans un clip déjà ouvert.
-    function hachurer(ctx, couleur, ox, oy, e) {
-      ctx.save();
-      ctx.translate(ox, oy); ctx.scale(e, e); ctx.rotate(Math.PI / 4);
-      ctx.fillStyle = couleur;
-      for (let k = -150; k <= 200; k++) ctx.fillRect(k * HACHURE.pas, -1000, HACHURE.trait, 2000);
-      ctx.restore();
     }
 
     async function creerImage(scores, date) {
@@ -335,9 +316,8 @@
       const g = geometrie(scores);
       const sommets = g.sommets.map(T);
       const seuil = g.anneaux[SEUIL - 1].map(T);
-      // Même superposition que le SVG : jaune, hachure, puis rose coupé sur l'anneau 5.
+      // Même superposition que le SVG : jaune, puis rose coupé sur l'anneau 5.
       cheminFerme(x, sommets); x.fillStyle = C.jaune; x.fill();
-      x.save(); cheminFerme(x, sommets); x.clip(); hachurer(x, C.encre, ox, oy, ech); x.restore();
       x.save(); cheminFerme(x, seuil); x.clip();
       cheminFerme(x, sommets); x.fillStyle = C.rose; x.fill();
       x.restore();
@@ -381,9 +361,6 @@
         const haut = base - 20;
         x.fillStyle = z.cle === "haut" ? C.jaune : C.rose;
         x.fillRect(px, haut, cote, cote);
-        if (z.cle === "haut") {
-          x.save(); x.beginPath(); x.rect(px, haut, cote, cote); x.clip(); hachurer(x, C.encre, ox, oy, ech); x.restore();
-        }
         x.lineWidth = 3; x.strokeStyle = C.encre; x.strokeRect(px + 1.5, haut + 1.5, cote - 3, cote - 3);
         x.fillStyle = C.encre; x.fillText(z.label, px + cote + avant, base);
         px += cote + avant + largeurs[i] + entre;
