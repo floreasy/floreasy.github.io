@@ -66,6 +66,20 @@ const DEBRIEFING = [{
 }];
 const LEGENDE = "0 (centre) = position dominée · 10 (périphérie) = position dominante";
 
+/* Frontière dominé / dominant : l'anneau 5 (Florian, 2026-11-20). Un score de
+   5 reste côté dominé ; 6 et plus, c'est dépasser l'anneau. Rose en deçà,
+   jaune au-delà, sur le radar, les cases, la légende et l'image PNG. */
+const SEUIL = 5;
+const dominant = v => v > SEUIL;
+// Libellés des pastilles : à faire valider par Pascal.
+const ZONES = [{
+  cle: "bas",
+  label: "position dominée (0 à 5)"
+}, {
+  cle: "haut",
+  label: "position dominante (6 à 10)"
+}];
+
 // « Je ne sais pas » vaut 0 point, comme Faux (Pascal, 2026-11-19). Il ne
 // remplace pas le droit de passer : une question peut rester sans réponse.
 const CHOIX = [{
@@ -186,16 +200,27 @@ function RadarSvg({
 }) {
   const g = geometrie(scores);
   const d = g.sommets && "M" + g.sommets.map(p => `${f2(p[0])} ${f2(p[1])}`).join(" L") + " Z";
+  // Un seul radar avec forme à la fois (le résultat) : des id fixes suffisent.
   return /*#__PURE__*/React.createElement("svg", {
     className: `rq-radar${anime ? " rq-anime" : ""}`,
     viewBox: `0 0 ${G.l} ${G.h}`,
     "aria-hidden": "true"
-  }, d && /*#__PURE__*/React.createElement("path", {
-    className: "forme",
+  }, d && /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "rq-dedans"
+  }, /*#__PURE__*/React.createElement("polygon", {
+    points: listePoints(g.anneaux[SEUIL - 1])
+  }))), d && /*#__PURE__*/React.createElement("g", {
+    className: "forme"
+  }, /*#__PURE__*/React.createElement("path", {
+    className: "forme-haut",
     d: d
-  }), g.anneaux.slice(0, 9).map((a, k) => /*#__PURE__*/React.createElement("polygon", {
+  }), /*#__PURE__*/React.createElement("path", {
+    className: "forme-bas",
+    d: d,
+    clipPath: "url(#rq-dedans)"
+  })), g.anneaux.slice(0, 9).map((a, k) => /*#__PURE__*/React.createElement("polygon", {
     key: k,
-    className: "anneau",
+    className: k === SEUIL - 1 ? "anneau anneau-seuil" : "anneau",
     points: listePoints(a)
   })), g.rayons.map((p, i) => /*#__PURE__*/React.createElement("line", {
     key: i,
@@ -213,10 +238,10 @@ function RadarSvg({
     pathLength: "1"
   }), g.sommets && g.sommets.map((p, i) => /*#__PURE__*/React.createElement("circle", {
     key: i,
-    className: "point",
+    className: `point ${dominant(scores[i]) ? "haut" : "bas"}`,
     cx: f2(p[0]),
     cy: f2(p[1]),
-    r: "6",
+    r: "7",
     style: {
       "--i": String(i),
       "--dx": `${f2(G.cx - p[0])}px`,
@@ -272,7 +297,7 @@ async function creerImage(scores, date) {
   const premiere = pile => pile.split(",")[0].trim();
   if (document.fonts && document.fonts.load) {
     try {
-      await Promise.all([document.fonts.load(`100px ${premiere(P.titre)}`, "OÙ TE QUIZ GENRE ORIENTATION " + dateTexte.toUpperCase()), document.fonts.load(`italic 100px ${premiere(P.serif)}`, "situes-tu ? Ton radar intersectionnel 0123456789/"), document.fonts.load(`24px ${premiere(P.texte)}`, LEGENDE)]);
+      await Promise.all([document.fonts.load(`100px ${premiere(P.titre)}`, "OÙ TE QUIZ GENRE ORIENTATION " + dateTexte.toUpperCase()), document.fonts.load(`italic 100px ${premiere(P.serif)}`, "situes-tu ? Ton radar intersectionnel 0123456789/"), document.fonts.load(`24px ${premiere(P.texte)}`, LEGENDE + ZONES.map(z => z.label).join(""))]);
     } catch (e) {/* on dessine quand même */}
   }
   const W = 1080,
@@ -315,16 +340,27 @@ async function creerImage(scores, date) {
   const T = p => [ox + p[0] * ech, oy + p[1] * ech];
   const g = geometrie(scores);
   const sommets = g.sommets.map(T);
+  const seuil = g.anneaux[SEUIL - 1].map(T);
+  // Même superposition que le SVG : jaune, puis rose coupé sur l'anneau 5.
+  cheminFerme(x, sommets);
+  x.fillStyle = C.jaune;
+  x.fill();
+  x.save();
+  cheminFerme(x, seuil);
+  x.clip();
   cheminFerme(x, sommets);
   x.fillStyle = C.rose;
   x.fill();
+  x.restore();
   x.strokeStyle = C.encre;
-  x.lineWidth = 1.5;
-  x.globalAlpha = 0.22;
-  g.anneaux.slice(0, 9).forEach(a => {
+  g.anneaux.slice(0, 9).forEach((a, k) => {
+    const marque = k === SEUIL - 1;
+    x.globalAlpha = marque ? 0.8 : 0.22;
+    x.lineWidth = marque ? 2.25 : 1.5;
     cheminFerme(x, a.map(T));
     x.stroke();
   });
+  x.lineWidth = 1.5;
   x.globalAlpha = 0.45;
   const centre = T([G.cx, G.cy]);
   g.rayons.map(T).forEach(p => {
@@ -341,12 +377,14 @@ async function creerImage(scores, date) {
   x.lineJoin = "round";
   cheminFerme(x, sommets);
   x.stroke();
-  x.fillStyle = C.encre;
-  sommets.forEach(p => {
+  sommets.forEach((p, i) => {
     x.beginPath();
-    x.arc(p[0], p[1], 6 * ech, 0, Math.PI * 2);
+    x.arc(p[0], p[1], 7 * ech, 0, Math.PI * 2);
+    x.fillStyle = dominant(scores[i]) ? C.jaune : C.rose;
     x.fill();
+    x.stroke();
   });
+  x.fillStyle = C.encre;
   x.font = `${11 * ech}px ${P.texte}`;
   x.globalAlpha = 0.6;
   x.textAlign = "left";
@@ -362,17 +400,36 @@ async function creerImage(scores, date) {
     x.fillText(e.t, px, py);
   });
 
-  // Légende de Pascal, puis date. Pas de nom.
+  // Légende de Pascal, pastilles des deux zones, puis date. Pas de nom.
   x.textAlign = "center";
   x.font = `25px ${P.texte}`;
-  x.fillText(LEGENDE, W / 2, 1210);
-  x.fillRect(M, 1248, W - 2 * M, 3);
+  x.fillText(LEGENDE, W / 2, 1192);
+  x.font = `24px ${P.texte}`;
+  x.textAlign = "left";
+  const cote = 26,
+    avant = 14,
+    entre = 44,
+    base = 1240;
+  const largeurs = ZONES.map(z => x.measureText(z.label).width);
+  let px = (W - largeurs.reduce((s, l) => s + cote + avant + l, 0) - entre) / 2;
+  ZONES.forEach((z, i) => {
+    const haut = base - 20;
+    x.fillStyle = z.cle === "haut" ? C.jaune : C.rose;
+    x.fillRect(px, haut, cote, cote);
+    x.lineWidth = 3;
+    x.strokeStyle = C.encre;
+    x.strokeRect(px + 1.5, haut + 1.5, cote - 3, cote - 3);
+    x.fillStyle = C.encre;
+    x.fillText(z.label, px + cote + avant, base);
+    px += cote + avant + largeurs[i] + entre;
+  });
+  x.fillRect(M, 1270, W - 2 * M, 3);
   x.font = `22px ${P.titre}`;
   espacement(x, "2px");
   x.textAlign = "left";
-  x.fillText(dateTexte.toUpperCase(), M, 1300);
+  x.fillText(dateTexte.toUpperCase(), M, 1314);
   x.textAlign = "right";
-  x.fillText("PASCALANTONIO.FR", W - M, 1300);
+  x.fillText("PASCALANTONIO.FR", W - M, 1314);
   espacement(x, "0px");
   return new Promise((ok, ko) => toile.toBlob(b => b ? ok(b) : ko(new Error("toBlob")), "image/png"));
 }
@@ -611,7 +668,14 @@ function Resultat({
   }, /*#__PURE__*/React.createElement(RadarSvg, {
     scores: scores,
     anime: true
-  }), /*#__PURE__*/React.createElement("figcaption", null, LEGENDE)), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("figcaption", null, /*#__PURE__*/React.createElement("p", null, LEGENDE), /*#__PURE__*/React.createElement("ul", {
+    className: "rq-zones"
+  }, ZONES.map(z => /*#__PURE__*/React.createElement("li", {
+    key: z.cle
+  }, /*#__PURE__*/React.createElement("i", {
+    className: z.cle,
+    "aria-hidden": "true"
+  }), z.label))))), /*#__PURE__*/React.createElement("div", {
     className: "rq-res-side"
   }, /*#__PURE__*/React.createElement("p", {
     className: "rq-res-intro"
@@ -626,14 +690,14 @@ function Resultat({
     "aria-hidden": "true"
   }, ax.questions.map((_, k) => /*#__PURE__*/React.createElement("i", {
     key: k,
-    className: k < scores[i] ? "on" : ""
+    className: k >= scores[i] ? "" : k < SEUIL ? "on" : "on haut"
   }))), /*#__PURE__*/React.createElement("span", {
     className: "val"
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true"
   }, scores[i], "/10"), /*#__PURE__*/React.createElement("span", {
     className: "sr-only"
-  }, `${scores[i]} sur 10`))))), /*#__PURE__*/React.createElement("div", {
+  }, `${scores[i]} sur 10, ${dominant(scores[i]) ? "position dominante" : "position dominée"}`))))), /*#__PURE__*/React.createElement("div", {
     className: "rq-actions"
   }, /*#__PURE__*/React.createElement("button", {
     type: "button",
